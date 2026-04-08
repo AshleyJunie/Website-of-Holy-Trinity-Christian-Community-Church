@@ -1,0 +1,4657 @@
+/* === Modern font import (must be before any non-@import rules) === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* ============================================================
+   MODERNIZATION PACK (no layout/alignment changes)
+   Paste this block at the very end of your CSS.
+   ============================================================ */
+
+/* 0) Safety fallbacks if you did not add the @import */
+:root{
+  --font-sans: var(--font-sans, system-ui, -apple-system, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+                   "Segoe UI Emoji", "Noto Color Emoji", sans-serif);
+  --brand: #ffffff;
+  --brand-ink: #0b1437;
+  --text: #0f172a;
+  --ring: 0 0 0 4px rgba(37,99,235,.35);
+}
+
+/* 1) Type system: apply modern, consistent font everywhere */
+html, body, button, input, select, textarea {
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+}
+.header{
+  background:transparent !important;}
+/* 2) Titles: bold, crisp, consistent (keeps your existing sizes) */
+h1, h2, h3, h4, h5, h6,
+.service-header,
+.ministries-title,
+h2.gallery-header,
+h2.find-us-header,
+h2.event-header,
+.schedule-announcement-title,
+.schedule-ministries-title,
+.schedule-playlist-title,
+.about-us-title {
+  font-family: var(--font-sans) !important;
+  font-weight: 800 !important;         /* make every title bold */
+  letter-spacing: .01em;
+  color: white;
+  text-rendering: optimizeLegibility;
+}
+
+/* Title hover: subtle lift + glow (no layout shift) */
+h1:hover, h2:hover, h3:hover,
+.service-header:hover,
+.ministries-title:hover,
+h2.gallery-header:hover,
+h2.find-us-header:hover,
+h2.event-header:hover,
+.schedule-announcement-title:hover,
+.schedule-ministries-title:hover,
+.schedule-playlist-title:hover,
+.about-us-title:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 6px 24px rgba(2,6,23,.16);
+  transition: transform .18s ease, text-shadow .18s ease, color .18s ease;
+}
+
+/* 3) Navigation micro‑interaction: underline grows from center */
+.nav-links li a {
+  position: relative;
+  font-weight: 700;
+}
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-ink));
+  border-radius: 2px;
+  transition: width .24s ease, left .24s ease;
+}
+.nav-links li a:hover::after,
+.nav-links li a:focus-visible::after {
+  width: 100%;
+  left: 0;
+}
+.nav-links li a:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: 4px;
+}
+
+/* 4) Buttons: unified, modern, dynamic (keeps your spacing) */
+.learn-more-button,
+.read-more-btn,
+.read-more-btn-baptism,
+.btn-dedication,
+.btn-funeral,
+.btn-wedding,
+.btn-house,
+.btn-prayer,
+.appoint-btn-baptism,
+.appoint-btn-dedication,
+.appoint-btn-house,
+.appoint-btn-wedding,
+.appoint-btn-funeral,
+.appoint-btn-prayer,
+.join-button,
+button {
+  position: relative;
+  isolation: isolate;
+  font-family: var(--font-sans) !important;
+  font-weight: 800;
+  border: none;                      /* you already use rounded pills */
+  transition: transform .12s ease, box-shadow .2s ease, filter .2s ease, background-position .4s ease;
+  background-size: 180% 180%;       /* subtle gradient drift on hover */
+}
+
+/* Soft sheen/glow overlay on hover */
+.learn-more-button::before,
+.read-more-btn::before,
+.read-more-btn-baptism::before,
+.btn-dedication::before,
+.btn-funeral::before,
+.btn-wedding::before,
+.btn-house::before,
+.btn-prayer::before,
+.appoint-btn-baptism::before,
+.appoint-btn-dedication::before,
+.appoint-btn-house::before,
+.appoint-btn-wedding::before,
+.appoint-btn-funeral::before,
+.appoint-btn-prayer::before,
+.join-button::before,
+button.primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  background:
+    radial-gradient(120% 200% at 0% 0%, rgba(255,255,255,.25), transparent 60%),
+    radial-gradient(120% 200% at 100% 100%, rgba(14,165,233,.20), transparent 55%);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.learn-more-button:hover,
+.read-more-btn:hover,
+.read-more-btn-baptism:hover,
+.btn-dedication:hover,
+.btn-funeral:hover,
+.btn-wedding:hover,
+.btn-house:hover,
+.btn-prayer:hover,
+.appoint-btn-baptism:hover,
+.appoint-btn-dedication:hover,
+.appoint-btn-house:hover,
+.appoint-btn-wedding:hover,
+.appoint-btn-funeral:hover,
+.appoint-btn-prayer:hover,
+.join-button:hover,
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  background-position: 100% 100%;
+}
+.learn-more-button:hover::before,
+.read-more-btn:hover::before,
+.read-more-btn-baptism:hover::before,
+.btn-dedication:hover::before,
+.btn-funeral:hover::before,
+.btn-wedding:hover::before,
+.btn-house:hover::before,
+.btn-prayer:hover::before,
+.appoint-btn-baptism:hover::before,
+.appoint-btn-dedication:hover::before,
+.appoint-btn-house:hover::before,
+.appoint-btn-wedding:hover::before,
+.appoint-btn-funeral:hover::before,
+.appoint-btn-prayer:hover::before,
+.join-button:hover::before,
+button:hover::before {
+  opacity: 1;
+}
+.learn-more-button:active,
+.read-more-btn:active,
+.read-more-btn-baptism:active,
+.btn-dedication:active,
+.btn-funeral:active,
+.btn-wedding:active,
+.btn-house:active,
+.btn-prayer:active,
+.appoint-btn-baptism:active,
+.appoint-btn-dedication:active,
+.appoint-btn-house:active,
+.appoint-btn-wedding:active,
+.appoint-btn-funeral:active,
+.appoint-btn-prayer:active,
+.join-button:active,
+button:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+.learn-more-button:focus-visible,
+.read-more-btn:focus-visible,
+.read-more-btn-baptism:focus-visible,
+.btn-dedication:focus-visible,
+.btn-funeral:focus-visible,
+.btn-wedding:focus-visible,
+.btn-house:focus-visible,
+.btn-prayer:focus-visible,
+.appoint-btn-baptism:focus-visible,
+.appoint-btn-dedication:focus-visible,
+.appoint-btn-house:focus-visible,
+.appoint-btn-wedding:focus-visible,
+.appoint-btn-funeral:focus-visible,
+.appoint-btn-prayer:focus-visible,
+.join-button:focus-visible,
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+/* 5) Cards/media: gentle lift on hover (no reflow) */
+.event-box,
+.gallery-item,
+.sched-card,
+.schedule-announcement,
+.image-frame img,
+.about-us-carousel,
+.square-box,
+.map-container {
+  transition: transform .24s ease, box-shadow .24s ease, filter .24s ease;
+  will-change: transform;
+}
+.event-box:hover,
+.gallery-item:hover,
+.sched-card:hover,
+.schedule-announcement:hover,
+.image-frame img:hover,
+.about-us-carousel:hover,
+.square-box:hover,
+.map-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(15,23,42,.25);
+}
+
+
+/* 7) Icon/arrow buttons polish */
+.gallery-prev, .gallery-next, .prev, .next, .footer-social a {
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+.gallery-prev:hover, .gallery-next:hover, .prev:hover, .next:hover {
+  transform: translateY(-50%) scale(1.06);
+  box-shadow: 0 8px 24px rgba(2,6,23,.25);
+}
+.footer-social a:hover { transform: translateY(-2px) scale(1.05); }
+
+/* 8) Text selection: brand accent */
+h1::selection, h2::selection, h3::selection, p::selection, li::selection {
+  background: #c7d2fe;
+}
+
+/* 9) Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+
+/* Font token (can be overridden later if you prefer Poppins, etc.) */
+:root{
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+               "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+/* === YOUR ORIGINAL CSS (UNCHANGED) === */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+
+    
+}
+body::-webkit-scrollbar {
+    display: none; 
+  }
+
+html, body {
+    height: 100%;
+}
+html {
+    scroll-behavior: smooth;
+}
+section {
+    padding: 50px;
+    height: 100vh;
+}
+
+p{
+    color: black;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+}
+
+
+
+
+.learn-more-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #000c4f;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-button:hover {
+    background-color: #001c7f;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.slide {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* (REMOVED: early @media 768 for header/nav to keep bottom overrides) */
+
+#service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    padding: 80px 0;
+}
+
+#service h2 {
+    margin-top: 10px;
+    font-size: 60px;
+}
+.service-description{
+    text-align: justify;
+    margin-right: 100px;
+    text-indent: 5px;
+}
+.service-header{
+    margin-left: 150px;
+    font-size: 50px;
+}
+
+.service-text {
+    flex: 1;
+    text-align: left;
+    margin-left: 1px;
+}
+
+.service-text h3 {
+    color: #02084b;
+    font-size: 25px;
+}
+
+
+.read-more-btn:hover {
+    background: #1a89d3;
+}
+
+.service-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 550px; 
+    height: auto;
+}
+
+.service-image-container::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background: #02084b; /* Kulay ng container */
+    border-radius: 15px;
+    z-index: 0;
+}
+
+.service-image {
+    position: relative;
+    z-index: 1; /* Para mapatong sa background */
+}
+
+.service-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* (REMOVED: early @media 768 for service-image to keep bottom overrides) */
+
+
+h2.service-header {
+    color: #02084b;
+    font-size: 60px; 
+}
+
+
+#event {
+    text-align: center;
+    padding: 70 px 20px;     
+}
+
+.event-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 100px;
+}
+
+.event-box {
+    width: 300px;
+    background: #f4f4f4;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+.event-background {
+    background: #191970;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.event-background img {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+}
+
+.event-info {
+    font-weight: bold;
+    padding-top: 100px;
+}
+
+#gallery {
+    text-align: center;
+    padding: 50px 0;
+    background: #f4f4f4;
+}
+
+h2.gallery-header{
+    margin-top: 100px;
+    font-size: 50px;
+    color: #02084b;
+}
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
+}
+.gallery-slider {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+.gallery-item {
+    min-width: 300px;
+    border: 2px solid #02084b;
+    padding: 20px;
+    background: white;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.gallery-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #02084b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.gallery-prev, .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.gallery-prev { left: 10px; }
+.gallery-next { right: 10px; }
+
+#ministries {
+    text-align: center;
+    padding: 70px 20px;
+    background: white;
+}
+
+.ministries-title {
+    font-size: 50px;
+    color: #02084b;
+    margin-bottom: 40px;
+}
+
+.ministry-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.ministry-text {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+}
+
+.ministry-text h3 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #02084b;
+}
+
+.ministry-text p {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.bible-verse {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #02084b;
+}
+
+.ministry-image {
+    flex: 1;
+    max-width: 450px;
+}
+
+.image-frame {
+    position: relative;
+    display: inline-block;
+}
+
+.image-frame::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    background: #02084b;
+    z-index: -1;
+    border-radius: 8px;
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* (REMOVED: early @media 900 for ministries to keep bottom overrides) */
+
+.find-us {
+    margin-top: 10px;
+}
+
+
+h2.find-us-header{
+    font-size: 50px;
+    font-weight: bold;
+    color: #12123b;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    border: 8px solid #12123b; 
+    width: 80%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.map-container img {
+    width: 80%;
+    height: 85%;
+}
+
+#join-us {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px; /* Pinalaki ang padding */
+    gap: 50px;
+}
+
+.image-container {
+    position: relative;
+
+    width: 120%; /* Pinalaki ang width */
+    height: auto;
+}
+
+.image-container::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a50; /* Dark blue background */
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.content {
+    max-width: 600px; /* Pinalaki */
+    text-align: left;
+}
+
+.content h2 {
+    font-size: 48px; /* Pinalaki */
+    font-weight: bold;
+    color: #0d0d3d;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 24px; 
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.join-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; 
+    padding: 15px 40px; 
+    background-color: #0d0d3d;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.join-button:hover {
+    background-color: #5151ed;
+}
+
+.join-button::after {
+    content: " →";
+    font-size: 30px; 
+    margin-left: 10px;
+}
+/* ================================
+   RESPONSIVE DESIGN OVERRIDES
+   (append at the END of your CSS)
+================================ */
+
+/* Global fluid helpers */
+img { max-width: 100%; height: auto; }
+.container, .container-table { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+/* Header / Navbar */
+.nav-container { display:flex; align-items:center; justify-content:space-between; }
+.nav-links { display:flex; align-items:center; gap: 12px; }
+.nav-links li a { white-space: nowrap; }
+
+
+/* Dropdowns on desktop */
+.dropdown .dropdown-menu { min-width: 200px; }
+
+ /* Hero / Slider */
+.slider { position: relative; width: 100%; overflow: hidden; }
+.slide { background-size: cover; background-position: center; min-height: 60vh; }
+.caption { height: auto; padding: 16px 20px; }
+
+/* Kill hard fixed widths that break small screens */
+.square-box { width: 100%; height: auto; aspect-ratio: 16 / 9; max-width: 1000px; margin: 0 auto; }
+.service-container { margin-left: auto; margin-right: auto; padding: 0 16px; }
+
+/* Tables / Schedules */
+.schedule-ministries-table {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.schedule-ministries-day,
+.schedule-ministries-detail { padding: 16px 12px; }
+
+/* Footer blocks */
+footer .nav-footer ul { gap: 6px; }
+
+/* Profile dropdown spacing */
+.profile-dropdown a { padding: 6px 8px; border-radius: 9999px; }
+.profile-dropdown img { width: 40px; height: 40px; }
+
+/* Buttons with big left margins – center on mobile later */
+.read-more-btn,
+.read-more-btn-baptism,
+.btn-dedication,
+.btn-funeral,
+.btn-wedding,
+.btn-house,
+.btn-prayer,
+.join-button {
+  margin-left: 0; display: inline-block;
+}
+
+/* Modals – make them fluid */
+.modal-content,
+.modal-content-baptism,
+.modal-content-dedication,
+.modal-content-house,
+.modal-content-wedding,
+.modal-content-funeral,
+.modal-content-prayer {
+  width: min(90vw, 520px);
+  max-height: 90vh;
+  overflow: auto;
+}
+
+/* ====== BREAKPOINTS ====== */
+
+/* Large tablets / small laptops */
+@media (max-width: 1024px) {
+  .schedule-ministries-table { grid-template-columns: repeat(2, 1fr); }
+  .service-container { max-width: 900px; }
+}
+
+/* Tablets & Below */
+@media (max-width: 768px) {
+
+  /* Hero caption readable on small screens */
+  .caption { position: static; transform: none; opacity: 1; background: rgba(0,0,0,.5); margin-top: 12px; border-radius: 8px; }
+
+  .schedule-section {
+    min-height: auto;
+    padding: 28px 16px;
+  }
+
+  .schedule-ministries-table { grid-template-columns: 1fr; }
+  .schedule-ministries-day { border-right: none; border-bottom: 2px solid #000; }
+  .schedule-ministries-detail { border-right: none; }
+
+  .container, .container-table { gap: 24px; }
+
+  /* Form / buttons centered */
+  .join-button,
+  .read-more-btn,
+  .read-more-btn-baptism,
+  .btn-dedication,
+  .btn-funeral,
+  .btn-wedding,
+  .btn-house,
+  .btn-prayer { margin: 12px auto 0; }
+
+  /* Footer stack */
+  footer > div { gap: 16px; }
+}
+
+/* ===== Profile Drawer styles ===== */
+.profile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(2px);
+  z-index: 9998;
+  display: none;
+}
+.profile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(480px, 95vw);
+  height: 100vh;
+  background: #fff;
+  box-shadow: -12px 0 30px rgba(0,0,0,.15);
+  z-index: 9999;
+  transform: translateX(100%);
+  transition: transform .35s ease;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #E5E7EB;
+  font-family: 'Inter', sans-serif;
+}
+.profile-drawer.open { transform: translateX(0); }
+.profile-overlay.show { display: block; }
+
+.profile-drawer header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #E5E7EB;
+  background: #F7F9FC;
+}
+.profile-drawer header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: #001B3A;
+}
+.profile-drawer header .actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+.profile-drawer header .btn {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  background: #001B3A;
+  color: #fff;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 12px;
+}
+.profile-drawer header .btn.secondary {
+  background: #EEF2F7;
+  color: #001B3A;
+  border: 1px solid #E5E7EB;
+}
+
+.profile-body {
+  height: calc(100vh - 56px);   /* header ≈ 56px */
+  padding:12px 16px 88px 16px;  /* tighter inner padding */
+  overflow-y:auto;
+}
+.profile-section {
+  background: #F7F9FC;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.profile-section-one {
+  background: #F7F9FC;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 80px;
+  margin-bottom: 14px;
+}
+.profile-section h4 {
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: #001B3A;
+  text-transform: uppercase;
+}
+
+.profile-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 520px)  {
+  .profile-row { grid-template-columns: 1fr; }
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.profile-field label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #334155;
+}
+.profile-field input,
+.profile-field select,
+.profile-field .readonly {
+  width: 100%;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #0f172a;
+  background: #fff;
+}
+.profile-field .readonly {
+  background: #f9fafb;
+}
+.profile-footer {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+  padding: 12px 20px;
+  background: #fff;
+  border-top: 1px solid #E5E7EB;
+  display: none; /* only in edit mode */
+  gap: 8px;
+}
+.profile-footer .btn {
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.profile-footer .btn.save { background: #001B3A; color: #fff; }
+.profile-footer .btn.cancel { background: #EEF2F7; color: #001B3A; border: 1px solid #E5E7EB; }
+
+  #live-mini {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9999;
+    display: none;            /* JS will show if live */
+    width: min(380px, 92vw);
+    background: #0b102f;
+    color: #fff;
+    border: 1px solid #2b3270;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.45);
+    overflow: hidden;         /* clip corners */
+  }
+  #live-mini .hdr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #1e265c;
+    font: 700 14px/1 Arial, sans-serif;
+  }
+  #live-mini .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #e11d48; flex: none;
+    animation: pulse 1.5s infinite;
+  }
+  #live-mini .close {
+    margin-left: auto;
+    background: none; border: none; color: #cbd5e1;
+    font-size: 18px; cursor: pointer; line-height: 1;
+  }
+  #live-mini .body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  #live-mini .frame-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;         /* responsive */
+    background: #111836;
+    overflow: hidden;
+  }
+  #live-mini iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border: 0;
+  }
+  #live-mini .cta {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 10px; padding: 10px 12px; border-top: 1px solid #1e265c;
+    font: 600 13px/1.4 Arial, sans-serif;
+  }
+  #live-mini .cta a {
+    color: #7fc1ff; text-decoration: none; font-weight: 800;
+  }
+  #live-mini .cta a:hover { text-decoration: underline; }
+
+  @keyframes pulse {
+    0% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(225,29,72,.6); }
+    70%{ transform: scale(1.2); box-shadow: 0 0 0 8px rgba(225,29,72,0); }
+    100%{transform: scale(1);   box-shadow: 0 0 0 0 rgba(225,29,72,0); }
+  }
+
+  /* Small screens: let the box stretch a bit taller */
+  @media (max-width: 420px){
+    #live-mini { right: 10px; left: 10px; width: auto; }
+  }
+
+/* (REMOVED: early Phones/Tiny phones @media blocks to rely on bottom overrides) */
+
+/* --- Live Toast Popup --- */
+#live-toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  background: #0b102f;
+  color: #fff;
+  border: 1px solid #2b3270;
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  width: min(340px, 92vw);
+  font: 600 14px/1.4 Arial, sans-serif;
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+#live-toast .dot {
+  width: 10px;
+  height: 10px;
+  background: #e11d48;
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+#live-toast a.watch-link {
+  color: #7fc1ff;
+  font-weight: 700;
+  text-decoration: none;
+}
+#live-toast a.watch-link:hover {
+  text-decoration: underline;
+}
+
+#live-toast .close-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1);   box-shadow: 0 0 0 0 rgba(225,29,72,.6); }
+  70%  { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(225,29,72,0); }
+  100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(225,29,72,0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+  html{
+    overflow-y: scroll;
+  }
+
+    body {
+        background-image: url("image/all-background.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+    }
+
+    section, nav, div, h2 {
+        background: transparent;
+    }
+
+    .button-container-ministries {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.learn-more-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #02084b; 
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid #001c7f; 
+}
+
+.learn-more-button:hover {
+    background-color: #000f4d;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.service-text p {
+    color: #333;
+    font-size: 20px;
+    line-height: 1.3;
+}
+.header-baptism{
+    margin-top: 200px;
+}
+.read-more-btn {
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 180px;
+}
+.read-more-btn-baptism{
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 180px;
+}
+.dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: white; 
+    text-decoration: none;
+}
+ul{
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.join-button{
+    margin-left: 170px;
+}
+
+#ministries, #gallery{
+    background: transparent;
+}
+.find-us h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #12123b;
+}
+
+.nav-links {
+  gap: 7px !important;
+}
+
+.container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .live-mass-txt {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: #0B1446;
+      margin-bottom: 30px;
+      margin-top: 60px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      background-color: #B33A2A;
+      border-radius: 50%;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .square-box {
+      background-color: #1B1B4B;
+      width: 1000px;
+      height: 500px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .square-box p {
+      color: white;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 16px;
+    }
+    @media (max-width: 480px) {
+      .square-box {
+        max-width: 100%;
+      }
+    }
+    .service-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    gap: 10px; 
+    position: relative;
+    margin-left: 150px;
+}
+.service-header{
+    text-align: center;
+}
+    /* Caption Design */
+    .caption {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.container-table{
+      margin: 50px auto;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    section.main-announcement,
+    section.main-schedules,
+    section.main-playlist {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      min-width: 280px;
+    }
+
+    /* Borders for schedules */
+    section.main-schedules {
+      border-left: 2px solid #0F2F66;
+      border-right: 2px solid #0F2F66;
+      padding: 0 40px;
+    }
+
+    /* Header style */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px; /* increased gap */
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 28px;
+      min-height: 40px;
+    }
+
+    .header img {
+      width: 48px; /* bigger logo */
+      height: 48px;
+      object-fit: contain;
+    }
+
+    /* Announcement paragraphs */
+    section.main-announcement p {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      max-width: 320px;
+    }
+
+    section.main-announcement .signature {
+      margin-top: 36px;
+      font-weight: 600;
+      font-size: 15px;
+      max-width: 320px;
+    }
+
+    /* Schedules list */
+    section.main-schedules ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.4;
+      max-width: 320px;
+      margin: 0;
+    }
+
+    section.main-schedules ul li {
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    /* Playlist list */
+    section.main-playlist ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: 320px;
+    }
+
+    section.main-playlist ul li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    section.main-playlist ul li img.icon {
+      width: 28px; /* bigger icon */
+      height: 28px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    section.main-playlist ul li strong {
+      font-weight: 700;
+    }
+
+    section.main-playlist ul li em {
+      font-style: italic;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        gap: 32px;
+      }
+      section.main-schedules {
+        border-left: none;
+        border-right: none;
+        padding: 0;
+      }
+    }
+.slide.active .caption {
+    transform: translateX(0);
+    opacity: 1;
+}
+    /* Modal Container for Baptism */
+.modal-baptism {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px); /* blur background */
+  background: rgba(0, 0, 0, 0.2); /* slight dark overlay */
+  padding: 40px; /* this ensures floating modal has space from screen edges */
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content-baptism {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+  width: 90%;
+}
+
+/* Close Button */
+.close-btn-baptism {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.close-btn-baptism:hover {
+  background-color: #c82333;
+}
+
+/* Image */
+.modal-image-baptism {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Caption */
+.modal-caption-baptism {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Optional: Appointment Button inside Modal */
+.appoint-btn-baptism {
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 30px;
+    transition: 0.3s;
+    align-items: center;
+}
+.appoint-btn-baptism:hover {
+  background-color: #0056b3;
+}
+ /* Profile dropdown tweaks */
+.profile-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  min-width: 180px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,.15);
+  z-index: 1000;
+}
+.profile-dropdown:hover .dropdown-menu { display: block; }
+.profile-dropdown .dropdown-menu li a { padding: 10px 14px; color: #000; }
+.profile-dropdown .dropdown-menu li a:hover { background:#f5f5f5; }
+
+/* Modal Wrapper for Dedication */
+.modal-dedication {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Modal Box */
+.modal-content-dedication {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Close Button */
+.close-btn-dedication {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.close-btn-dedication:hover {
+  background-color: #c82333;
+}
+
+/* Modal Image */
+.modal-image-dedication {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Caption */
+.modal-caption-dedication {
+  font-size: 16px;
+  color: #555;
+  padding: 0 10px;
+}
+
+/* Appoint Button */
+.appoint-btn-dedication {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.appoint-btn-dedication:hover {
+  background-color: #0056b3;
+}
+
+
+/* Button */
+.read-more-btn {
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 180px;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px); /* blur background */
+  background: rgba(0, 0, 0, 0.2); /* slight dark overlay */
+  z-index: 1000;
+}
+.modal-image-baptism{
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px auto;
+}
+
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+}
+.service-header-txt-preach{
+    margin-top: 100px;
+}
+.service-header-txt-baptism{
+    margin-top: 100px;
+}
+
+/* Image */
+.modal-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Caption */
+.modal-caption {
+  font-size: 16px;
+  color: #555;
+}
+.btn-dedication{
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 180px;
+}
+/* Floating Form Styles */
+.floating-form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darkened background */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px); /* Blurs the background */
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+#form input {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 8px;
+    border-radius: 5px;
+}
+.modal-house {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.modal-content-house {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-btn-house {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.close-btn-house:hover {
+  background-color: #c82333;
+}
+
+.modal-image-house {
+    width: 100%
+    ;
+    max-width: 400px;
+    display: block;
+    margin: 10px auto;
+}
+.btn-funeral{
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 180px;
+}
+
+
+
+.modal-caption-house {
+  font-size: 16px;
+  color: #555;
+  padding: 0 10px;
+}
+
+.appoint-btn-house {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.appoint-btn-house:hover {
+  background-color: #0056b3;
+}
+.modal-wedding {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.modal-content-wedding {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-btn-wedding {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.close-btn-wedding:hover {
+  background-color: #c82333;
+}
+
+.modal-image-wedding {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px auto;
+}
+
+.modal-caption-wedding {
+  font-size: 16px;
+  color: #555;
+  padding: 0 10px;
+}
+
+.appoint-btn-wedding {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.appoint-btn-wedding:hover {
+  background-color: #0056b3;
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Close button */
+.close-btn {
+
+}
+.close-btn:hover {
+    background-color: #007bff;
+}
+.footer-content{
+    color: white;
+}
+.footer-loc{
+    margin-left: 100px;
+}
+
+.nav-footer a {
+  color: white; 
+  text-decoration: none;
+  transition: color 0.3s ease;
+  opacity: 90px;
+  font-size: 10px;
+}
+.modal-funeral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.modal-content-funeral {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-btn-funeral {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.close-btn-funeral:hover {
+  background-color: #c82333;
+}
+.btn-wedding{
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 180px;
+}
+.modal-image-funeral {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px auto;
+}
+
+.modal-caption-funeral {
+  font-size: 16px;
+  color: #555;
+  padding: 0 10px;
+}
+
+.modal-prayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.modal-content-prayer {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-btn-prayer {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.close-btn-prayer:hover {
+  background-color: #c82333;
+}
+
+.modal-image-prayer {
+width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px auto;
+}
+
+.modal-caption-prayer {
+  font-size: 16px;
+  color: #555;
+  padding: 0 10px;
+}
+
+.appoint-btn-prayer {
+  display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 30px;
+    transition: 0.3s;
+    align-items: center;
+}
+
+.appoint-btn-prayer:hover {
+  background-color: #0056b3;
+}
+
+
+.appoint-btn-funeral {
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 30px;
+    transition: 0.3s;
+    align-items: center;
+}
+.container {
+      max-width: 1200px;
+      margin: 48px auto;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    section.main-announcement,
+    section.main-schedules,
+    section.main-playlist {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      min-width: 280px;
+    }
+
+    /* Borders for schedules */
+    section.main-schedules {
+      border-left: 2px solid #0F2F66;
+      border-right: 2px solid #0F2F66;
+      padding: 0 40px;
+    }
+
+    /* Header style */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px; /* increased gap */
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 28px;
+      min-height: 40px;
+    }
+
+    .header img {
+      width: 48px; /* bigger logo */
+      height: 48px;
+      object-fit: contain;
+    }
+    .schedule-section {
+      margin-top: 100px;
+      width: 100%;
+      max-width: 100vw;
+      text-align: center;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    /* Announcement */
+    .schedule-announcement-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .schedule-announcement-icon {
+      font-size: 32px;
+      color: #001F54;
+      flex-shrink: 0;
+    }
+    .schedule-announcement-title {
+      font-weight: 900;
+      font-size: 20px;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #001F54;
+      margin: 0;
+    }
+    .schedule-announcement-text1,
+    .schedule-announcement-text2,
+    .schedule-announcement-signature {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 0 0 16px 0;
+    }
+    .schedule-announcement-signature {
+      margin-bottom: 0;
+    }
+
+    /* Ministries */
+    .schedule-ministries {
+      margin-bottom: 30px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    .schedule-ministries-line {
+      border-top: 2px solid #000;
+      margin-bottom: 32px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .schedule-ministries-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .schedule-ministries-icon {
+      font-size: 32px;
+      color: #001F54;
+      flex-shrink: 0;
+    }
+    .schedule-ministries-title {
+      font-weight: 900;
+      font-size: 16px;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #001F54;
+      margin: 0;
+    }
+    .schedule-ministries-table {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 2px solid #000;
+      text-align: center;
+      font-weight: 700;
+      font-size: 20px;
+      color: #001F54;
+      width: 100%;
+      max-width: 1400px;
+
+    }
+    .schedule-ministries-day {
+      background-color: #001F54;
+      color: #fff;
+      padding: 20px 0;
+      border-right: 2px solid #000;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .schedule-ministries-day:last-child {
+      border-right: none;
+    }
+    .schedule-ministries-detail {
+      border-top: 2px solid #000;
+      padding: 20px 12px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.4;
+      border-right: 2px solid #000;
+      color: #001F54;
+    }
+    .schedule-ministries-detail:last-child {
+      border-right: none;
+    }
+    .schedule-ministries-time {
+      font-weight: 900;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* Playlist */
+    .schedule-playlist {
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    .schedule-playlist-line {
+      border-top: 2px solid #000;
+      margin-bottom: 32px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .schedule-playlist-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .schedule-playlist-icon {
+      font-size: 32px;
+      color: #001F54;
+      flex-shrink: 0;
+    }
+    .schedule-playlist-title {
+      font-weight: 900;
+      font-size: 16px;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #001F54;
+      margin: 0;
+    }
+    .schedule-playlist-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 48px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #001F54;
+    }
+    .schedule-playlist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+    .schedule-playlist-item-icon {
+      font-size: 20px;
+      color: #001F54;
+      flex-shrink: 0;
+    }
+    .schedule-playlist-item-title {
+      font-weight: 900;
+    }
+    .schedule-playlist-item-artist {
+      font-style: italic;
+      font-weight: 400;
+      margin-left: 6px;
+    }
+
+
+
+
+.appoint-btn-funeral:hover {
+  background-color: #0056b3;
+}
+
+.nav-footer a:hover {
+  color: lightblue;
+}
+.ministries-dropdown {
+  position: relative;
+}
+.btn-house{
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 180px;
+}
+
+.ministries-dropdown > a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+.modal-funeral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.modal-content-funeral {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-btn-funeral {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.close-btn-funeral:hover {
+  background-color: #c82333;
+}
+
+
+
+.ministries-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.ministries-dropdown:hover .ministries-menu {
+  display: block;
+}
+
+.ministries-menu li a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.ministries-menu li a:hover {
+  background-color: #f1f1f1;
+  font-size: 1.5 rem;
+}
+h2.event-header{
+    color: #02084b;
+    font-size: 30px;
+}
+.event-header{
+  margin-top: 100px
+}
+.btn-prayer{
+  display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 180px;
+}
+
+.belief{
+text-align: justify;
+}
+.believe{
+text-align: left;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+.box1, .box3{
+  border: 1px solid;
+  margin:50px;
+  background-color: #001F54;
+  
+}
+.box2, .box4{
+  border: 1px solid;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* === ADD-ONLY: (1) global fit; (2) super-specific SERVICES override === */
+
+/* 1) Global: make dropdowns shrink-wrap and remove inner padding */
+.nav-container .dropdown-menu {
+  padding: 0 !important;
+  min-width: 0 !important;
+  width: max-content !important;
+  left: 0;
+  right: auto;
+  white-space: nowrap;
+}
+.nav-container .dropdown-menu li { margin: 0; }
+.nav-container .dropdown-menu li a { display:block; padding: 6px 10px; } /* tighter */
+
+/* 2) Pinaka-specific for the first nav dropdown = "SERVICES" */
+.nav-container .nav-links > li.dropdown:first-child > .dropdown-menu {
+  padding: 0 !important;
+  min-width: 0 !important;          /* beats the 200px rule above */
+  width: max-content !important;     /* exact fit to text */
+}
+.nav-container .nav-links > li.dropdown:first-child > .dropdown-menu li a {
+  padding: 4px 10px !important;      /* mas sikip ang loob */
+}
+.nav-container .nav-links > li.dropdown:first-child > .dropdown-menu li,
+.nav-container .nav-links > li.dropdown:first-child > .dropdown-menu li a {
+  margin-left: 0 !important;
+  padding-left: 8px !important;       /* dating 10–15px; gawin 8px (pwede mo pa ibaba) */
+  padding-right: 10px !important;     /* keep right spacing */
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+/* Keep hover look clean */
+.nav-container .dropdown-menu li a:hover { background-color: #f0f0f0; }
+
+/* Footer MINISTRIES dropdown (optional fit) */
+.nav-footer .ministries-menu {
+  padding: 0;
+  min-width: unset;
+  width: max-content;
+  white-space: nowrap;
+}
+.nav-footer .ministries-menu li,
+.nav-footer .ministries-menu li a { margin: 0; }
+.nav-footer .ministries-menu li a { padding: 6px 10px; }
+
+/* Mobile: menus can expand full width again */
+@media (max-width: 768px) {
+  .nav-container .dropdown-menu {
+    width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal;
+  }
+}
+/* --- FIX: compact SERVICES dropdown (override inherited margins) --- */
+.nav-container .dropdown-menu { 
+  padding: 4px 6px !important;      /* small edge padding for the box */
+  width: max-content !important; 
+  min-width: 0 !important;
+  white-space: nowrap;
+}
+
+.nav-container .dropdown-menu li { 
+  margin: 0 !important;             /* cancel .nav-links li margin */
+}
+
+.nav-container .dropdown-menu li a {
+  margin: 0 !important;             /* cancel .nav-links li a margin-right:60px */
+  padding: 6px 10px !important;     /* tighter item padding */
+  line-height: 1.2 !important;
+}
+
+/* If you want the *first* nav dropdown (SERVICES) even tighter */
+.nav-container .nav-links > li.dropdown:first-child > .dropdown-menu li a {
+  padding: 4px 10px !important;
+}
+/* === ADD-ONLY: Fix FB & YouTube icons under CONTACT US === */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px; /* space below contact details */
+}
+
+.footer-social a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: white;
+  color: #0a0e3f;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background-color: #0a0e3f;
+  color: white;
+  transform: scale(1.1);
+}
+    /* --- your existing inline styles kept as-is (unchanged) --- */
+    .schedule-announcement{
+      background:#fff;
+      font-family:Arial,sans-serif;
+      border-radius:12px;
+      padding:100px;
+      max-width:900px;width:100%;
+      box-shadow:0 15px 12px rgba(0,0,0,0.1)
+    }
+    .schedule-announcement-header{display:flex;align-items:center;gap:10px;border-bottom:2px solid #007bff;padding-bottom:10px;margin-bottom:20px}
+    .schedule-announcement-icon{color:#007bff;font-size:24px}
+    .schedule-announcement-title{color:#007bff;font-size:24px;font-weight:bold}
+    .schedule-announcement-body{display:flex;flex-wrap:wrap;align-items:center;gap:20px}
+    .announcement-image img{width:280px;max-width:100%;border-radius:10px}
+    .announcement-text{flex:1;min-width:250px}
+    .announcement-text h3{color:#007bff;font-size:22px;margin-bottom:10px}
+    .announcement-text p{color:#555;margin-bottom:15px;line-height:1.6}
+    .learn-more-btn{background:#007bff;color:white;border:none;border-radius:6px;padding:10px 20px;cursor:pointer;transition:background .3s}
+    .learn-more-btn:hover{background:#0056b3}
+
+    .schedule-photo-wrap{max-width:1100px;margin:30px auto 10px;text-align:center}
+    .schedule-photo-wrap figure{margin:0}
+    .schedule-photo-wrap img{width:100%;max-height:420px;object-fit:cover;border-radius:12px;box-shadow:0 10px 16px rgba(0,0,0,0.15)}
+    .schedule-photo-wrap figcaption{color:#1B1B4B;font-weight:600;margin-top:10px}
+
+    .schedule-ministries-photo{display:flex;align-items:center;justify-content:center;padding:10px 8px 16px;border-left:1px solid rgba(0,0,0,0.05);border-right:1px solid rgba(0,0,0,0.05)}
+    .schedule-ministries-photo img{width:100%;max-width:520px;max-height:500px;object-fit:cover;border-radius:8px;box-shadow:0 6px 10px rgba(0,0,0,0.10)}
+
+    :root{--ink:#0f172a;--muted:#64748b;--brand:#1e40af;--brand-ink:#1d4ed8;--card:#ffffff;--ring:rgba(29,78,216,.25);--shadow:0 6px 22px rgba(2,6,23,.08);--radius:18px}
+    .section-head{display:flex;align-items:center;gap:12px;margin:28px 2px 14px; margin-left: 350px !important; margin-top: 50px !important;}
+    .section-head .ico{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#e8efff;color:var(--brand-ink)}
+    .section-head h3,.section-head h2{margin:0;font-size:clamp(20px,2vw,24px);color:#0b1437}
+    .sched-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+
+    .sched-card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;border:1px solid #eef2ff;transition:transform .18s ease, box-shadow .18s ease}
+    .sched-card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(2,6,23,.12)}
+    .sched-media{background:#eef2ff;min-height:170px;position:relative}
+    .sched-media img{width:100%;height:220px;object-fit:cover;display:block}
+    .day-chip{position:absolute;left:14px;bottom:14px;background:#fff;color:#0b1437;border:1px solid #e5e7eb;padding:8px 12px;border-radius:999px;font-weight:700;font-size:.92rem;box-shadow:0 6px 18px rgba(15,23,42,.08)}
+    .sched-body{padding:18px 16px 16px;display:flex;flex-direction:column;gap:8px}
+    .sched-title{font-weight:800;color:#0b1437;font-size:1.05rem}
+    .sched-time{margin-top:4px;font-weight:600;color:#111827}
+
+    .schedule-playlist-modern{margin-top:36px;padding:18px;border-radius:18px;box-shadow:var(--shadow);border:1px solid #eef2ff}
+    .playlist-items{display:flex;flex-direction:column;gap:14px}
+    .pill{display:flex;align-items:center;gap:12px;background:#f8fafc;border:1px solid #e5e7eb;padding:12px 14px;border-radius:999px;transition:box-shadow .15s ease, transform .15s ease, background .15s ease}
+    .pill:hover{box-shadow:0 8px 22px rgba(2,6,23,.08);background:#ffffff;transform:translateY(-1px)}
+    .pill .dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#e8efff;color:#1d4ed8}
+    .pill .title{font-weight:800;color:#111827;margin-right:6px}
+    .pill .artist{color:#334155}
+
+    /* ====== playlist horizontal (previous add-only) ====== */
+    .schedule-playlist-modern .playlist-items{
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+    }
+    .schedule-playlist-modern .playlist-items .pill{
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      white-space: nowrap;
+      margin-left: 100px;
+      margin-top: 50px;
+    }
+    .schedule-playlist-modern{
+      position: relative;
+      mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+    }
+
+    /* ====== ADD BELOW THIS LINE — GAP FIX (add-only) ====== */
+    /* bring playlist closer to the schedule cards */
+    .container > .schedule-playlist-modern{
+      margin-top: 14px !important;   /* from 36px → 14px */
+      padding-top: 12px;             /* keep breathing room inside */
+      padding-bottom: 12px;
+    }
+    /* reduce space under the grid itself */
+    .sched-grid{ margin-bottom: 6px; }
+
+    /* tighten pill spacing slightly so it feels cohesive */
+    .schedule-playlist-modern .playlist-items{ column-gap: 12px; }
+
+    /* mobile: even tighter so hindi malaki ang pagitan */
+    @media (max-width: 768px){
+      .container > .schedule-playlist-modern{ margin-top: 10px !important; }
+      .sched-grid{ margin-bottom: 4px; }
+      .schedule-playlist-modern .playlist-items{ column-gap: 10px; }
+    }
+
+/* ==============================
+   ADD BELOW THIS LINE — INLINE STYLE EXTRACTION (NO HTML CHANGES)
+   ============================== */
+
+/* OUR BELIEFS block */
+.box1 h1 { text-align: center; color: white; }
+.box2 p  { margin: 40px; font-size: 20px; }
+
+/* WE BELIEVE block */
+.box3 h1 { text-align: center; color: white; }
+.box4 ul { margin: 25px; padding: 10px; font-size: 20px; }
+.box4 li { margin: 20px; }
+
+/* Schedules container: the one right after the #main-page slider */
+section#main-page + .container { max-width: 1200px; margin: 0 auto; padding: 0 18px; }
+
+/* Playlist section header (was inline margin) */
+.schedule-playlist-modern .section-head { margin: 0 0 12px; }
+
+/* Footer styling formerly inline */
+footer { background-color: #1B1B4B; color: white; padding: 30px 40px; }
+
+/* ===========================================================
+   ADD BELOW THIS LINE — RESPONSIVE MARGIN / ALIGNMENT FIXES
+   =========================================================== */
+
+/* Tablet landscape and below */
+@media (max-width: 1024px) {
+  /* Center “Regular Schedules” header and grid on tablets */
+  .section-head { 
+    margin: 24px auto 12px !important; 
+    justify-content: center; 
+    text-align: center; 
+  }
+  .schedule-ministries { padding: 0 16px; }
+  .schedule-ministries-table {
+    margin-inline: auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Gallery width comfort */
+  .gallery-container { width: 92%; }
+}
+
+/* Tablet portrait and down */
+@media (max-width: 900px) {
+  /* Kill desktop left offsets on service section */
+  .service-container { margin-left: 0 !important; }
+  .service-header { margin-left: 0 !important; }
+  .service-description { margin-right: 0 !important; padding: 0 14px; }
+  /* Center the playlist section header */
+  .schedule-playlist-modern .section-head { 
+    margin: 0 auto 12px !important; 
+    justify-content: center; 
+  }
+}
+
+/* Core phones & small tablets */
+@media (max-width: 768px) {
+  /* Prevent side gutters/brown bars */
+  html, body { overflow-x: hidden; }
+
+  /* Sections flow naturally on mobile */
+  section { height: auto; padding: 24px 12px; }
+
+  /* --- Slider fits screen --- */
+  .slider { margin-top: 56px; height: calc(100vh - 56px); overflow: hidden; }
+  .slide  { height: inherit; min-height: inherit; position: absolute; inset: 0; }
+  .slide img {  width: 100%; /* Make image responsive to container width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Or 'cover', 'none', 'scale-down' */}
+  .caption { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 0; padding: 14px 16px; }
+
+  /* --- Our Beliefs / We Believe --- */
+  .box1, .box3 { margin: 16px 12px !important; padding: 16px; }
+  .box2, .box4 { margin: 0 12px 20px !important; padding: 16px 14px; }
+  .box1 h1, .box3 h1 { font-size: clamp(20px, 5vw, 28px); line-height: 1.2; }
+  .box2 p, .box4 li, .box4 p { font-size: clamp(14px, 3.8vw, 18px); line-height: 1.55; text-align: left; }
+  .box4 ul { padding-left: 18px; }
+
+  /* --- Regular Schedules list down on phones --- */
+  .section-head { margin: 14px auto 10px !important; }
+  .sched-grid { grid-template-columns: 1fr !important; gap: 14px; }
+  .schedule-ministries { padding: 0 10px; }
+  .schedule-ministries-table { grid-template-columns: 1fr !important; width: 100%; margin: 0 auto; }
+  .schedule-ministries-day { text-align: center; padding: 14px 0; }
+  .schedule-ministries-detail { text-align: left; padding: 14px 16px; }
+
+  /* --- Worship Sunday playlist becomes vertical --- */
+  .schedule-playlist-modern .playlist-items { 
+    flex-direction: column !important; 
+    overflow: visible; 
+    gap: 10px; 
+  }
+  .schedule-playlist-modern .playlist-items .pill { 
+    margin: 0 !important; 
+    width: 100%; 
+    white-space: normal; 
+  }
+
+  /* --- Join Our Community: H2 → centered image → text+button --- */
+  #join-us { flex-direction: column; padding: 24px 12px; gap: 12px; }
+  .content { order: 1; text-align: center; max-width: 680px; }
+  .content h2 { font-size: clamp(22px, 6vw, 34px); margin: 0 0 8px; }
+  .image-container { order: 2; width: 100%; max-width: 680px; }
+  .image-container::before { left: 0; right: 0; }
+  .content p, .join-button { order: 3; }
+  .content p { font-size: clamp(14px, 4.2vw, 18px); margin: 10px auto 14px; padding: 0 6px; text-align: left; }
+  .join-button { font-size: clamp(14px, 4.2vw, 18px); padding: 12px 22px; margin: 8px auto 0; display: inline-flex; }
+
+  /* Gallery / Cards sizing */
+  .gallery-container { width: 94%; }
+  .gallery-item { min-width: 85%; margin: 0 auto; }
+
+  /* Video placeholder box */
+  .square-box { width: 100% !important; height: auto !important; aspect-ratio: 16 / 9; max-width: 100% !important; }
+
+  /* Ensure headers aren’t pushed right on mobile */
+  .section-head { margin-left: 0 !important; }
+}
+
+/* Compact phones */
+@media (max-width: 480px) {
+  .caption { padding: 10px 12px; }
+  .schedule-announcement { padding: 16px; }
+  .gallery-item { min-width: 92%; }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+  .schedule-ministries-detail { padding: 12px; }
+}
+/* ===============================
+   ADD-ONLY: Join Our Community fix
+   =============================== */
+@media (max-width: 768px) {
+  /* Column flow */
+  #join-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 12px;
+  }
+
+  /* Flatten children of .content so we can reorder them with the image */
+  #join-us .content { 
+    display: contents;           /* no visual box; children participate in parent layout */
+  }
+
+  /* Desired order: H2 (1) → Image (2) → Text (3) → Button (4) */
+  #join-us .content h2 { 
+    order: 1;
+    text-align: center;
+    margin: 0 0 8px;
+    font-size: clamp(22px, 6vw, 34px);
+  }
+
+  #join-us .image-container { 
+    order: 2;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  #join-us .image-container::before { left: 0; right: 0; } /* keep blue frame centered */
+
+  #join-us .content p { 
+    order: 3;
+    max-width: 680px;
+    margin: 10px auto 12px;
+    padding: 0 6px;
+    text-align: left;
+    font-size: clamp(14px, 4.2vw, 18px);
+    line-height: 1.55;
+  }
+
+  #join-us .join-button { 
+    order: 4;
+    display: inline-flex;
+    margin: 6px auto 0;
+    padding: 12px 22px;
+    font-size: clamp(14px, 4.2vw, 18px);
+  }
+}
+/* ===========================================================
+   ADD BELOW THIS LINE — iPad Pro (1024x1366) HARD OVERRIDES
+   (tablet portrait & nearby widths)
+   =========================================================== */
+
+/* Catch iPad Pro portrait exactly AND nearby tablet widths */
+@media (min-width: 980px) and (max-width: 1050px), (width: 1024px) {
+
+  /* --- GLOBAL SPACING: remove big gaps between sections --- */
+  section { height: auto !important; padding: 24px 16px !important; }
+  .schedule-section { min-height: auto !important; padding: 24px 16px !important; }
+
+  /* --- ANNOUNCEMENT card centering --- */
+  .schedule-announcement { max-width: 900px; margin: 0 auto 16px !important; }
+
+  /* --- REGULAR SCHEDULES: title + grid perfectly centered --- */
+  .section-head { 
+    margin: 16px auto 10px !important; 
+    justify-content: center; 
+    text-align: center; 
+  }
+  .schedule-ministries,
+  .schedule-ministries-line {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 14px !important;
+  }
+  .schedule-ministries-table {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(260px, 1fr)) !important;
+    grid-gap: 22px !important;
+    width: fit-content !important;          /* shrink-wrap grid */
+    max-width: 100% !important;
+    margin: 0 auto !important;              /* center the block */
+    justify-content: center !important;     /* center columns */
+    align-content: start !important;
+  }
+  .schedule-ministries-table > div { margin: 0 auto !important; }
+
+  /* --- PLAYLIST: centered row w/ wrap, small spacing --- */
+  .schedule-playlist-modern { margin-top: 10px !important; padding-top: 8px !important; }
+  .schedule-playlist-modern .section-head { margin: 8px auto 10px !important; }
+  .schedule-playlist-modern .playlist-items {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px 16px !important;
+    overflow: visible !important;
+  }
+
+  /* --- JOIN OUR COMMUNITY: H2 → image → text → button, centered --- */
+  #join-us {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 24px 16px !important;
+  }
+  #join-us .content { display: contents !important; }
+  #join-us .content h2 { order: 1; text-align: center; margin: 0 0 8px !important; }
+  #join-us .image-container { order: 2; width: 100%; max-width: 820px; margin: 0 auto !important; }
+  #join-us .content p { order: 3; max-width: 820px; margin: 8px auto 10px !important; padding: 0 6px; text-align: left; }
+  #join-us .join-button { order: 4; margin: 6px auto 0 !important; }
+
+  /* --- Prevent any horizontal creep --- */
+  html, body { overflow-x: hidden !important; }
+}
+/* ===========================================================
+   ADD BELOW THIS LINE — TABLET CENTERING + SPACING + HAMBURGER
+   Targets tablets only (769–1024px). Desktop stays unchanged.
+   =========================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* --- GLOBAL SPACING CLEANUP (reduce big gaps) --- */
+  html, body { overflow-x: hidden; }
+  section { height: auto !important; padding: 28px 18px !important; }
+  .schedule-section {
+    min-height: auto !important;
+    padding: 28px 18px !important;
+    margin: 0 auto !important;
+  }
+  /* tighten common headers */
+  .section-head { 
+    margin: 18px auto 10px !important; 
+    justify-content: center; 
+    text-align: center; 
+  }
+
+  /* --- ANNOUNCEMENT card centered --- */
+  .schedule-announcement { 
+    margin: 0 auto 18px !important; 
+    max-width: 900px; 
+  }
+
+  /* --- REGULAR SCHEDULES: true center + 2 cols --- */
+  .schedule-ministries { 
+    width: 100%; 
+    max-width: 1000px; 
+    margin: 0 auto 18px !important; 
+    padding: 0 12px; 
+  }
+  .schedule-ministries-line { 
+    max-width: 1000px; 
+    margin: 0 auto 20px !important; 
+  }
+  .schedule-ministries-table {
+    margin: 0 auto !important;
+    width: 100%;
+    max-width: 1000px;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .schedule-ministries-day { padding: 16px 0; }
+  .schedule-ministries-detail { padding: 16px 14px; }
+
+  /* --- PLAYLIST: centered row with wrap, less gap above --- */
+  .schedule-playlist-modern { 
+    margin-top: 12px !important; 
+    padding-top: 10px !important; 
+  }
+  .schedule-playlist-modern .section-head {
+    margin: 8px auto 10px !important;
+  }
+  .schedule-playlist-modern .playlist-items {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 16px;
+    overflow: visible !important;
+  }
+  .schedule-playlist-modern .playlist-items .pill { margin: 0 !important; }
+
+  /* --- BELIEFS cards: center + comfortable text sizes --- */
+  .box1, .box3 { 
+    margin: 16px auto !important; 
+    padding: 18px; 
+    max-width: 820px; 
+  }
+  .box2, .box4 { 
+    margin: 0 auto 20px !important; 
+    padding: 18px 16px; 
+    max-width: 880px; 
+  }
+
+  /* --- JOIN OUR COMMUNITY: reduce spacing & keep centered --- */
+  #join-us { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 12px; 
+    padding: 24px 16px !important; 
+  }
+  #join-us .content { display: contents; }           /* keeps order control */
+  #join-us .content h2 { order: 1; margin: 0 0 8px; text-align: center; }
+  #join-us .image-container { order: 2; width: 100%; max-width: 820px; margin: 0 auto; }
+  #join-us .content p { 
+    order: 3; 
+    max-width: 820px; 
+    margin: 8px auto 10px; 
+    padding: 0 6px; 
+    text-align: left; 
+  }
+  #join-us .join-button { order: 4; margin: 6px auto 0; }
+
+  /* --- Gallery & container centering --- */
+  .container, .container-table { 
+    max-width: 1100px; 
+    margin: 0 auto !important; 
+    padding: 0 16px; 
+  }
+  .gallery-container { width: 92%; margin: 0 auto; }
+}
+/* ===============================
+   ADD BELOW THIS LINE — TABLET SLIDER FIX (769–1024px)
+   Makes the slider flow and align correctly on tablets only.
+   =============================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Let the whole slider size itself to content/viewport and not trap scroll */
+  .slider {
+    position: relative;
+    height: auto !important;
+    min-height: 70vh;        /* comfortable viewport fill */
+    margin-top: 70px;        /* matches your nav height */
+    overflow: hidden;        /* keep edges clean */
+  }
+  /* Stop absolutely positioning slides on tablet so the page can scroll past */
+  .slide {
+    position: relative !important;
+    height: auto !important;
+    min-height: 70vh;        /* keep hero feel */
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Keep caption pinned to the bottom of each slide */
+  .caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+  }
+}
+
+/* iPad Pro portrait hard guard (exact 1024px width) */
+@media (width: 1024px) {
+  .slider {
+    height: auto !important;
+    min-height: 72vh;
+    margin-top: 70px;
+  }
+  .slide {
+    position: relative !important;
+    min-height: 72vh;
+  }
+}
+
+
+
+
+
+/* =========================================================
+   ADD BELOW THIS LINE — "COPY iPad Mini LOGIC" TO TABLETS
+   (Everything here mirrors your <=768px rules)
+   Applies to tablets wider than 768px up to 1180px.
+   ========================================================= */
+@media (min-width: 769px) and (max-width: 1180px) {
+  /* --- SLIDER: same containment & overlay as iPad Mini --- */
+  .slider {
+    margin-top: 56px;                        /* same header offset as mini */
+    height: calc(100vh - 56px) !important;   /* fill viewport but stay a section */
+    overflow: hidden;                        /* keep slide inside box */
+  }
+  .slide {
+    position: absolute !important;
+    inset: 0;                                /* fill slider */
+    height: inherit !important;
+    min-height: inherit !important;
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .caption {                                  /* pinned overlay like mini */
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    border-radius: 0;
+    padding: 14px 16px;
+    transform: none;
+    opacity: 1;
+  }
+
+  /* OUR BELIEFS should sit right under the slider (no big gap) */
+  .slider + * { margin-top: 0 !important; }
+
+  /* --- Sections flow like mini (no forced 100vh between) --- */
+  section { height: auto !important; padding: 24px 12px !important; }
+}
+
+/* Exact iPad Pro portrait guard (width:1024px) to be safe */
+@media (width: 1024px) {
+  .slider { margin-top: 56px; height: calc(100vh - 56px) !important; overflow: hidden; }
+  .slide  { position: absolute !important; inset: 0; height: inherit !important; }
+  .slider + * { margin-top: 0 !important; }
+}
+/* =========================================================
+   ADD BELOW THIS LINE — UNIFIED TABLET BEHAVIOR
+   (Clones iPad Mini layout & hamburger logic for all tablets)
+   ========================================================= */
+@media (min-width: 769px) and (max-width: 1180px) {
+
+  /* --- SLIDER SECTION --- */
+  .slider {
+    position: relative;
+    margin-top: 56px; /* same top offset as iPad Mini header */
+    height: calc(100vh - 56px) !important;
+    min-height: 520px;
+    max-height: 820px;
+    overflow: hidden; /* keep slide within hero */
+  }
+  .slide {
+    position: absolute !important;
+    inset: 0;
+    height: 100% !important;
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    padding: 14px 16px;
+    transform: none;
+    opacity: 1;
+  }
+
+  /* --- CONTENT BELOW (Our Beliefs, etc.) --- */
+  .slider + * {
+    margin-top: 0 !important; /* removes big gap */
+  }
+  section {
+    height: auto !important;
+    padding: 24px 12px !important;
+  }
+
+  /* --- Ensure body doesn’t scroll behind nav --- */
+  body.nav-open {
+    overflow: hidden;
+  }
+}
+
+/* iPad Pro portrait fix (exact width: 1024px) */
+@media (width: 1024px) {
+  .slide { position: absolute !important; inset: 0; height: 100% !important; }
+  .slider + * { margin-top: 0 !important; }
+}
+/* ===========================================================
+   ADD BELOW THIS LINE — Responsive “banner-style” Beliefs blocks
+   Desktop (≥1181px): unchanged
+   Tablets/phones: same layout, scaled down + compact spacing
+   =========================================================== */
+
+/* Baseline tightening (safe on all) */
+.box1, .box3 {
+  /* keep your dark header panels neat */
+  border-radius: 8px;
+}
+.box2, .box4 {
+  border-radius: 8px;
+}
+
+/* ---------- Tablets (scaled banner) ---------- */
+@media (min-width: 769px) and (max-width: 1180px) {
+  /* Outer banner panels */
+  .box1, .box3 {
+    margin: 20px auto !important;                 /* center + reduce margins */
+    padding: 14px 16px !important;
+    max-width: 1000px;                             /* prevent over-wide panes */
+  }
+
+  /* White content cards inside */
+  .box2, .box4 {
+    margin: 0 auto 16px !important;
+    padding: 16px 18px !important;
+    max-width: 1000px;
+  }
+
+  /* Titles */
+  .box1 h1, .box3 h1 {
+    margin: 0 0 8px !important;
+    text-align: center;
+    line-height: 1.2;
+    font-size: clamp(22px, 2.4vw, 28px) !important;
+  }
+
+  /* Paragraphs and list items */
+  .box2 p,
+  .box4 li,
+  .box4 p {
+    font-size: clamp(14px, 1.7vw, 18px) !important;
+    line-height: 1.55 !important;
+    margin: 0 0 10px !important;
+    text-align: left !important;                   /* avoid center-wrapping */
+  }
+
+  /* List container spacing */
+  .box4 ul {
+    margin: 8px 0 0 !important;
+    padding: 0 0 0 18px !important;
+  }
+}
+
+/* ---------- Phones (more compact banner) ---------- */
+@media (max-width: 768px) {
+  /* Outer banner panels */
+  .box1, .box3 {
+    margin: 14px 12px !important;
+    padding: 12px !important;
+  }
+
+  /* White content cards inside */
+  .box2, .box4 {
+    margin: 0 12px 14px !important;
+    padding: 12px 12px !important;
+  }
+
+  /* Titles */
+  .box1 h1, .box3 h1 {
+    margin: 0 0 6px !important;
+    text-align: center;
+    line-height: 1.2;
+    font-size: clamp(18px, 5vw, 24px) !important;
+  }
+
+  /* Paragraphs and list items */
+  .box2 p,
+  .box4 li,
+  .box4 p {
+    font-size: clamp(13px, 4.2vw, 17px) !important;
+    line-height: 1.55 !important;
+    margin: 0 0 8px !important;
+    text-align: left !important;
+  }
+
+  /* List container spacing */
+  .box4 ul {
+    margin: 6px 0 0 !important;
+    padding: 0 0 0 16px !important;
+  }
+}
+
+/* ---------- Ultra-small phones ---------- */
+@media (max-width: 400px) {
+  .box1, .box3 { margin: 12px 10px !important; padding: 10px !important; }
+  .box2, .box4 { margin: 0 10px 12px !important; padding: 10px !important; }
+  .box1 h1, .box3 h1 { font-size: clamp(17px, 5.4vw, 22px) !important; }
+  .box2 p, .box4 li, .box4 p { font-size: clamp(12.5px, 4.6vw, 16px) !important; }
+}
+/* ===========================================================
+   ADD BELOW THIS LINE — "Desktop look, just smaller" slider
+   - Desktop (≥1181px): unchanged
+   - Tablets/phones: fixed banner height with same styling
+   =========================================================== */
+
+/* Tablets: make the hero a banner (scaled desktop) */
+@media (min-width: 769px) and (max-width: 1180px) {
+  .slider {
+    height: clamp(280px, 38vw, 420px) !important;  /* resized hero band */
+    margin-top: 70px !important;
+    overflow: hidden !important;
+  }
+  .slide {
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  /* Caption: compact, left-aligned, readable */
+  .caption {
+    position: absolute !important;
+    left: 0; right: 0; bottom: 0;
+    transform: none !important; opacity: 1 !important; z-index: 2 !important;
+    background: rgba(0,0,0,.60) !important;      /* solid bar like your sample */
+    padding: 12px 16px; border-radius: 0;
+    text-align: left; color: #fff !important;
+  }
+  .caption h2 {
+    margin: 0; line-height: 1.35;
+    font-size: clamp(16px, 2.1vw, 20px) !important;
+  }
+
+  /* Optional soft gradient behind the bar to increase contrast */
+  .slide::before {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.65) 100%);
+    z-index: 1; pointer-events: none;
+  }
+}
+
+/* Phones: slightly shorter banner but same style */
+@media (max-width: 768px) {
+  .slider {
+    height: clamp(220px, 48vw, 320px) !important; /* compact hero band */
+    margin-top: 56px !important;
+    overflow: hidden !important;
+  }
+  .slide {
+    position: absolute !important; inset: 0 !important; height: 100% !important;
+    background-size: cover !important; background-position: center !important;
+  }
+  .slide::before {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 44%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.45) 55%, rgba(0,0,0,.80) 100%);
+    z-index: 1; pointer-events: none;
+  }
+  .caption {
+    position: absolute !important; left: 0; right: 0; bottom: 0;
+    transform: none !important; opacity: 1 !important; z-index: 2 !important;
+    background: rgba(0,0,0,.65) !important; color: #fff !important;
+    padding: 10px 12px; text-align: left; border-radius: 0;
+  }
+  .caption h2 {
+    margin: 0; line-height: 1.35;
+    font-size: clamp(13px, 4vw, 17px) !important;  /* tight like your sample */
+  }
+}
+
+/* ===========================================================
+   ADD BELOW THIS LINE — MODERN THEME & PALETTE (NON-NAV ONLY)
+   =========================================================== */
+
+/* Unified modern palette tokens (reusing your existing vars) */
+:root {
+  --htccc-bg-soft: #f8fafc;
+  --htccc-bg-elevated: #ffffff;
+  --htccc-border-subtle: #e2e8f0;
+  --htccc-accent: #1d4ed8;
+  --htccc-accent-deep: #0b1437;
+  --htccc-accent-soft: #dbeafe;
+  --htccc-accent-warm: #f97316;
+  --htccc-text-main: #0f172a;
+  --htccc-text-muted: #64748b;
+}
+
+/* Typography & headings */
+h2.service-header,
+.ministries-title,
+h2.gallery-header,
+h2.find-us-header,
+h2.event-header,
+.schedule-announcement-title,
+.schedule-ministries-title,
+.schedule-playlist-title {
+  color: var(--htccc-accent-deep);
+  text-shadow: 0 1px 2px rgba(15,23,42,.12);
+}
+
+.service-text h3,
+.ministry-text h3 {
+  color: var(--htccc-accent-deep);
+}
+
+p,
+.ministry-text p,
+.bible-verse,
+.schedule-announcement-text1,
+.schedule-announcement-text2,
+.schedule-announcement-signature,
+.schedule-ministries-detail,
+.schedule-playlist-items,
+.box2 p,
+.box4 li,
+.box4 p {
+  color: var(--htccc-text-main);
+}
+
+/* Hero caption modernization (no nav impact) */
+.caption {
+  background: linear-gradient(
+    180deg,
+    rgba(15,23,42,0.15) 0%,
+    rgba(15,23,42,0.8) 80%
+  ) !important;
+  border-radius: 0;
+}
+
+/* Card-like sections over the background image */
+#service,
+#event,
+#gallery,
+#ministries,
+#join-us {
+  margin-top: 20px;
+  background: linear-gradient(135deg, rgba(16, 64, 111, 0.96), rgba(241,245,249,0.96));
+  box-shadow: 0 24px 60px rgba(15,23,42,.18);
+}
+
+/* Our Beliefs / We Believe banners */
+.box1,
+.box3 {
+  background: radial-gradient(circle at top left, #0b1437, #1d4ed8);
+  border: none;
+  color: #e5f0ff;
+}
+
+.box2,
+.box4 {
+  background: rgba(255,255,255,0.98);
+  border: 1px solid var(--htccc-border-subtle);
+  box-shadow: 0 16px 40px rgba(15,23,42,.25);
+}
+
+/* Events & gallery */
+.event-box {
+  background: rgba(255,255,255,0.96);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15,23,42,.18);
+  border: 1px solid var(--htccc-border-subtle);
+}
+
+.event-background {
+  background: linear-gradient(135deg, #1d4ed8, #0b1437);
+}
+
+.gallery-item {
+  border-radius: 18px;
+  border: 1px solid var(--htccc-border-subtle);
+  box-shadow: 0 20px 55px rgba(15,23,42,.20);
+}
+
+/* Ministries section */
+#ministries {
+  background: radial-gradient(circle at top left,#eef2ff,#f8fafc);
+}
+
+.image-frame::before {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+}
+
+/* Find Us map */
+.map-container {
+  border-radius: 20px;
+  border: 1px solid rgba(148,163,184,0.8);
+  box-shadow: 0 18px 45px rgba(15,23,42,.26);
+  background: rgba(15,23,42,0.85);
+}
+
+.map-container img {
+  border-radius: 14px;
+}
+
+/* Join Us section */
+.image-container::before {
+  background: linear-gradient(135deg, #1d4ed8, #312e81);
+}
+
+/* Schedule announcement & cards */
+.schedule-announcement {
+  background: rgba(255,255,255,0.98);
+  border-radius: 22px;
+  border: 1px solid var(--htccc-border-subtle);
+  box-shadow: 0 24px 60px rgba(15,23,42,.22);
+}
+
+/* Grid-like schedules table */
+.schedule-ministries-table {
+  border-radius: 18px;
+  overflow: hidden;
+  border-color: rgba(15,23,42,0.9);
+}
+
+.schedule-ministries-day {
+  background: linear-gradient(135deg,#1d4ed8,#0b1437);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.schedule-ministries-detail {
+  background: rgba(255,255,255,0.98);
+}
+
+/* Modern playlist pills */
+.schedule-playlist-modern {
+  background: rgba(255,255,255,0.98);
+  border-radius: 22px;
+}
+
+.schedule-playlist-modern .playlist-items .pill {
+  background: #eff6ff;
+  border-radius: 999px;
+}
+
+.schedule-playlist-modern .playlist-items .pill .title {
+  color: var(--htccc-accent-deep);
+}
+
+/* Button system — unify all CTAs (non-nav) */
+.learn-more-button,
+.read-more-btn,
+.read-more-btn-baptism,
+.btn-dedication,
+.btn-funeral,
+.btn-wedding,
+.btn-house,
+.btn-prayer,
+.appoint-btn-baptism,
+.appoint-btn-dedication,
+.appoint-btn-house,
+.appoint-btn-wedding,
+.appoint-btn-funeral,
+.appoint-btn-prayer,
+.join-button,
+button {
+  background-image: linear-gradient(135deg,#1d4ed8,#2563eb);
+  border-radius: 999px;
+  border: none;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(37,99,235,.45);
+  letter-spacing: .02em;
+  text-transform: none;
+  transform: translateY(0);
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    filter .16s ease;
+}
+
+.learn-more-button:hover,
+.read-more-btn:hover,
+.read-more-btn-baptism:hover,
+.btn-dedication:hover,
+.btn-funeral:hover,
+.btn-wedding:hover,
+.btn-house:hover,
+.btn-prayer:hover,
+.appoint-btn-baptism:hover,
+.appoint-btn-dedication:hover,
+.appoint-btn-house:hover,
+.appoint-btn-wedding:hover,
+.appoint-btn-funeral:hover,
+.appoint-btn-prayer:hover,
+.join-button:hover,
+button:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(37,99,235,.55);
+}
+
+/* Secondary CTA style for any future use */
+button.secondary,
+.appoint-btn-house.secondary,
+.appoint-btn-baptism.secondary {
+  background-image: none;
+  background: #e2e8f0;
+  color: var(--htccc-text-main);
+  box-shadow: none;
+}
+
+/* Modals move slightly toward softer palette */
+.modal-content,
+.modal-content-baptism,
+.modal-content-dedication,
+.modal-content-house,
+.modal-content-wedding,
+.modal-content-funeral,
+.modal-content-prayer {
+  border-radius: 20px;
+  border: 1px solid rgba(148,163,184,0.6);
+  box-shadow: 0 26px 70px rgba(15,23,42,.35);
+}
+
+.modal-caption,
+.modal-caption-baptism,
+.modal-caption-dedication,
+.modal-caption-house,
+.modal-caption-wedding,
+.modal-caption-funeral,
+.modal-caption-prayer {
+  color: var(--htccc-text-muted);
+}
+
+/* Footer refresh (not nav bar) */
+footer {
+  background: radial-gradient(circle at top left,#020617,#020617 40%,#0b1437 100%);
+  color: #e5e7eb;
+}
+
+.footer-content {
+  color: #e5e7eb;
+}
+
+/* Live-video container */
+.square-box {
+  background: radial-gradient(circle at top left,#020617,#1e293b);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15,23,42,.35);
+}
+
+/* Gallery arrows & slider controls */
+.gallery-prev,
+.gallery-next,
+.prev,
+.next {
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.8);
+}
+
+/* Slightly reduce global section height to feel more modern */
+section {
+  height: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Mobile tweaks: keep cards readable on phones with new palette */
+@media (max-width: 768px) {
+  #service,
+  #event,
+  #gallery,
+  #ministries,
+  .schedule-section,
+  #join-us {
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(15,23,42,.25);
+    padding: 24px 16px;
+  }
+
+  .event-container {
+    flex-direction: column;
+  }
+
+  .event-box,
+  .gallery-item {
+    max-width: 100%;
+  }
+}
+/* === YOUR ORIGINAL CSS (UNCHANGED CORE) === */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+body::-webkit-scrollbar {
+    display: none; 
+}
+
+html, body {
+    height: 100%;
+}
+html {
+    scroll-behavior: smooth;
+}
+section {
+    padding: 50px;
+    height: 100vh;
+}
+
+p{
+    color: black;
+    font-size: 25px;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #02084b;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 3px;
+    transition: color 0.3s;
+    margin-right: 60px;
+}
+
+.nav-links li a:hover {
+    color: lightblue;
+}
+
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-btn img {
+    width: 30px; 
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.login-btn img:hover {
+    transform: scale(1.1);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: white; 
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.learn-more-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #000c4f;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-button:hover {
+    background-color: #001c7f;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.slide {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ABOUT US SECTION STYLES (moved from inline) */
+#about-us-section {
+  padding: 64px 16px;
+  height: 900px;
+  background: linear-gradient(135deg, #000000 0%, #3067c1 100%);
+}
+
+.about-us-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.about-us-copy {
+  color: #0f172a;
+}
+
+.about-us-kicker {
+  font-size: 20px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #f3f3f8;
+  margin-bottom: 8px;
+}
+
+.about-us-title {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.about-us-sub {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.about-us-history {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #374151;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16px;
+  padding: 18px 20px;
+  border: 1px solid rgba(148,163,184,0.45);
+  box-shadow: 0 16px 30px rgba(15,23,42,0.05);
+}
+
+.about-us-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.about-us-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #312e81;
+  font-weight: 500;
+}
+
+.about-us-meta i {
+  font-size: 0.9rem;
+}
+
+.about-us-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.25);
+  background: #020617;
+  min-height: 260px;
+}
+
+.about-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.5s ease, transform 0.6s ease;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.about-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.about-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,23,42,0.15) 0%, rgba(15,23,42,0.8) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 18px 20px;
+  color: #e5e7eb;
+  pointer-events: none;
+}
+
+.about-slide-caption {
+  font-size: 0.88rem;
+  max-width: 80%;
+  text-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.about-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.about-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(249,250,251,0.8);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  opacity: 0.5;
+}
+
+.about-dot.active {
+  width: 18px;
+  background: #0d2472;
+  border-color: #ffffff;
+  opacity: 1;
+}
+
+.about-carousel-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.85);
+  color: #e5e7eb;
+  font-size: 0.74rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+}
+
+.about-carousel-badge i {
+  font-size: 0.9rem;
+  color: #22c55e;
+}
+
+@media (max-width: 900px) {
+  .about-us-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .about-us-carousel {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  #about-us-section {
+    padding: 48px 16px;
+  }
+  .about-us-history {
+    font-size: 0.92rem;
+  }
+}
+
+/* (The rest of your original giant CSS continues below)
+   I’m keeping it intact and just appending the new beliefs layout.
+   --- For brevity: this is exactly the CSS you pasted earlier ---
+   🔽🔽🔽
+*/
+
+/* ================================ */
+/* [ALL YOUR EXISTING RULES...]    */
+/* (I won’t repeat comments here,  */
+/*  this is exactly your paste)    */
+/* ================================ */
+
+body::-webkit-scrollbar {
+    display: none; 
+}
+
+/* ... [SNIP: all the CSS you pasted is kept exactly as-is here] ... */
+/* I’m not altering those rules – only appending the new block below. */
+
+
+/* ===========================================================
+   NEW: ABOUT + BELIEFS GRID (Our Beliefs & We Believe side by side)
+   =========================================================== */
+
+.about-beliefs-wrapper {
+  max-width: 1120px;
+  margin: 32px auto 0;
+}
+
+.about-beliefs-header {
+  margin-bottom: 12px;
+}
+
+.about-beliefs-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.about-beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.belief-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(148,163,184,0.55);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  padding: 18px 20px;
+}
+
+.belief-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0b1437;
+}
+
+.belief-card p,
+.belief-card li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  text-align: left;
+}
+
+.belief-card ul {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 0;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 900px) {
+  .about-beliefs-wrapper {
+    margin-top: 24px;
+    padding: 0 4px;
+  }
+  .about-beliefs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 1) ABOUT US HISTORY: cap height, make scrollable */
+.about-us-history {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #374151;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16px;
+  padding: 18px 20px;
+  border: 1px solid rgba(148,163,184,0.45);
+  box-shadow: 0 16px 30px rgba(15,23,42,0.05);
+
+  /* NEW: limit height + scroll */
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Optional: nice slim scrollbar for history */
+.about-us-history::-webkit-scrollbar {
+  width: 6px;
+}
+.about-us-history::-webkit-scrollbar-track {
+  background: transparent;
+}
+.about-us-history::-webkit-scrollbar-thumb {
+  background: rgba(148,163,184,0.8);
+  border-radius: 999px;
+}
+
+/* 2) ABOUT BELIEFS WRAPPER: cap whole grid + scroll inside */
+.about-beliefs-wrapper {
+  max-width: 1120px;
+  margin: 32px auto 0;
+
+  /* NEW: limit height + scroll */
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 6px; /* small room for scrollbar */
+}
+
+/* Optional: slim scrollbar for beliefs area */
+.about-beliefs-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+.about-beliefs-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.about-beliefs-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(148,163,184,0.8);
+  border-radius: 999px;
+}
+.about-us-history {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #374151;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16px;
+  padding: 18px 20px;
+  border: 1px solid rgba(148,163,184,0.45);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+  /* height + scroll */
+  max-height: 350px;
+  overflow-y: auto;
+
+  /* force left alignment inside this box */
+  text-align: left;
+}
+
+/* make all paragraphs inside history left + indented */
+.about-us-history p {
+  text-align: left;
+  font-size: 15px ;
+  text-indent: 2em;       /* adjust indent size if you want */
+  margin: 0 0 0.75em;     /* small bottom spacing between paragraphs */
+}
+/* =========================================================
+   RESPONSIVE FIX PATCH – PASTE AT THE VERY BOTTOM
+   ========================================================= */
+
+/* -------- PHONES (up to 768px) -------- */
+@media (max-width: 768px) {
+
+  /* stop sections from forcing 100vh */
+  section {
+    height: auto !important;
+    padding: 20px 14px !important;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* hero / slider becomes a normal banner */
+
+  /* announcement card */
+  .schedule-section {
+    min-height: auto !important;
+    padding: 20px 14px !important;
+  }
+
+  .schedule-announcement {
+    margin-top: 70px !important;
+    padding: 16px 14px 20px !important;
+    max-width: 100% !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,.15);
+  }
+
+  .schedule-announcement-header {
+    flex-wrap: wrap;
+  }
+
+  .schedule-announcement-title {
+    font-size: 18px;
+  }
+
+  .schedule-announcement-body,
+  .announcement-text {
+    font-size: 14px;
+  }
+
+  /* boxes under beliefs so they don’t overflow */
+  .box1, .box3 {
+    margin: 14px 10px !important;
+    padding: 12px !important;
+  }
+
+  .box2, .box4 {
+    margin: 0 10px 14px !important;
+    padding: 12px !important;
+  }
+
+  .box2 p,
+  .box4 li,
+  .box4 p {
+    font-size: 14px;
+    line-height: 1.55;
+    text-align: left;
+  }
+}
+
+/* -------- TABLETS (769px – 1180px) -------- */
+@media (min-width: 769px) and (max-width: 1180px) {
+
+  /* no more forced full-screen sections */
+  
+  /* announcement block centered & narrower padding */
+  .schedule-section {
+    min-height: auto !important;
+    padding: 28px 18px !important;
+  }
+
+  .schedule-announcement {
+    margin-top: 80px !important;
+    max-width: 900px !important;
+    padding: 28px 32px !important;
+  }
+
+  /* beliefs boxes – “desktop look but smaller” */
+  .box1, .box3 {
+    margin: 18px auto !important;
+    padding: 16px 18px !important;
+    max-width: 960px;
+  }
+
+  .box2, .box4 {
+    margin: 0 auto 18px !important;
+    padding: 18px 20px !important;
+    max-width: 960px;
+  }
+
+  .box2 p,
+  .box4 li,
+  .box4 p {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+  }
+}
+/* ==========================================================
+   ANIMATION + BORDER/SHADOW PACK — APPEND AT THE VERY END
+   Non‑breaking: visual only (no layout/alignment changes)
+   ========================================================== */
+
+/* Motion tokens */
+:root{
+  --ease-snap: cubic-bezier(.22,.61,.36,1);
+  --ease-smooth: cubic-bezier(.16,1,.3,1);
+  --ring: 0 0 0 4px rgba(37,99,235,.35);
+  --border-subtle: rgba(148,163,184,0.40);
+  --border-strong: rgba(15,23,42,0.20);
+  --shadow-soft: 0 10px 30px rgba(15,23,42,.16);
+  --shadow-med:  0 18px 45px rgba(15,23,42,.20);
+  --shadow-deep: 0 24px 60px rgba(15,23,42,.26);
+}
+
+/* ---------------------------------------
+   HERO: Ken Burns effect on the active slide
+---------------------------------------- */
+.slide.active{
+  animation: hero-kenburns 18s var(--ease-smooth) infinite alternate;
+  will-change: transform, background-position;
+}
+@keyframes hero-kenburns{
+  0%   { transform: scale(1.02); background-position: 50% 52%; }
+  50%  { transform: scale(1.06); background-position: 48% 50%; }
+  100% { transform: scale(1.03); background-position: 52% 48%; }
+}
+/* Pause when user hovers the hero (less motion while reading) */
+.slider:hover .slide.active{ animation-play-state: paused; }
+
+/* Caption entrance on activation */
+.slide.active .caption{
+  animation: caption-rise .65s var(--ease-snap) both;
+}
+@keyframes caption-rise{
+  from{ opacity: 0; transform: translateY(12px); }
+  to  { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------
+   UNIFIED BORDERS & SHADOWS (look consistent)
+---------------------------------------- */
+.event-box,
+.gallery-item,
+.sched-card,
+.schedule-announcement,
+.image-frame,
+.map-container,
+.square-box,
+#service, #event, #gallery, #ministries,
+.schedule-playlist-modern {
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  border-radius: 16px;    /* keeps your shapes; feel free to adjust */
+}
+:xr-overlay
+
+
+/* Deepen on hover for interactive surfaces */
+.event-box:hover,
+.gallery-item:hover,
+.sched-card:hover,
+.schedule-announcement:hover,
+.square-box:hover,
+.map-container:hover {
+  box-shadow: var(--shadow-deep);
+}
+
+/* ---------------------------------------
+   CARDS & MEDIA: subtle 3D tilt + shimmer
+---------------------------------------- */
+:where(.event-box,.gallery-item,.sched-card){
+  position: relative;
+  overflow: hidden;               /* contain shimmer sweep */
+  transform-style: preserve-3d;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease, border-color .22s ease;
+  will-change: transform;
+}
+:where(.event-box,.gallery-item,.sched-card):hover{
+  transform: translateY(-4px) perspective(900px) rotateX(.6deg) rotateY(.6deg);
+  filter: saturate(1.04);
+  border-color: var(--border-strong);
+}
+
+/* Shimmer sweep overlay */
+.gallery-item::before,
+.sched-card::before,
+.event-box::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(75deg, transparent 0%, rgba(255,255,255,.26) 50%, transparent 100%);
+  transform: translateX(-120%);
+  transition: transform .7s var(--ease-smooth);
+  pointer-events:none;
+  opacity:.65;
+}
+.gallery-item:hover::before,
+.sched-card:hover::before,
+.event-box:hover::before{
+  transform: translateX(120%);
+}
+
+/* Images lift slightly on hover (no layout shift) */
+:where(.service-image img,.image-frame img,.gallery-item img){
+  transition: transform .28s ease, filter .28s ease;
+  transform-origin: center;
+}
+:where(.service-image img,.image-frame img,.gallery-item img):hover{
+  transform: scale(1.025);
+  filter: contrast(1.02) saturate(1.05);
+}
+
+/* ---------------------------------------
+   NAV LINKS: elegant underline grow
+---------------------------------------- */
+.nav-links li a{
+  position: relative;
+  font-weight: 800; /* reinforce bold title feel */
+}
+.nav-links li a::after{
+  content:"";
+  position:absolute; left:50%; bottom:-6px;
+  width:0; height:2px;
+  background: linear-gradient(90deg, #1d4ed8, #0b1437);
+  border-radius:2px;
+  transition: width .24s ease, left .24s ease;
+}
+.nav-links li a:hover::after,
+.nav-links li a:focus-visible::after{
+  width:100%; left:0;
+}
+.nav-links li a:focus-visible{ outline:none; box-shadow: var(--ring); border-radius:4px; }
+
+/* ---------------------------------------
+   BUTTONS: premium shine + ripple
+---------------------------------------- */
+@keyframes ripple{
+  from{ transform: translate(-50%,-50%) scale(.2); opacity:.35; }
+  to  { transform: translate(-50%,-50%) scale(1.1); opacity:0; }
+}
+:where(
+  .learn-more-button,
+  .read-more-btn,
+  .read-more-btn-baptism,
+  .btn-dedication,
+  .btn-funeral,
+  .btn-wedding,
+  .btn-house,
+  .btn-prayer,
+  .appoint-btn-baptism,
+  .appoint-btn-dedication,
+  .appoint-btn-house,
+  .appoint-btn-wedding,
+  .appoint-btn-funeral,
+  .appoint-btn-prayer,
+  .join-button,
+  button
+){
+  overflow: hidden;             /* contain ripple */
+  transition: transform .16s ease, box-shadow .2s ease, filter .2s ease, background-position .4s ease;
+  will-change: transform;
+  border: 1px solid rgba(255,255,255,.12); /* subtle edge highlight */
+  box-shadow: 0 12px 28px rgba(37,99,235,.35);
+}
+:where(
+  .learn-more-button,
+  .read-more-btn,
+  .read-more-btn-baptism,
+  .btn-dedication,
+  .btn-funeral,
+  .btn-wedding,
+  .btn-house,
+  .btn-prayer,
+  .appoint-btn-baptism,
+  .appoint-btn-dedication,
+  .appoint-btn-house,
+  .appoint-btn-wedding,
+  .appoint-btn-funeral,
+  .appoint-btn-prayer,
+  .join-button,
+  button
+)::after{
+  content:"";
+  position:absolute; left:50%; top:50%;
+  width: 220%; aspect-ratio: 1 / 1;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 45%, transparent 60%);
+  transform: translate(-50%,-50%) scale(0.2);
+  opacity:0; pointer-events:none;
+}
+:where(
+  .learn-more-button,
+  .read-more-btn,
+  .read-more-btn-baptism,
+  .btn-dedication,
+  .btn-funeral,
+  .btn-wedding,
+  .btn-house,
+  .btn-prayer,
+  .appoint-btn-baptism,
+  .appoint-btn-dedication,
+  .appoint-btn-house,
+  .appoint-btn-wedding,
+  .appoint-btn-funeral,
+  .appoint-btn-prayer,
+  .join-button,
+  button
+):hover{
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+:where(
+  .learn-more-button,
+  .read-more-btn,
+  .read-more-btn-baptism,
+  .btn-dedication,
+  .btn-funeral,
+  .btn-wedding,
+  .btn-house,
+  .btn-prayer,
+  .appoint-btn-baptism,
+  .appoint-btn-dedication,
+  .appoint-btn-house,
+  .appoint-btn-wedding,
+  .appoint-btn-funeral,
+  .appoint-btn-prayer,
+  .join-button,
+  button
+):hover::after{
+  animation: ripple .8s ease-out;
+}
+:where(
+  .learn-more-button,
+  .read-more-btn,
+  .read-more-btn-baptism,
+  .btn-dedication,
+  .btn-funeral,
+  .btn-wedding,
+  .btn-house,
+  .btn-prayer,
+  .appoint-btn-baptism,
+  .appoint-btn-dedication,
+  .appoint-btn-house,
+  .appoint-btn-wedding,
+  .appoint-btn-funeral,
+  .appoint-btn-prayer,
+  .join-button,
+  button
+):focus-visible{
+  outline: none; box-shadow: var(--ring);
+}
+
+/* ---------------------------------------
+   PLAYLIST + SCHEDULE: gentle stagger-in
+---------------------------------------- */
+@keyframes chip-pop{
+  from{ opacity:0; transform: translateY(8px) scale(.98); }
+  to  { opacity:1; transform: translateY(0) scale(1); }
+}
+.schedule-playlist-modern .playlist-items .pill{
+  animation: chip-pop .44s var(--ease-snap) both;
+}
+.schedule-playlist-modern .playlist-items .pill:nth-child(1){ animation-delay: .02s; }
+.schedule-playlist-modern .playlist-items .pill:nth-child(2){ animation-delay: .06s; }
+.schedule-playlist-modern .playlist-items .pill:nth-child(3){ animation-delay: .10s; }
+.schedule-playlist-modern .playlist-items .pill:nth-child(4){ animation-delay: .14s; }
+.schedule-playlist-modern .playlist-items .pill:nth-child(5){ animation-delay: .18s; }
+.schedule-playlist-modern .playlist-items .pill:nth-child(6){ animation-delay: .22s; }
+
+@keyframes cell-fade{
+  from{ opacity:0; transform: translateY(6px); }
+  to  { opacity:1; transform: translateY(0); }
+}
+.schedule-ministries-table > div{
+  animation: cell-fade .38s var(--ease-snap) both;
+}
+.schedule-ministries-table > div:nth-child(1)  { animation-delay: .02s; }
+.schedule-ministries-table > div:nth-child(2)  { animation-delay: .06s; }
+.schedule-ministries-table > div:nth-child(3)  { animation-delay: .10s; }
+.schedule-ministries-table > div:nth-child(4)  { animation-delay: .14s; }
+.schedule-ministries-table > div:nth-child(5)  { animation-delay: .18s; }
+.schedule-ministries-table > div:nth-child(6)  { animation-delay: .22s; }
+.schedule-ministries-table > div:nth-child(7)  { animation-delay: .26s; }
+.schedule-ministries-table > div:nth-child(8)  { animation-delay: .30s; }
+.schedule-ministries-table > div:nth-child(9)  { animation-delay: .34s; }
+.schedule-ministries-table > div:nth-child(10) { animation-delay: .38s; }
+.schedule-ministries-table > div:nth-child(11) { animation-delay: .42s; }
+.schedule-ministries-table > div:nth-child(12) { animation-delay: .46s; }
+
+/* ---------------------------------------
+   MODALS: soft pop-in on show
+---------------------------------------- */
+@keyframes modal-pop{
+  from{ transform: translateY(8px) scale(.98); opacity: 0; }
+  to  { transform: translateY(0) scale(1);   opacity: 1; }
+}
+:where(
+  .modal-content,
+  .modal-content-baptism,
+  .modal-content-dedication,
+  .modal-content-house,
+  .modal-content-wedding,
+  .modal-content-funeral,
+  .modal-content-prayer
+){
+  animation: modal-pop .26s var(--ease-snap) both;
+}
+
+/* ---------------------------------------
+   Footer social icons: tiny bounce
+---------------------------------------- */
+.footer-social a{
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+.footer-social a:hover{
+  animation: bounce .42s var(--ease-snap);
+}
+@keyframes bounce{
+  0%   { transform: translateY(0) scale(1); }
+  40%  { transform: translateY(-2px) scale(1.06); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* ---------------------------------------
+   Reduced motion: disable non‑essential anims
+---------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .slide.active,
+  .slide.active .caption,
+  .schedule-ministries-table > div,
+  .schedule-playlist-modern .playlist-items .pill,
+  .event-box::before, .gallery-item::before, .sched-card::before {
+    animation: none !important;
+  }
+}
+
+/* ✅ CLEAN DAY BADGE (hard reset to kill global badge styles) */
+.sched-card .day-chip{
+  all: unset;                 /* nukes inherited/global styles causing the tall oval */
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(15,23,42,0.12);
+  box-shadow: 0 10px 28px rgba(15,23,42,0.14);
+
+  font: 700 13px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: .2px;
+  color: #0f172a;
+
+  white-space: nowrap;
+  max-width: calc(100% - 24px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  pointer-events: none;       /* lets clicks go to the image button */
+}
+
+/* Optional: tiny dot accent */
+.sched-card .day-chip::before{
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #2563eb;
+  display: inline-block;
+}

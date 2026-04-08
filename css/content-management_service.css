@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-image: url("image/all-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #0B1446;
+}
+
+/* === RESTORE ORIGINAL TABLE LAYOUT === */
+.table-wrap {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 30px;
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+  font-weight: 600;
+  color: #0B1446;
+}
+
+.table-wrap thead {
+  background: #f8f9fa;
+}
+
+.table-wrap th, .table-wrap td {
+  padding: 14px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+.table-wrap th {
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #0B1446;
+}
+
+/* Columns layout (image - type - caption - action) */
+.table-wrap tbody tr td:nth-child(1) { width: 220px; }
+.table-wrap tbody tr td:nth-child(2) { width: 150px; }
+.table-wrap tbody tr td:nth-child(3) { width: auto; }
+.table-wrap tbody tr td:nth-child(4) { width: 140px; }
+
+.table-wrap img.thumb {
+  width: 180px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+  transition: transform .2s;
+}
+
+.table-wrap img.thumb:hover {
+  transform: scale(1.05);
+}
+
+.badge.active {
+  background-color: #0B3B8F;
+  color: #fff;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+.badge.inactive {
+  background-color: #8B0000;
+  color: #fff;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+.edit-btn, .archive-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+}
+/* === HEADER: match your sample (56px, centered tiny logo) === */
+.cm-header{
+  background:#0B0B3B !important;
+  height:56px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 40px !important;
+  position:relative !important;
+  color:#fff !important;
+  box-sizing:border-box !important;
+  box-shadow:none !important;
+}
+/* back button stays at the left */
+.cm-header .cm-back{
+  position:absolute; 
+  top:50%; 
+  transform:translateY(-50%);
+}
+
+/* true centered group: small round logo + title (if you want) */
+.cm-header .cm-center{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  white-space:nowrap;
+}
+
+/* small round logo exactly like your reference */
+.cm-header .cm-logo{
+  width:32px !important;
+  height:32px !important;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* title styling like the sample (can hide if you only want the logo) */
+.cm-header .cm-title{
+  font-size:20px !important;
+  font-weight:800 !important;
+  margin:0 !important;
+  color:#fff !important;
+}
+
+/* optional: a right spacer to keep the center perfectly centered */
+.cm-header .cm-right{ width:40px; }
+
+.edit-btn {
+  background: #0B3B8F;
+}
+
+.archive-btn {
+  background: #8B0000;
+}
+
+.edit-btn:hover, .archive-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+  transition: .2s;
+}
+
+
+/* ===== HEADER ===== */
+header {
+  background-color: #0A0E3F;
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 28px;
+  width: 100%;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+  position: relative;
+  z-index: 10;
+}
+
+
+header .back-button img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: block;
+}
+
+header .title-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+header .title-center img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+
+header .title-center h1 {
+  font-size: 26px;
+  font-weight: 900;
+  margin: 0;
+  color: #fff;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  background-color: #0A0E3F;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 16px 0;
+  color: #fff;
+}
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #304256;
+  background: transparent;
+  color: #dbeafe;
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  opacity: .85;
+  transition: .2s;
+}
+
+.nav-pill:hover,
+.nav-pill.active {
+  opacity: 1;
+  background: #304256;
+  color: #fff;
+}
+
+.nav-pill.active {
+  box-shadow: 0 0 4px rgba(255, 255, 255, .25);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #f1f1f1;
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
+}
+
+.dropdown-content a {
+  color: #2c3e50;
+  padding: 10px 16px;
+  display: block;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.dropdown-content a:hover {
+  background: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===== MAIN ===== */
+.main-layout {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 30px;
+}
+
+/* ===== ADD BUTTON ===== */
+.add-button {
+  background-color: #0B3B4A;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 6px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  width: 100px;
+  justify-content: center;
+}
+
+.add-button i {
+  font-size: 16px;
+}
+
+/* ===== TABLE ===== */
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: 600;
+  color: #0B1446;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+}
+
+.service-table thead {
+  background: #f8f9fa;
+}
+
+.service-table th,
+.service-table td {
+  padding: 14px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.service-table th {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.service-table img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+  transition: transform .2s;
+}
+
+.service-table img:hover {
+  transform: scale(1.05);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-edit {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0B3B8F;
+  color: #fff;
+}
+
+.btn-archive {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #8B0000;
+  color: #fff;
+}
+
+/* ===== MODAL ===== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 10px;
+  max-width: 560px;
+  width: 92%;
+  padding: 20px 22px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+}
+
+.modal h2 {
+  margin: 0 0 12px;
+  color: #0B1446;
+}
+
+.modal label {
+  font-weight: 700;
+  color: #0B1446;
+  display: block;
+  margin-top: 10px;
+}
+
+.modal input[type="text"],
+.modal input[type="file"],
+.modal select,
+.modal textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd3d7;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.modal .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.modal .btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal .btn.cancel {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.modal .btn.save {
+  background: #0B3B4A;
+  color: #fff;
+}
+
+/* ===== TOAST (SweetAlert2 position tweak) ===== */
+.swal2-container {
+  z-index: 10000 !important;
+}
+
+.modal-backdrop {
+  position: fixed !important;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999 !important;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 10px;
+  max-width: 560px;
+  width: 92%;
+  padding: 20px 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 100000;
+}
+
+.edit-btn {
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header .title-center h1 {
+    font-size: 22px;
+  }
+
+  nav {
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .nav-pill {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .service-table th, .service-table td {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .service-table img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .add-button {
+    width: auto;
+    font-size: 13px;
+  }
+}

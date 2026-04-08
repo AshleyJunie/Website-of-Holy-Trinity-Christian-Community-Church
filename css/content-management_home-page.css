@@ -1,0 +1,121 @@
+/* ===== FIXED LAYOUT + MODERN NAV ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7fb;overflow-x:hidden}
+
+header{
+  background:#0A0E3F;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 28px;
+  width:100%;
+  box-shadow:0 1px 3px rgba(0,0,0,.15);
+  position:relative;
+  z-index:10;
+}
+
+nav{
+  background:#0A0E3F;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:22px;
+  padding:16px 0;
+  width:100%;
+  box-shadow:0 1px 3px rgba(0,0,0,.15);
+}
+
+.nav-wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.nav-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid #304256;
+  background:transparent;
+  color:#dbeafe;
+  padding:8px 16px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:800;
+  opacity:.85;
+  transition:.2s ease;
+}
+.nav-pill:hover{opacity:1;background:#304256;color:#fff}
+.nav-pill.active{background:#304256;color:#fff;opacity:1;box-shadow:0 0 4px rgba(255,255,255,.25)}
+
+.container{
+  max-width:1200px;
+  margin:30px auto;
+  padding:0 20px;
+}
+
+/* Toast, Cards, Buttons, Inputs (unchanged from your style) */
+.toast{margin:0 0 12px 0;padding:10px 12px;border-radius:10px;font-size:14px}
+.ok{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+.err{background:#fef2f2;color:#7f1d1d;border:1px solid #fecaca}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#0B3B8F;color:#fff;border:none;border-radius:8px;padding:10px 14px;font-weight:800;cursor:pointer}
+.btn.secondary{background:#e5e7eb;color:#111827}
+.card{background:#e9ecef;border-radius:12px;padding:18px;display:flex;gap:22px;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.img{width:640px;max-width:100%;height:auto;border-radius:8px;object-fit:cover;background:#fff}
+.right{flex:1;text-align:center}
+.badge{display:inline-block;background:#e0f2fe;color:#075985;border-radius:999px;padding:6px 12px;font-weight:900;font-size:12px}
+.actions{display:flex;justify-content:center;gap:12px;margin-top:16px}
+.btn-edit{background:#0B3B8F;color:#fff;border:none;border-radius:8px;padding:10px 16px;font-weight:900;cursor:pointer}
+.btn-arch{background:#991b1b;color:#fff;border:none;border-radius:8px;padding:10px 16px;font-weight:900;cursor:pointer}
+.spacer{height:28px}
+
+/* Modal cleanup */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:50}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:60}
+.modal-card{width:min(720px,92vw);background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);overflow:hidden}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#0A0E3F;color:#fff}
+.modal-title{margin:0;font-weight:900}
+.modal-body{padding:16px;background:#eef2f7}
+.formgrid{display:grid;grid-template-columns:1fr 2fr;gap:12px;align-items:center}
+.input,.textarea{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font-size:14px}
+.textarea{min-height:80px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;padding:10px 16px;background:#eef2f7}
+.close-x{cursor:pointer;border:none;background:transparent;color:#fff;font-size:20px;line-height:1}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7fb;overflow-x:hidden}
+.cm-header{background:#0A0E3F;color:#fff;display:flex;align-items:center;justify-content:space-between;
+  padding:10px 28px;width:100%;box-shadow:0 1px 3px rgba(0,0,0,.15);position:relative;z-index:10}
+.cm-center{display:flex;align-items:center;gap:12px;min-width:0}
+.cm-logo{width:46px;height:46px;border-radius:50%;flex:0 0 auto}
+.cm-title{margin:0;font-size:28px;font-weight:900;letter-spacing:.5px;line-height:1.1;color:#fff;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cm-right{width:30px}
+@media(max-width:640px){.cm-title{font-size:20px;white-space:normal}.cm-logo{width:40px;height:40px}}
+nav{background:#0A0E3F;color:#fff;display:flex;justify-content:center;flex-wrap:wrap;gap:22px;
+  padding:16px 0;width:100%;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.nav-wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.nav-pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #304256;background:transparent;
+  color:#dbeafe;padding:8px 16px;border-radius:999px;text-decoration:none;font-weight:800;opacity:.85;transition:.2s}
+.nav-pill:hover{opacity:1;background:#304256;color:#fff}
+.nav-pill.active{background:#304256;color:#fff;opacity:1;box-shadow:0 0 4px rgba(255,255,255,.25)}
+.container{max-width:1200px;margin:30px auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#0B3B8F;color:#fff;border:none;border-radius:8px;
+  padding:10px 14px;font-weight:800;cursor:pointer}
+.btn.secondary{background:#e5e7eb;color:#111827}
+.card{background:#e9ecef;border-radius:12px;padding:18px;display:flex;gap:22px;align-items:center;
+  box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.img{width:640px;max-width:100%;height:auto;border-radius:8px;object-fit:cover;background:#fff}
+.right{flex:1;text-align:center}
+.badge{display:inline-block;background:#e0f2fe;color:#075985;border-radius:999px;padding:6px 12px;
+  font-weight:900;font-size:12px}
+.actions{display:flex;justify-content:center;gap:12px;margin-top:16px}
+.btn-edit{background:#0B3B8F;color:#fff;border:none;border-radius:8px;padding:10px 16px;font-weight:900;cursor:pointer}
+.btn-arch{background:#991b1b;color:#fff;border:none;border-radius:8px;padding:10px 16px;font-weight:900;cursor:pointer}
+.spacer{height:28px}
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:50}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:60}
+.modal-card{width:min(720px,92vw);background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);overflow:hidden}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#0A0E3F;color:#fff}
+.modal-title{margin:0;font-weight:900}
+.modal-body{padding:16px;background:#eef2f7}
+.formgrid{display:grid;grid-template-columns:1fr 2fr;gap:12px;align-items:center}
+.input,.textarea{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:10px;font-size:14px}
+.textarea{min-height:80px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;padding:10px 16px;background:#eef2f7}
+.close-x{cursor:pointer;border:none;background:transparent;color:#fff;font-size:20px;line-height:1}

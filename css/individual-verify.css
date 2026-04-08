@@ -1,0 +1,111 @@
+    body {
+                background-image: url(Image/log_in-form-bg.jpg);
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 50px;
+            }
+            .form-container {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 25px;
+                border-radius: 10px;
+                max-width: 400px;
+                margin: auto;
+                box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+            }
+            .submit-button, .send-code-button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color:rgb(0, 132, 255);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-weight: bold;
+                cursor: pointer;
+                margin-top: 10px;
+                transition: background-color 0.3s ease;
+                text-decoration: none;
+            }
+            .submit-button:hover, .send-code-button:hover {
+                background-color: #000b3a;
+            }
+            input[type="text"], input[type="email"] {
+                width: 90%;
+                padding: 10px;
+                margin: 8px 0;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+
+            /* ==== your original rules (kept) ==== */
+body {
+  background-image: url(Image/log_in-form-bg.jpg);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+.form-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+}
+.submit-button, .send-code-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color:rgb(0, 132, 255);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+.submit-button:hover, .send-code-button:hover {
+  background-color: #000b3a;
+}
+input[type="text"], input[type="email"] {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* ==== ADD-ONLY ENHANCEMENTS (override-friendly) ==== */
+:root{
+  --brand:#0A0E3F;
+  --brand-2:#0084FF;
+  --muted:#6b7280;
+}
+html,body{ height:100%; }
+body{
+  padding:24px;                 /* smaller padding for mobile */
+  display:flex; align-items:center; justify-content:center;
+  background:
+    linear-gradient(180deg, rgba(10,14,63,.55), rgba(10,14,63,.55)),
+    url("Image/log_in-form-bg.jpg") center/cover no-repeat fixed !important;
+}
+.form-container{
+  width:100%;
+  max-width:440px;              /* a bit wider */
+  border-radius:18px;
+  padding:28px 24px 24px;       /* more breathing room */
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+.form-container h2{
+  margin-top:10px;
+  font-size:1.35rem;
+  color:#0b122d;
+}
+a.back-link{ color:var(--brand); font-weight:600; text-decoration:none; }
+a.back-link:hover{ text-decoration:underline; }
+
+/* tighten inputs on small screens */
+@media (max-width:480px){
+  body{ padding:18px; }
+  .form-container{ padding:24px 18px 18px; }
+}

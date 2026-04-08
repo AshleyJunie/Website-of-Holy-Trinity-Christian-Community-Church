@@ -1,0 +1,220 @@
+/* =========================================================
+   HTCCC — Set Schedule
+   Match "Book an Appointment" look + 2-column side-by-side
+   ========================================================= */
+
+/* --- Palette --- */
+:root{
+  --brand:#1B1B4B;   /* dark navy panel */
+  --sky:#8AC9FF;     /* month header */
+  --grid:#6B5AE3;    /* purple lines */
+  --ink:#1B1B4B;     /* dark text on light bg */
+  --paper:#E3E0DD;   /* grid bg */
+  --badge:#dc2626;   /* red badge */
+  --card:#1B1B4B;    /* main card */
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family: Arial, Helvetica, sans-serif; background:#fff; color:#fff}
+
+/* ---------- Top bar ---------- */
+nav{
+  background:var(--brand)!important;
+  color:#fff!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  padding:25px 16px!important;
+}
+nav a{color:#fff!important;text-decoration:none}
+nav h1{font-weight:800;font-size:18px;letter-spacing:.05em;margin:0}
+
+/* ---------- Main: SIDE-BY-SIDE layout like reference ---------- */
+main{
+  /* grid para siguradong magkatabi calendar at right panel */
+  display:grid;
+  grid-template-columns: minmax(520px, 1fr) minmax(460px, 1fr);
+  column-gap: 96px;
+  row-gap: 24px;
+
+  max-width:1320px;
+  margin:24px auto;
+  padding:24px 16px 28px;
+  border:2px solid var(--grid);
+  border-radius:6px;
+  background:var(--card);
+  align-items:start;
+}
+h2{
+  margin-top: 100px;
+}
+section.left{
+  width:100%;
+}
+section.right{
+  margin-top: 200px;
+  width:100%;
+  display:flex; flex-direction:column; gap:28px;
+  justify-content:flex-start; align-items:stretch;
+  margin-left: 100px;
+}
+
+/* Mobile: stack */
+@media (max-width: 1200px){
+  main{
+    grid-template-columns: 1fr;
+    column-gap:20px;
+  }
+}
+
+/* ---------- Headings (match look) ---------- */
+h2{color:#E6E8FF;font-weight:700;font-size:26px;margin:0 0 12px}
+h3{color:#E6E8FF;font-weight:800;font-size:18px;margin:0 0 6px}
+
+/* ---------- Calendar block (left) ---------- */
+.calendar-container{
+  border:1px solid #000;
+  border-radius:4px;
+  width: 110%;
+  margin-left: 100px;
+  max-width:1000px;  /* para visually tugma sa ref */
+  background:var(--paper);
+  color:var(--grid);
+  user-select:none;
+  overflow:hidden;
+}
+.calendar-header{
+  background:var(--sky)!important;
+  color:#000!important;
+  font-weight:700; font-size:20px;
+  text-transform:uppercase;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 20px!important;
+}
+.calendar-header button{
+  background:none;border:none;color:#fff;font-weight:800;font-size:28px;cursor:pointer;line-height:1;
+}
+
+/* Table grid look */
+table{width:100%;border-collapse:collapse;background:var(--paper)}
+thead th{
+  border-right:1px solid var(--grid)!important;
+  border-bottom:1px solid var(--grid)!important;
+  color:var(--grid)!important;
+  font-weight:600!important;
+  font-size:15px!important;
+  padding:14px 0!important;
+  background:var(--paper)!important;
+}
+thead th:last-child{border-right:none!important}
+
+tbody td{
+  border-top:1px solid var(--grid)!important;
+  border-right:1px solid var(--grid)!important;
+  height:80px!important;
+  padding-top:12px!important;
+  text-align:center!important;
+  vertical-align:top;
+  font-size:20px!important;
+  color:var(--grid)!important;
+  background:transparent!important;
+  cursor:pointer!important;
+}
+tbody td:last-child{border-right:none!important}
+td.empty{background:var(--paper)!important;cursor:default!important}
+td.past{background:#e6e6e6!important;color:#9aa3af!important;cursor:not-allowed!important}
+td.taken{background:#ffe2e2!important;position:relative}
+tbody td:hover:not(.empty):not(.selected){background:#c3d9ff!important;color:var(--ink)!important}
+td.day.selected{
+  background:var(--sky)!important;color:var(--ink)!important;font-weight:700!important;outline:none!important;
+}
+
+/* Count badge */
+.badge{
+  position:absolute; right:6px; bottom:6px;
+  background:var(--badge); color:#fff;
+  border-radius:10px; padding:2px 6px; font-size:11px; font-weight:800;
+}
+
+/* Tiny hint under calendar */
+.hint{font-size:12px;color:#9fb0d8;padding:10px 12px;background:transparent}
+
+/* ---------- Right column controls (Step 2/3) ---------- */
+.right h2{margin:0 0 12px}
+.time-select{
+  width:100%; max-width:420px;
+  background:#F3F3F3!important; color:var(--ink)!important;
+  font-weight:800!important; font-size:16px!important;
+  padding:12px 20px!important; border-radius:12px!important; border:none!important;
+  display:flex!important; justify-content:space-between!important; align-items:center!important;
+  cursor:pointer!important;
+}
+.time-select i{font-size:18px;transition:transform .3s}
+.time-select[aria-expanded="true"] i{transform:rotate(180deg)}
+
+/* Dropdown list */
+.dropdown-list{
+  position:absolute; top:64px; width:100%; max-width:420px;
+  background:#F3F3F3!important; border-radius:12px!important;
+  box-shadow:0 4px 8px rgba(0,0,0,.15)!important;
+  display:none; flex-direction:column; max-height:220px; overflow:auto; z-index:20;
+}
+.dropdown-list.show{display:flex}
+.dropdown-item{
+  color:var(--ink)!important; font-weight:700!important; font-size:16px!important;
+  padding:12px 20px!important; cursor:pointer; border-bottom:1px solid #ccc!important;
+  background:transparent!important;
+}
+.dropdown-item:last-child{border-bottom:none!important}
+.dropdown-item:hover,
+.dropdown-item[aria-selected="true"]{background:#c3d9ff!important}
+.dropdown-item.disabled{opacity:.45;pointer-events:none}
+
+/* Buttons */
+.btn{
+  width:100%; max-width:420px;
+  background:var(--sky)!important; color:var(--ink)!important;
+  font-weight:800!important; font-size:16px!important;
+  padding:12px 20px!important; border-radius:12px!important; border:none!important; cursor:pointer!important;
+}
+.btn.secondary{background:var(--grid)!important; color:#fff!important}
+
+/* ---------- Modals (Approved + Day Info) ---------- */
+.modal-backdrop{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.55);
+  display:none; align-items:center; justify-content:center;
+  z-index:9999;
+}
+.modal{
+  background:#fff; border-radius:12px;
+  width:min(900px,95vw); max-height:85vh; overflow:auto;
+  box-shadow:0 15px 45px rgba(0,0,0,.3);
+}
+.modal header{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 20px; border-bottom:1px solid #eaeaea; background:var(--brand);
+}
+.modal header h3{margin:0;color:#fff;font-size:18px}
+.modal .body{padding:16px 20px; background:#f9fafb; color:#000}
+.modal .close{
+  background:#fff; color:var(--brand);
+  border:2px solid var(--brand); border-radius:8px; padding:6px 10px; cursor:pointer; font-weight:700;
+}
+.approved-table{width:100%; border-collapse:collapse}
+.approved-table th,.approved-table td{border:1px solid #d1d5db; padding:10px; text-align:left; font-size:14px}
+.approved-table th{background:var(--brand); color:#fff; font-weight:700}
+.approved-table tr:nth-child(even){background:#f3f4f6}
+.approved-table button{
+  background:var(--brand); color:#fff; border:0; border-radius:6px; padding:6px 10px; cursor:pointer; font-weight:700;
+}
+.approved-table button:hover{background:var(--grid)}
+
+/* ---------- Extra responsive polish ---------- */
+@media (max-width: 720px){
+  .calendar-header{padding:10px 12px!important;font-size:16px}
+  thead th{padding:10px 0!important;font-size:12px!important}
+  tbody td{height:60px!important;font-size:16px!important}
+  .time-select,.dropdown-list,.btn{max-width:100%!important}
+}

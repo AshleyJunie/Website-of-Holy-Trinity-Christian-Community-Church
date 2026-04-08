@@ -1,0 +1,1106 @@
+/* ====== YOUR ORIGINAL CSS (UNCHANGED) ====== */
+body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#fff; color:#fff; }
+
+.calendar .calendar-days > div:hover {
+  border-top: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+.calendar .calendar-days > div .full-badge,
+.calendar .calendar-days > div:hover .full-badge {
+  text-decoration: none !important;
+  border: none !important;
+  
+}
+
+
+header { background:#1B1B4B; display:flex; align-items:center; justify-content:space-between; padding:25px 16px; position:relative; }
+header button { background:none; border:none; color:#fff; font-size:20px; cursor:pointer; }
+header .logo-title { display:flex; align-items:center; gap:12px; font-weight:800; font-size:18px; letter-spacing:.05em; }
+header .logo-title img { width:40px; height:40px; border-radius:50%; }
+.corner-label { position:absolute; top:0; right:0; background:#1E8E1E; color:#fff; font-weight:600; font-size:12px; padding:2px 8px; border-bottom-left-radius:6px; user-select:none; }
+main { max-width:1400px; margin:24px auto; border:2px solid #6B5AE3; border-radius:6px; background:#1B1B4B; padding:24px; display:flex; gap:48px; flex-wrap:wrap; max-height:1500px; }
+h2 { font-weight:600; font-size:25px; margin-bottom:16px; }
+.calendar { border:1px solid black; border-radius:4px; width:640px; user-select:none; margin-left:50px; }
+.calendar-header { background:#8AC9FF; color:#000; font-weight:600; font-size:20px; text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; padding:14px 20px; }
+.calendar-header button { background:none; border:none; color:#fff; font-weight:700; font-size:28px; cursor:pointer; line-height:1; }
+.calendar-weekdays { display:grid; grid-template-columns:repeat(7,1fr); background:#E3E0DD; color:#6B5AE3; font-weight:600; font-size:15px; border-bottom:1px solid #6B5AE3; }
+.calendar-weekdays div { border-right:1px solid #6B5AE3; padding:14px 0; text-align:center; font-size:10px; }
+.calendar-days { display:grid; grid-template-columns:repeat(7,1fr); background:#E3E0DD; color:#6B5AE3; font-weight:600; font-size:20px; }
+.calendar-days div { border-top:1px solid #6B5AE3; border-right:1px solid #6B5AE3; height:80px; padding-top:12px; text-align:center; cursor:pointer; position:relative; }
+.calendar-days div:last-child { border-right:none; }
+.calendar-days div.selected { background:#8AC9FF; color:#1B1B4B; font-weight:700; } 
+.calendar-days div:hover:not(.selected) { background:#c3d9ff; color:#1B1B4B; }
+.right-side { flex:1; min-width:280px; display:flex; flex-direction:column; gap:32px; justify-content:center; margin-left:200px; }
+.dropdown-container { position:relative; max-width:320px; }
+.dropdown-button { width:100%; background:#F3F3F3; color:#1B1B4B; font-weight:800; font-size:16px; padding:12px 20px; border-radius:12px; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+.dropdown-button i { font-size:18px; transition:transform .3s ease; }
+.dropdown-button.open i { transform:rotate(180deg); }
+.dropdown-menu { position:absolute; top:100%; left:0; right:0; background:#F3F3F3; border-radius:12px; margin-top:6px; box-shadow:0 4px 8px rgba(0,0,0,.15); max-height:200px; overflow-y:auto; z-index:10; display:none; }
+.dropdown-menu.open { display:block; }
+.dropdown-menu button { width:100%; background:none; border:none; padding:12px 20px; text-align:left; font-weight:700; font-size:16px; color:#1B1B4B; cursor:pointer; border-bottom:1px solid #ccc; }
+.dropdown-menu button:last-child { border-bottom:none; }
+.dropdown-menu button:hover { background:#c3d9ff; }
+.proceed-button { width:100%; max-width:320px; background:#8AC9FF; color:#1B1B4B; font-weight:800; font-size:16px; padding:12px 20px; border-radius:12px; border:none; cursor:pointer; margin-top:30px; }
+.step-header{ margin-left:50px; margin-bottom:50px; }
+.appointment-txt{ text-align:center; font-size:45px; }
+.back-button{ display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; background:#007bff; color:#fff; border:none; border-radius:5px; text-decoration:none; font-size:16px; cursor:pointer; transition:background-color .3s ease; }
+.back-button:hover{ background:#0056b3; }
+.proceed-button{ display:inline-block; padding:10px 20px; background:#8AC9FF; color:black; text-decoration:none; border-radius:5px; border:none; font-weight:bold; cursor:pointer; text-align:center; margin-right:100px; }
+.proceed-button:hover{ background:#0056b3; }
+.footer-content{ color:white; }
+.footer-loc{ margin-left:100px; }
+.nav-footer a{ color:white; text-decoration:none; transition:color .3s ease; opacity:.9; font-size:10px; }
+.ministries-menu{ display:none; position:absolute; top:100%; left:0; background:#fff; min-width:150px; box-shadow:0 8px 16px rgba(0,0,0,.2); z-index:1000; }
+footer{ width:100%; }
+.ministries-dropdown:hover .ministries-menu{ display:block; }
+.ministries-menu li a{ display:block; padding:10px; color:black; text-decoration:none; font-size:10px; }
+.ministries-menu li a:hover{ background:#f1f1f1; font-size:1.5rem; }
+.live-mass-txt{ display:flex; align-items:center; font-weight:800; font-size:18px; color:#0B1446; margin-bottom:30px; margin-top:60px; }
+.dot{ width:12px; height:12px; background:#B33A2A; border-radius:50%; margin-right:8px; flex-shrink:0; }
+.square-box{ background:#1B1B4B; margin-left:75px; width:1300px; height:500px; aspect-ratio:1/1; display:flex; justify-content:center; align-items:center; }
+.square-box p{ color:white; font-weight:800; font-size:16px; text-transform:uppercase; text-align:center; margin:0 16px; }
+@media (max-width:900px){ .ministry-content{ flex-direction:column; text-align:center; }
+  .ministry-text{ text-align:center; } .image-frame::before{ left:5px; top:-5px; } }
+@media (max-width:720px){
+  main{ flex-direction:column; align-items:center; }
+  .calendar{ width:100%; max-width:320px; margin-bottom:32px; }
+  .right-side{ width:100%; max-width:320px; gap:24px; }
+}
+.btn[disabled]{ cursor:not-allowed; opacity:.75; }
+
+/* Time Picker modal */
+.tp-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.35); display:none; align-items:center; justify-content:center; z-index:1000; }
+.tp-backdrop.open{ display:flex; }
+.tp-modal{ background:#0f1430; color:#fff; border-radius:18px; padding:18px; min-width:320px; box-shadow:0 10px 30px rgba(0,0,0,.4); }
+.tp-header{ display:flex; align-items:center; justify-content:space-between; background:#1b2353; padding:10px 14px; border-radius:12px; font-weight:700; margin-bottom:14px; }
+.tp-close{ background:#2c346b; color:#fff; border:none; width:42px; height:42px; border-radius:12px; font-size:18px; }
+.tp-row{ display:flex; gap:12px; }
+.tp-select{ background:#11173f; color:#fff; border:1px solid #2b377e; border-radius:12px; padding:12px; flex:1; font-size:18px; }
+.tp-actions{ display:flex; gap:12px; justify-content:flex-end; margin-top:16px; }
+.tp-cancel{ background:#3a4372; border:none; color:#fff; padding:10px 16px; border-radius:12px; font-weight:600; }
+.tp-apply{ background:#8ec2ff; border:none; color:#0b1333; padding:10px 18px; border-radius:12px; font-weight:800; }
+
+/* Calendar cells: badge stays INSIDE the day cell — no overflow */
+#calendarDays > div{
+  position: relative;
+  min-height: 76px;
+  padding: 6px 6px 24px; /* reserved space for badge */
+  overflow: hidden;      /* keep children inside */
+  border-radius: 6px;
+}
+
+/* Single badge per day, stuck to bottom INSIDE the cell */
+.status-badge{
+  position:absolute;
+  left:6px;
+  right:6px;
+  bottom:5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10px;
+  font-weight:800;
+  padding:4px 6px;
+  border-radius:6px;
+  line-height:1;
+  background:#20306b;
+  color:#fff;
+  box-sizing:border-box;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.calendar-days div.selected{ outline:2px solid #5da9ff; border-radius:6px; }
+
+/* ==== RESERVED/FULL: full blue background, white text ==== */
+.calendar-days div.reserved-full{
+  background:#1b4fad !important;
+  color:#ffffff !important;
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  font-weight:700;
+}
+.calendar-days div.reserved-full .day-number{
+  font-size:14px;
+  margin-bottom:3px;
+}
+.calendar-days div.reserved-full .reserved-label{
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  opacity:.95;
+}
+/* ==== END RESERVED STYLING ==== */
+
+/* Time display (readonly) + Pick button */
+.time-display{ display:flex; gap:12px; align-items:center; }
+.time-display input{ background:#f2f2f6; border:1px solid #ccd; border-radius:12px; padding:12px 14px; font-weight:600; flex:1; }
+.time-pick-btn{ background:#8ec2ff; border:none; color:#0b1333; border-radius:12px; padding:11px 16px; font-weight:800; }
+
+/* ==== ADD BELOW THIS LINE: remove inner lines & make RESERVED fonts bold ==== */
+.calendar-days div.reserved-full{
+  border:none !important;          /* remove grid lines/borders */
+  box-shadow:none !important;
+}
+.calendar-days div.reserved-full *{
+  border:none !important;
+  text-decoration:none !important; /* no underlines or rules */
+}
+.calendar-days div.reserved-full .day-number,
+.calendar-days div.reserved-full .reserved-label{
+  font-weight:800;                 /* stronger bold for both texts */
+}
+
+/* --- NEW: small "FULL" badge --- */
+.full-badge{
+  display:block;
+  margin-top:4px;
+  font-size:10px;
+  font-weight:800;
+  color:#B33A2A;   /* subtle red */
+  letter-spacing:.5px;
+}
+
+/* ====== ADDITIVE BOOTSTRAP-RESPONSIVE OVERRIDES (SAFE) ====== */
+
+/* Let the main wrapper breathe on small screens without breaking your existing look */
+@media (max-width: 1200px){
+  main { padding: 16px; }
+  .appointment-txt { font-size: 38px; }
+}
+
+/* Calendar should scale down fluidly */
+.calendar { max-width: 100%; }
+
+/* Neutralize large fixed margins on the right column on smaller screens */
+@media (max-width: 1400px){
+  .right-side { margin-left: 60px; margin-top: 60px; margin-bottom: 60px; }
+}
+@media (max-width: 992px){
+  .right-side { margin-left: 0 !important; margin-top: 24px !important; margin-bottom: 24px !important; }
+  .step-header { margin-left: 0 !important; text-align: left; }
+  .calendar { margin-left: 0 !important; }
+}
+
+/* Make header title text scale nicely */
+@media (max-width: 576px){
+  header .logo-title { font-size: 14px; }
+  .appointment-txt { font-size: 32px; }
+}
+
+/* Dropdown menu should sit above everything on mobile */
+.dropdown-menu { z-index: 1000; }
+
+/* Footer spacing tweaks for small devices */
+@media (max-width: 576px){
+  footer { padding: 24px 20px !important; }
+}
+
+/* Make the back button image never overflow */
+header a img { max-width: 100%; height: auto; }
+
+/* Improve tap targets in dropdowns on mobile */
+.dropdown-menu button { padding-top: 14px; padding-bottom: 14px; }
+
+/* Ensure icons align nicely in footer links */
+.nav-footer a { display: inline-block; }
+
+/* Ratio wrapper in footer map should keep rounded corners visually */
+.ratio iframe { border-radius: 8px; }
+
+/* ===== MOBILE FIX PACK (ADD-ONLY) ===== */
+/* Phones */
+@media (max-width: 576px){
+  /* container & spacing */
+  main{
+    border-width: 0;
+    border-radius: 0;
+    padding: 16px 12px;
+    gap: 16px !important;
+    max-height: none !important;
+  }
+  html, body{ overflow-x: hidden; }
+
+  /* titles */
+  .appointment-txt{
+    font-size: 28px !important;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    text-align: center;
+  }
+  .step-header, h2{
+    font-size: 18px !important;
+    margin: 8px 0 12px !important;
+    line-height: 1.2;
+    word-break: keep-all;
+  }
+
+  /* calendar */
+  .calendar{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .calendar-header{
+    padding: 10px 12px !important;
+    font-size: 16px !important;
+  }
+  .calendar-weekdays div{
+    padding: 8px 0 !important;
+    font-size: 10px !important;
+  }
+  .calendar-days{
+    grid-auto-rows: minmax(44px, 1fr);
+    font-size: 16px !important;
+  }
+  .calendar-days div{
+    height: auto !important;
+    padding-top: 8px !important;
+  }
+  .full-badge{
+    font-size: 9px !important;
+    margin-top: 2px !important;
+  }
+
+  /* right column */
+  .right-side{
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 16px !important;
+  }
+
+  /* dropdowns & button */
+  .dropdown-container{ max-width: 100% !important; }
+  .dropdown-button{
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+    border-radius: 12px;
+  }
+  .dropdown-menu{
+    max-height: 260px !important;
+    z-index: 1000; /* stay above calendar */
+  }
+  .dropdown-menu button{
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+  }
+  .proceed-button{
+    width: 100% !important;
+    margin: 8px 0 0 0 !important;
+    font-size: 16px !important;
+    padding: 14px 16px !important;
+  }
+}
+
+/* Small tablets */
+@media (min-width: 577px) and (max-width: 768px){
+  .appointment-txt{ font-size: 32px !important; }
+  .right-side{ margin: 12px 0 0 0 !important; }
+  .calendar{ margin-left: 0 !important; }
+}
+
+/* General tablet safety */
+@media (max-width: 992px){
+  html, body{ overflow-x: hidden; }
+}
+/* ===== MOBILE COMPACT PACK (ADD-ONLY) ===== */
+@media (max-width: 576px){
+
+  /* Header compact */
+  header{ padding: 12px 10px !important; }
+  header .logo-title{ gap: 8px !important; font-size: 12px !important; }
+  header .logo-title img{ width: 28px !important; height: 28px !important; }
+
+  /* Main wrapper */
+  main{
+    padding: 14px 10px !important;
+    gap: 12px !important;
+    border-width: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  /* Title + step headers */
+  .appointment-txt{
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+    margin: 6px 0 10px !important;
+    text-align: left !important;
+  }
+  .step-header, h2{
+    font-size: 16px !important;
+    margin: 6px 0 10px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Calendar compact */
+  .calendar{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    border-radius: 10px !important;
+  }
+  .calendar-header{
+    padding: 8px 10px !important;
+    font-size: 14px !important;
+  }
+  .calendar-header button{ font-size: 22px !important; }
+  .calendar-weekdays div{
+    padding: 6px 0 !important;
+    font-size: 9px !important;
+  }
+  .calendar-days{
+    font-size: 14px !important;
+    grid-auto-rows: minmax(36px,1fr) !important;
+  }
+  .calendar-days div{
+    height: auto !important;
+    padding-top: 6px !important;
+  }
+  .full-badge{ font-size: 8.5px !important; margin-top: 2px !important; }
+
+  /* Right column spacing */
+  .right-side{
+    margin: 8px 0 0 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 12px !important;
+  }
+
+  /* Dropdowns (Select Time / Service) */
+  .dropdown-container{ max-width: 100% !important; }
+  .dropdown-button{
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+    border-radius: 10px !important;
+  }
+  .dropdown-button i{ font-size: 16px !important; }
+  .dropdown-menu{
+    max-height: 220px !important;
+    z-index: 1000 !important;
+  }
+  .dropdown-menu button{
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+  }
+
+  /* Proceed button */
+  .proceed-button{
+    width: 100% !important;
+    margin: 10px 0 0 0 !important;
+    font-size: 14px !important;
+    padding: 10px 12px !important;
+    border-radius: 10px !important;
+  }
+
+  /* Footer slight tighten */
+  footer{ padding: 22px 14px !important; }
+}
+/* ===== MOBILE DROPDOWN FIX PACK (ADD-ONLY) ===== */
+@media (max-width: 576px){
+  /* Make dropdown buttons look compact and centered */
+  .dropdown-container{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .dropdown-button{
+    background-color: #f8f8f8 !important;
+    border: 1px solid #ccc !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 8px 10px !important;
+    border-radius: 8px !important;
+    height: 40px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    text-align: left !important;
+    line-height: 1 !important;
+  }
+  .dropdown-button i{
+    font-size: 12px !important;
+    margin-left: 6px !important;
+  }
+
+  /* Dropdown menu smaller, neat */
+  .dropdown-menu{
+    margin-top: 4px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+  }
+  .dropdown-menu button{
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+  }
+  .dropdown-menu button:hover{
+    background-color: #dce9ff !important;
+  }
+
+  /* Adjust Proceed button for balance */
+  .proceed-button{
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 10px 12px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    margin-top: 12px !important;
+  }
+
+  /* Step text spacing */
+  h2, .step-header{
+    font-size: 15px !important;
+    margin-bottom: 10px !important;
+  }
+}
+/* ===== MOBILE FRIENDLY FINAL FIX PACK (ADD-ONLY) ===== */
+@media (max-width: 576px){
+
+  /* global padding para may breathing space */
+  body, main{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* adjust layout */
+  main{
+    display: block !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: #1B1B4B !important;
+    padding-top: 10px !important;
+  }
+
+  /* calendar centered */
+  .calendar{
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto 18px auto !important;
+    border-radius: 10px !important;
+  }
+
+  /* headers smaller */
+  .appointment-txt{
+    font-size: 22px !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+  }
+  .step-header, h2{
+    font-size: 15px !important;
+    margin: 6px 0 8px !important;
+    text-align: left !important;
+  }
+
+  /* dropdowns compact and centered */
+  .dropdown-container{
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto 10px auto !important;
+  }
+  .dropdown-button{
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    height: 38px !important;
+    padding: 6px 10px !important;
+    border-radius: 8px !important;
+    border: 1px solid #ccc !important;
+    background: #f8f8f8 !important;
+    color: #1B1B4B !important;
+    text-align: left !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .dropdown-button i{ font-size: 12px !important; }
+  .dropdown-menu{
+    font-size: 13px !important;
+    border-radius: 8px !important;
+    margin-top: 4px !important;
+  }
+  .dropdown-menu button{
+    padding: 8px 10px !important;
+    text-align: left !important;
+  }
+
+  /* proceed button centered and smaller */
+  .proceed-button{
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 40px !important;
+    padding: 8px 10px !important;
+    font-size: 14px !important;
+    margin: 12px auto 0 auto !important;
+    display: block !important;
+    border-radius: 8px !important;
+  }
+
+  /* right-side stacked */
+  .right-side{
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+    gap: 14px !important;
+  }
+
+  /* fix footer map */
+  footer{
+    padding: 24px 16px !important;
+  }
+  footer iframe{
+    width: 100% !important;
+    border-radius: 10px !important;
+  }
+}
+/* ===== MOBILE CROPPING FIX (ADD-ONLY) ===== */
+
+
+/* ===== FOOTER STICKY – REMOVE SPACE BELOW (ADD-ONLY) ===== */
+html, body{ height:100%; }
+body{
+  display:flex;                 /* let footer sit at the bottom */
+  min-height:100vh;
+  flex-direction:column;
+}
+main{ flex:1 0 auto; }          /* content grows to push footer down */
+footer{
+  margin-top:auto !important;   /* footer hugs the bottom */
+  padding-bottom:24px;          /* keep your existing inner spacing */
+}
+
+/* ===== TABLET: KEEP DESKTOP FEEL + STOP THIN CALENDAR (ADD-ONLY) ===== */
+@media (min-width: 768px) and (max-width: 1024px){
+  /* keep two columns like desktop */
+  main{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+    gap:48px !important;
+  }
+
+  /* calendar: prevent shrinking too much */
+  .calendar{
+    flex:0 0 auto !important;
+    width:auto !important;
+    min-width:560px !important;    /* <- wider like desktop; tweak to 600/640 if you want */
+    margin-left:50px !important;   /* same look as desktop */
+  }
+
+  /* right panel: stay inside and align nicely */
+  .right-side{
+    flex:1 1 420px !important;
+    max-width:420px !important;
+    margin-left:0 !important;      /* avoid overflow */
+    gap:20px !important;
+  }
+  .dropdown-container{ max-width:420px !important; width:100% !important; }
+  .proceed-button{ max-width:420px !important; width:100% !important; }
+}
+
+/* (Optional) If you still see any white sliver below due to body bg: make it match the page */
+body{ background:#1B1B4B; }  /* comment this out if you prefer the original white body */
+/* ===== TABLET HARD OVERRIDE – ALL NON-iPad TABLETS TOO (ADD-ONLY) ===== */
+/* Catches Surface/Android sizes (portrait & landscape) */
+@media screen and (min-width: 800px) and (max-width: 1368px),
+      screen and (min-width: 601px) and (max-width: 1199px),
+      screen and (min-device-width: 800px) and (max-device-width: 1368px){
+
+  /* Desktop-like two columns */
+  main{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    padding: 24px !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Calendar: stop getting thin & remove desktop left offset */
+  .calendar{
+    margin-left: 0 !important;
+    width: clamp(560px, 58vw, 680px) !important;  /* solid width on all tablets */
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+    border-radius: 10px !important;
+  }
+
+  /* Right column: no big margins, fixed comfortable width */
+  .right-side{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex: 1 1 440px !important;
+    max-width: 480px !important;
+    min-width: 340px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    text-align: left !important;
+  }
+
+  /* Controls always fit the column */
+  .dropdown-container{ width: 100% !important; max-width: 100% !important; }
+  .dropdown-button{ width: 100% !important; height: 46px !important; }
+  .dropdown-menu{
+    left: 0 !important; right: auto !important; max-width: 100% !important;
+    z-index: 1000 !important;
+  }
+  .proceed-button{
+    width: 100% !important; max-width: 100% !important;
+    height: 44px !important; margin-top: 12px !important;
+  }
+
+  /* Titles similar to desktop, but safe for narrower tablets */
+  .appointment-txt{ font-size: 40px !important; margin-bottom: 12px !important; }
+  .step-header, h2{ margin: 0 0 12px 0 !important; }
+}
+/* ===========================================================
+  MODERN THEME + STEP ALIGNMENT PACK (ADD-ONLY)
+  =========================================================== */
+
+/* Palette tokens */
+:root{
+
+  --accent-main: #8AC9FF;
+  --accent-main-deep: #2563eb;
+  --accent-soft: #dbeafe;
+  --border-subtle: #4f46e5;
+  --txt-main: #e5e7eb;
+  --txt-muted: #cbd5f5;
+}
+
+/* Background + main container as a modern card */
+body{
+  background:white  !important;
+  color: var(--txt-main);
+}
+
+main{
+  background: #202d6a!important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(129,140,248,.4) !important;
+  box-shadow: 0 28px 80px rgba(15,23,42,.7) !important;
+  padding: 32px 36px !important;
+  gap: 56px !important;
+}
+
+/* Booking title */
+.appointment-txt{
+  font-size: 40px !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-align: center !important;
+  margin: 0 0 24px !important;
+}
+
+/* --- Step headings (1,2,3) --- */
+.step-header,
+.right-side h2{
+  font-weight: 800 !important;
+  font-size: 22px !important;
+  text-transform: none;
+  letter-spacing: .03em;
+  margin: 0 0 10px !important;
+  color: #ffffff !important;
+}
+
+/* Remove old left offset so Step labels line up with calendar title */
+.step-header{
+  margin-left: 0 !important;
+}
+
+/* Right column alignment: start at top, align with calendar */
+.right-side{
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  margin-left: 0 !important;
+  margin-top: 4px !important;
+}
+
+/* Calendar: modern card look */
+.calendar{
+  margin-left: 0 !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(129,140,248,.6) !important;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(15,23,42,.65);
+}
+
+/* Calendar header strip */
+.calendar-header{
+  background: linear-gradient(135deg,var(--accent-main),var(--accent-main-deep)) !important;
+  color: #0b102f !important;
+  font-size: 18px !important;
+  letter-spacing: .09em;
+}
+
+/* Weekdays + days refinement */
+.calendar-weekdays{
+  background:#ffffff !important;
+  color:#a5b4fc !important;
+}
+.calendar-weekdays div{
+  border-color:#312e81 !important;
+}
+.calendar-days{
+  background:#ececec !important;
+  color:#000000 !important;
+}
+.calendar-days div{
+  border-color:#111827 !important;
+}
+.calendar-days div.selected{
+  background: radial-gradient(circle at top,#8AC9FF,#2563eb) !important;
+  color:#0b102f !important;
+}
+
+/* RESERVED/FULL cells keep bold but blend with new theme */
+.calendar-days div.reserved-full{
+  background: linear-gradient(135deg,#1d4ed8,#1e293b) !important;
+}
+
+/* Step 1/2 containers: cleaner spacing */
+.dropdown-container{
+  width: 100%;
+  max-width: 360px;
+}
+
+/* Dropdown & buttons as pill CTAs */
+.dropdown-button,
+.proceed-button{
+  border-radius: 999px !important;
+  border: none !important;
+  background-image: linear-gradient(135deg,var(--accent-main),var(--accent-main-deep)) !important;
+  color: #020617 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 16px 40px rgba(37,99,235,.55);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+.dropdown-button:hover,
+.proceed-button:hover{
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 20px 55px rgba(37,99,235,.7);
+}
+
+/* Dropdown list matches theme */
+.dropdown-menu{
+  background:#f5f5f5 !important;
+  color: #000;
+  border-radius: 14px !important;
+  border:1px solid rgba(129,140,248,.7) !important;
+}
+.dropdown-menu button{
+  color:#000000 !important;
+  border-bottom:1px solid rgba(55,65,81,.7) !important;
+}
+.dropdown-menu button:hover{
+  background:#caced6 !important;
+}
+
+/* Time display input & pick button */
+.time-display input{
+  background:#ffffff !important;
+  color:#000000 !important;
+  border-radius: 999px !important;
+  border:1px solid rgba(148,163,184,.8) !important;
+}
+.time-pick-btn{
+  border-radius:999px !important;
+  background-image: linear-gradient(135deg,var(--accent-main),var(--accent-main-deep));
+  color:#020617;
+  font-weight:800;
+}
+
+/* Time picker modal tweaks */
+.tp-modal{
+  background:#020617 !important;
+  border-radius: 20px !important;
+  border:1px solid rgba(129,140,248,.7) !important;
+}
+.tp-header{
+  background:#111827 !important;
+}
+.tp-select{
+  background:#020617 !important;
+}
+
+/* Footer matches dark background */
+footer{
+  background:#020617 !important;
+  border-top:1px solid rgba(30,64,175,.7);
+}
+
+/* -------- Desktop step/calendar alignment only on large screens -------- */
+@media (min-width: 1025px){
+  main{
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+  }
+
+  .calendar{
+    flex: 0 0 640px !important;
+  }
+
+  .right-side{
+    flex: 0 0 400px !important;
+    padding-top: 8px !important;      /* lines Step 1/2 with Step 3 title */
+  }
+}
+
+/* Tablets: keep two-column layout with modern theme, no overlap */
+@media (min-width: 768px) and (max-width: 1024px){
+  main{
+    flex-wrap: nowrap !important;
+    gap: 40px !important;
+  }
+  .calendar{
+    flex: 1 1 55% !important;
+    max-width: 55% !important;
+  }
+  .right-side{
+    flex: 1 1 45% !important;
+    max-width: 45% !important;
+    padding-top: 8px !important;
+  }
+}
+
+/* Phones: lighter shadows & smaller headings with same theme */
+@media (max-width: 576px){
+  main{
+    box-shadow: 0 16px 45px rgba(15,23,42,.7) !important;
+    padding: 18px 14px !important;
+    gap: 18px !important;
+  }
+  .appointment-txt{
+    font-size: 22px !important;
+    letter-spacing: .08em;
+  }
+  .step-header,
+  .right-side h2{
+    font-size: 16px !important;
+  }
+}
+/* ===== DESKTOP TRUE-CENTER LAYOUT (ADD-ONLY) ===== */
+@media (min-width: 1024px){
+
+  /* Center the entire booking block on the page */
+  main{
+    width: min(1300px, 90vw) !important;  /* nice max width */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 32px !important;
+    margin-bottom: 32px !important;
+    display: flex !important;
+    justify-content: space-between !important; /* 2 columns, balanced */
+    align-items: flex-start !important;
+  }
+
+  /* Remove big left offsets so content is really centered */
+  .calendar{
+    margin-left: 0 !important;
+  }
+  .step-header{
+    margin-left: 0 !important;
+  }
+
+  /* Right column: just a gentle gap from the calendar */
+  .right-side{
+    margin-left: 48px !important;
+    margin-right: 0 !important;
+  }
+}
+/* ===== TINY LEFT NUDGE FOR CALENDAR (ADD-ONLY) ===== */
+@media (min-width: 1024px){
+    .calendar{
+        transform: translateX(50px) !important; /* adjust the number as needed */
+    }
+}
+/* ==========================================
+  CENTER ALL CONTENT ON TABLET (768–1023px)
+  ========================================== */
+@media (min-width: 768px) and (max-width: 1280px){
+
+    /* Center the entire booking section */
+    main{
+        width: 90% !important;
+        max-width: 700px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Center text headings */
+    .step-header,
+    .right-side h2{
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    /* Make right-side naturally centered */
+    .right-side{
+        width: 100% !important;
+        max-width: 600px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Center the calendar block */
+    .calendar{
+        margin: 0 auto !important;
+        transform: none !important;  /* remove desktop shift */
+    }
+}
+/* ===== MOBILE FULL-WIDTH FIT (ADD-ONLY, FINAL) ===== */
+@media (max-width: 576px){
+
+  /* Make any outer wrappers go full width */
+  html, body{
+    margin:0 !important;
+    padding:0 !important;
+    width:100% !important;
+    overflow-x:hidden !important;
+  }
+
+  /* First-level wrappers – remove narrow max-widths */
+  body > div,
+  body > main,
+  body > header,
+  body > footer{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+  }
+
+  /* Appointment card & layout */
+  main{
+    width:100% !important;
+    max-width:100% !important;
+    padding-left:12px !important;
+    padding-right:12px !important;
+    box-sizing:border-box !important;
+  }
+
+  /* Form + calendar columns should not be clamped to 320px anymore */
+  .right-side,
+  .calendar,
+  .dropdown-container,
+  .proceed-button{
+    width:90% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
+  /* Make sure the calendar itself fills that width neatly */
+  .calendar-header,
+  .calendar-weekdays,
+  .calendar-days{
+    width:100% !important;
+  }
+}
+/* ===== FORCE PROCEED BUTTON UNDER CALENDAR (TABLET + MOBILE ONLY) ===== */
+@media (max-width: 1024px){
+  #proceedBtn {
+      display: block !important;
+      width: 100% !important;
+
+      /* Push it BELOW the calendar */
+      margin-top: 24px !important;   /* adjust higher/lower as needed */
+  }
+}
+
+/* ======================================================
+   FINAL CLEANUP FOR MOBILE & TABLET LAYOUT (OVERRIDES)
+   ====================================================== */
+
+/* Mobile: single column, full-width elements, no weird clamps */
+@media (max-width: 576px){
+
+  main{
+    display:block !important;
+    max-width:100% !important;
+    margin:16px auto !important;
+    padding:16px 12px !important;
+    border:none !important;
+    border-radius:0 !important;
+  }
+
+  .calendar{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 0 16px 0 !important;
+    transform:none !important;
+  }
+
+  .right-side{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+    gap:16px !important;
+    align-items:stretch !important;
+  }
+
+  .dropdown-container,
+  .proceed-button{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
+  .proceed-button{
+    display:block !important;
+  }
+}
+
+/* Tablet: clean two-column layout, centered, no overflow */
+@media (min-width: 577px) and (max-width: 1024px){
+
+  main{
+    width:90% !important;
+    max-width:1000px !important;
+    margin:24px auto !important;
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+    gap:32px !important;
+  }
+
+  .calendar{
+    flex:1 1 0 !important;
+    width:auto !important;
+    max-width:600px !important;
+    margin:0 !important;
+    transform:none !important;
+  }
+
+  .right-side{
+    flex:1 1 0 !important;
+    max-width:420px !important;
+    margin:0 !important;
+    align-items:flex-start !important;
+  }
+
+  .dropdown-container,
+  .proceed-button{
+    width:100% !important;
+    max-width:100% !important;
+  }
+}

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-image: url("image/all-background.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #0B1446;
+    }
+
+    .back-button {
+    display: inline-flex;
+    align-items: end;
+    background-color:rgb(0, 157, 241);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-right: 1100px;
+    }
+
+.back-button i {
+    margin-right: 6px;
+    }
+
+.back-button:hover {
+background-color: #1a252f;
+}
+  /* Header */
+  header {
+  background-color: #0B0B3B;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  position: relative;
+  color: white;
+  box-sizing: border-box;
+}
+header a.logo {
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+header a.logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+header a.undo {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 16px 0;
+  font-weight: 800;
+  font-size: 16px;
+  color: #0B0B3B;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+}
+nav a {
+  text-decoration: none;
+  color: #0B0B3B;
+  white-space: nowrap;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+    .active {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  .dropdown .dropdown-content a {
+    color: #2c3e50;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+    h2 {
+      text-align: center;
+      font-weight: 800;
+      font-size: 25px;
+      margin: 30px 0 30px 0;
+    }
+
+    .map-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .map-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 100px;
+    }
+
+    form {
+      max-width: 900px;
+      margin: 24px auto 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 8px;
+    }
+
+    form label {
+      font-weight: 800;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    form input[type="text"] {
+      flex-grow: 1;
+      border: 1px solid #0B1446;
+      border-radius: 4px;
+      padding: 6px 8px;
+      font-weight: 600;
+      font-size: 12px;
+      color: #0B1446;
+      outline-offset: 2px;
+    }
+
+    form input[type="text"]:focus {
+      outline: 2px solid #0B1446;
+    }
+
+    form button {
+      background-color: #0073E6;
+      color: white;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #005bb5;
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        gap: 16px;
+        font-size: 10px;
+      }
+
+      header .center h1 {
+        font-size: 16px;
+      }
+
+      form label {
+        font-size: 10px;
+      }
+
+      form input[type="text"] {
+        font-size: 10px;
+      }
+
+      form button {
+        font-size: 10px;
+        padding: 5px 8px;
+      }
+    }

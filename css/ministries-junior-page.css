@@ -1,0 +1,364 @@
+/* ============================================================
+   GLOBAL RESET + PAGE BASE
+   ============================================================ */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url("image/all-background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+main {
+    flex: 1;
+}
+
+section, nav, div, h2 {
+    background: transparent;
+}
+
+/* ============================================================
+   HEADER (unchanged)
+   ============================================================ */
+header {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* ============================================================
+   SERVICE SECTION (Baptism layout applied)
+   ============================================================ */
+#service-preach {
+    padding-top: 140px; /* clears the fixed header */
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+}
+
+#service-preach .service-header {
+    font-size: 60px;
+    color: #02084b;
+    font-weight: bold;
+}
+
+/* ============================================================
+   SERVICE CARD (white container)
+   ============================================================ */
+.service-container {
+    width: 100%;
+    max-width: 1150px;
+    background: white;
+    border-radius: 16px;
+    padding: 48px 40px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================================
+   LEFT COLUMN — TEXT
+   ============================================================ */
+.service-text {
+    flex: 1;
+    text-align: left;
+}
+
+.service-description {
+    font-size: 17px;
+    color: black;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 16px;
+}
+
+.how-to-join strong {
+    font-size: 20px;
+    color: #02084b;
+}
+
+.how-to-join p {
+    text-align: justify;
+    font-size: 16px;
+}
+
+
+/* ============================================================
+   JOIN NOW BUTTON
+   ============================================================ */
+.read-more-btn-baptism {
+    display: inline-block;
+    background: #000f4d;
+    padding: 14px 32px;
+    color: white;
+    font-size: 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+    margin-left: 170px;
+    margin-top: 20px;
+}
+
+.read-more-btn-baptism:hover {
+    background: #1a89d3;
+    transform: scale(1.05);
+}
+
+/* ============================================================
+   RIGHT COLUMN — IMAGE
+   ============================================================ */
+.service-image-container {
+    flex: 1;
+    max-width: 520px;
+    position: relative;
+}
+
+.service-image-container::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background: #02084b; /* KEEPING YOUR BLUE THEME */
+    border-radius: 16px;
+    z-index: 0;
+}
+
+.service-image {
+    position: relative;
+    z-index: 1;
+}
+
+.service-image img {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET & PHONE ONLY
+
+/* Responsive adjustments, same pattern as preach page */
+@media (max-width: 992px) {
+
+   .service-header {
+        margin-left: 60px !important;
+    }
+
+    .read-more-btn-baptism{
+        margin-left: 100px;
+        display: inline-block;
+ 
+    }
+
+  .service-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    flex-wrap: nowrap; /* prevent wrapping weirdness */
+  }
+
+  /* TEXT block first */
+  .service-text {
+    order: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .service-header-txt-preach {
+    border-left: none;
+    border-bottom: 3px solid #b28b45;
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+
+  /* IMAGE block second, under the header + text */
+  .service-image-container {
+    order: 2;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .service-image {
+    width: 100%;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Optional: keep paragraphs nicely readable */
+  .service-description,
+  .how-to-join p {
+    text-align: justify;
+    max-width: 75ch;
+    margin: 0 auto 16px;
+  }
+}
+/* default = desktop */
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* phones & tablets */
+@media (max-width: 992px) {
+   ntainer {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+
+  .service-text {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* show image right under the header (inside text) */
+  .mobile-only {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  /* hide the right-column desktop image */
+  .desktop-only {
+    display: none;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  .service-header-txt-preach {
+    border-left: none;
+    border-bottom: 3px solid #b28b45;
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+
+  .service-description,
+  .how-to-join p {
+    text-align: justify;
+    max-width: 75ch;
+    margin: 0 auto 16px;
+  }
+}
+
+/* FORCE desktop to hide mobile-only image */
+.mobile-only {
+    display: none !important;
+}
+
+/* FORCE desktop to show desktop-only image */
+.desktop-only {
+    display: block !important;
+}
+
+/* MOBILE/TABLET */
+@media (max-width: 992px) {
+
+    /* Swap visibility */
+    .mobile-only {
+        display: block !important;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Stack layout */
+    .service-container {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+}
+/* ============================================
+   FOOTER – MOBILE & TABLET ONLY
+   ============================================ */
+@media (max-width: 1200px) {
+
+  footer {
+    width: 100%;
+  }
+
+  /* Main footer layout — stack vertically */
+  footer .footer-container,
+  footer .footer-main,
+  footer .footer-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 24px;
+    width: 100%;
+  }
+
+  /* Each footer column full width */
+  footer .footer-column,
+  footer .footer-section,
+  footer .footer-box {
+    width: 100% !important;
+  }
+
+  /* Google Map responsive */
+  footer iframe {
+    width: 100% !important;
+    max-width: 360px;
+    height: 220px;
+  }
+
+  /* Navigation links stacked */
+  footer .footer-links ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  footer .footer-links li {
+    margin: 4px 0;
+  }
+
+  /* Contact centered */
+  footer .footer-contact,
+  footer .footer-contact p {
+    text-align: center !important;
+  }
+}

@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .icons span {
+    margin-left: 15px;
+    cursor: pointer;
+  }
+
+   th, td{
+    background: darkblue;
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    border: 1px solid;
+    padding: 20px;
+    margin: 0;
+    padding-right: 50px;
+    padding-left: 50px;
+    color: white;
+  }
+  table{
+    margin-top: 100px;
+    width: 80%;
+    border-collapse: collapse;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+
+    }
+    

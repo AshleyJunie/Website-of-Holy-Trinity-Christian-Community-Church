@@ -1,0 +1,311 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-image: url("image/all-background.png");
+      background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .back-button {
+    display: inline-flex;
+    align-items: end;
+    background-color:rgb(0, 157, 241);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-right: 1100px;
+    }
+
+.back-button i {
+    margin-right: 6px;
+    }
+
+.back-button:hover {
+background-color: #1a252f;
+}
+  /* Header */
+  header {
+  background-color: #0B0B3B;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  position: relative;
+  color: white;
+  box-sizing: border-box;
+}
+header a.logo {
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+header a.logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+header a.undo {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 16px 0;
+  font-weight: 800;
+  font-size: 16px;
+  color: #0B0B3B;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+}
+nav a {
+  text-decoration: none;
+  color: #0B0B3B;
+  white-space: nowrap;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+    .active {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  .dropdown .dropdown-content a {
+    color: #2c3e50;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  /* Main container */
+  main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 80px;
+  }
+
+  /* Add button */
+  .add-button {
+    background-color: #0B3B4A;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 6px; /* reduced left and right padding */
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    width: 100px;
+    min-width: 60px;
+    justify-content: center;
+  }
+
+
+    main {
+      margin-top: 2.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+      position: relative;
+      align-items: center;
+    }
+
+    .image-container {
+      margin-top: 50px;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      margin-right: 39px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+              0 6px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .image-container img.photo {
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 10;
+      display: block;
+    }
+
+    .image-container svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 48px;
+      z-index: 0;
+    }
+
+    .dove-icon {
+      position: absolute;
+      top: 0;
+      width: 120px;
+      height: 120px;
+      opacity: 0.3;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    /* Position dove icon for desktop */
+    @media (min-width: 768px) {
+      .dove-icon {
+        top: 2.5rem;
+        left: calc(50% + 100px);
+        right: auto;
+      }
+    }
+
+    /* Position dove icon for mobile */
+    @media (max-width: 767px) {
+      .dove-icon {
+        right: calc(50% - 60px);
+        left: auto;
+      }
+    }
+
+    .text-box {
+      max-width: 320px;
+      border: 1px solid black;
+      padding: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 180px;
+      box-sizing: border-box;
+    }
+
+    .text-box p {
+      font-weight: 800;
+      font-size: 0.90rem;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .text-box button {
+      background-color: #161540;
+      color: white;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      align-self: center;
+      margin-top: 1rem;
+      user-select: none;
+    }
+
+    .actions {
+      max-width: 900px;
+      margin-left: 60px;
+      padding: 0 2.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .actions button {
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.375rem;
+      border: none;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .actions .edit-image {
+      background-color: #161540;
+      color: white;
+    }
+
+    .actions .remove {
+      background-color: #7a0000;
+      color: white;
+    }
+
+    .actions .edit-image i {
+      font-style: normal;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      nav {
+        gap: 1.5rem;
+      }
+      main {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+      .text-box {
+        max-width: 100%;
+        height: auto;
+      }
+      .text-box button {
+        margin-top: 1rem;
+      }
+    }

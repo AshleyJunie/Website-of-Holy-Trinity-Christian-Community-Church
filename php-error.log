@@ -1,0 +1,5 @@
+[22-Oct-2025 02:11:38 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in C:\xampp\htdocs\HTCCC-SYSTEM\admin-schedule-request.php:172
+Stack trace:
+#0 C:\xampp\htdocs\HTCCC-SYSTEM\admin-schedule-request.php(172): mysqli_prepare(Object(mysqli), 'UPDATE service_...')
+#1 {main}
+  thrown in C:\xampp\htdocs\HTCCC-SYSTEM\admin-schedule-request.php on line 172

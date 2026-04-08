@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* ===== Light Theme Variables ===== */
+:root {
+  --bg: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e5e7eb;
+  --card: #f8fafc;
+  --card-2: #f1f5f9;
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1e40af;
+  --ok: #16a34a;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+}
+
+/* ===== Base ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+.site-header {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-btn img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.header-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.header-spacer {
+  width: 30px;
+}
+
+.page-title {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin: 24px 0;
+  color: var(--primary-dark);
+}
+
+/* ===== Page Layout ===== */
+.report-page {
+  width: 100%;
+  padding: 0 40px 40px;
+  box-sizing: border-box;
+}
+
+/* ===== Card Blocks ===== */
+.report-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.block-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--primary-dark);
+}
+
+.block-sub {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* ===== Chart ===== */
+.chart-container {
+  width: 100%;
+  height: 320px;
+  background: var(--card-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  box-sizing: border-box;
+  margin-bottom: 18px;
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  border-radius: 10px;
+}
+
+/* ===== KPI Cards ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 10px 0 24px;
+}
+
+.stat-box {
+  background: var(--card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .05);
+}
+
+.stat-box.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.stat-label {
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 6px;
+  color: var(--primary-dark);
+}
+
+.stat-box.primary .stat-label {
+  color: #e2e8f0;
+}
+
+.stat-box.primary .stat-number {
+  color: #fff;
+}
+
+/* ===== Table ===== */
+.table-wrap {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+  color: var(--text);
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background: var(--primary);
+  color: #fff;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 700;
+}
+
+tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:hover td {
+  background: var(--card-2);
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Status colors */
+td.status-confirmed { color: var(--ok); font-weight: 700; }
+td.status-pending   { color: var(--warn); font-weight: 700; }
+td.status-canceled  { color: var(--danger); font-weight: 700; }
+
+/* ===== Buttons ===== */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .05s ease, filter .15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  filter: brightness(.95);
+}
+
+.btn-secondary {
+  background: var(--card-2);
+  color: var(--primary-dark);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--card);
+}
+
+/* ===== Prayer Row ===== */
+.report-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.block-title {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+  .stats { grid-template-columns: 1fr; }
+  .chart-container { height: 280px; }
+}
+
+@media (max-width: 700px) {
+  .site-header { padding: 12px 16px; }
+  .page-title { font-size: 1.3rem; }
+  .report-page { padding: 0 16px 24px; }
+  .chart-container { height: 240px; }
+  .table-wrap { max-height: 340px; }
+}
+/* ===== Filter Bar ===== */
+.filter-bar{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  gap:16px;
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin:0 0 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.03);
+}
+
+.filter-group{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-width: 180px;
+}
+
+.filter-group label{
+  font-size:.85rem;
+  color: var(--muted);
+  font-weight:600;
+}
+
+.filter-group input[type="month"],
+.filter-group select{
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff;
+  color: var(--text);
+  font: inherit;
+  min-width: 180px;
+}
+
+.filter-actions{
+  display:flex;
+  gap:10px;
+}
+ul, button, a{
+  text-decoration: none;
+}
+/* KPI cards as buttons (no underline) */
+.stats .stat-box {
+  display: block;
+  text-decoration: none !important;
+  border-radius: 16px;
+  padding: 24px 28px;
+  background: #f4f7ff;              /* default bg */
+  color: #1e3a8a;                    /* slate/indigo text */
+  border: 1px solid #e6ebff;
+  transition: transform .08s ease, box-shadow .12s ease, background .15s ease;
+}
+
+.stats .stat-box:hover {
+  text-decoration: none !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37,99,235,.12);
+}
+
+/* ACTIVE: highlighted card (based on ?status=) */
+.stats .stat-box.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 10px 20px rgba(37,99,235,.25);
+}
+
+/* labels & numbers inside cards */
+.stats .stat-box .stat-label {
+  display: block;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: .9;
+  margin-bottom: 6px;
+}
+.stats .stat-box .stat-number {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* ===== KPI Cards (uniform) ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 14px 0 24px;
+}
+
+/* base card */
+.stats .stat-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: #f4f7ff;
+  color: #1e3a8a;
+  text-decoration: none !important;     /* no underline for <a> */
+  box-shadow: 0 6px 18px rgba(2,12,64,.05);
+  transition: transform .08s ease, box-shadow .12s ease, background .15s ease, color .15s ease;
+}
+.stats .stat-box:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(2,12,64,.08);
+}
+
+/* label + number inside */
+.stats .stat-box .stat-label{
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #6b84c6;                      /* muted indigo */
+}
+.stats .stat-box .stat-number{
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  color: #1e3a8a;
+}
+
+/* ACTIVE state: solid blue (ginagaya ang unang card) */
+.stats .stat-box.active{
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(37,99,235,.25);
+}
+.stats .stat-box.active .stat-label,
+.stats .stat-box.active .stat-number{
+  color: #fff;
+}
+
+

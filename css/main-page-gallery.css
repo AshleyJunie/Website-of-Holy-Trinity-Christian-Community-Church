@@ -1,0 +1,777 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+
+/* =========================
+   FLUID TOKENS
+   ========================= */
+:root{
+  /* layout */
+  --container-max: 1280px;
+  --radius: 8px;
+
+  /* spacing */
+  --gap: clamp(16px, 3vw, 40px);
+  --pad-inline: clamp(12px, 2vw, 24px);
+
+  /* carousel arrows & gutters */
+  --arrow-size: clamp(40px, 5.5vw, 56px);
+  --arrow-inset: clamp(6px, 1.5vw, 16px);
+
+  /* cards */
+  --card-w: clamp(240px, 28vw, 384px);
+  --img-h: clamp(180px, 38vw, 288px);
+
+  /* stage (keeps footer stable) */
+  --stage-min: clamp(520px, 62svh, 860px);
+
+  /* type */
+  --h2-size: clamp(1.25rem, 2.2vw, 2rem);
+  --btn-size: clamp(.95rem, 1.2vw, 1.125rem);
+  --badge-size: clamp(.75rem, 1.2vw, .875rem);
+}
+
+/* a11y helper */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#fff;
+  overflow-x:hidden;
+}
+
+/* Keep clear of fixed header */
+#main-content{padding-top:90px}
+
+/* =========================
+   SECTION WRAPPER
+   ========================= */
+#gallery{
+  position:relative;
+  max-width:var(--container-max);
+  margin:0 auto;
+  padding: clamp(16px, 2.2vw, 20px) var(--pad-inline) clamp(28px, 3vw, 32px);
+  background:#f3f4f6;
+  border-radius:var(--radius);
+}
+
+/* =========================
+   TOOLBAR
+   ========================= */
+.gallery-toolbar{
+  margin:.25rem 0 clamp(10px, 1.6vw, 16px);
+  display:flex; align-items:center; justify-content:space-between;
+  gap:.5rem; flex-wrap:wrap;
+}
+.gallery-toolbar select,.gallery-toolbar button{
+  background:#0A0E3F; color:#fff; border:none; border-radius:.375rem;
+  padding:.5rem .75rem; font-weight:700; font-size:clamp(.82rem, 1vw, .9rem);
+}
+.gallery-toolbar select{ background:#16205f; }
+.gallery-toolbar button{ cursor:pointer; }
+.gallery-toolbar button:hover{ background:#1B1F4D; }
+
+/* =========================
+   STAGE (prevents footer jump)
+   ========================= */
+.gallery-stage{
+  position:relative;
+  min-height:var(--stage-min);
+}
+
+/* =========================
+   CAROUSEL TRACK
+   ========================= */
+#carousel{
+  display:flex;
+  gap:var(--gap);
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding: .5rem calc(var(--arrow-size) + var(--pad-inline)) 1rem; /* side gutters for arrows */
+  -ms-overflow-style:none; /* IE/Edge */
+  scrollbar-width:none;     /* Firefox */
+}
+#carousel::-webkit-scrollbar{display:none}
+
+/* =========================
+   CARDS
+   ========================= */
+#carousel > article{
+  background:#fff;
+  flex: 0 0 var(--card-w);
+  border-radius:6px;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+  display:flex; flex-direction:column; align-items:center;
+}
+.img-wrapper{
+  width:100%;
+  padding:.75rem;
+  border:4px solid #1B1F4D;
+  border-radius:6px 6px 0 0;
+  position:relative; overflow:hidden;
+}
+.img-wrapper img{
+  width:100%;
+  height:var(--img-h);
+  object-fit:cover;
+  border-radius:4px;
+  display:block;
+}
+.month-label{
+  position:absolute; top:8px; left:8px; z-index:2;
+  background:rgba(10,14,63,.9); color:#fff; font-weight:800;
+  font-size:var(--badge-size);
+  padding:.25rem .5rem; border-radius:.25rem;
+}
+#carousel > article .content{
+  text-align:center;
+  padding: clamp(12px, 1.8vw, 20px) var(--pad-inline) clamp(18px, 2vw, 24px);
+  width:100%;
+}
+#carousel > article h2{
+  margin:.25rem 0 1rem;
+  font-size:var(--h2-size);
+  line-height:1.12;
+}
+#carousel > article .read-btn{
+  background:#0A0E3F; color:#fff; font-weight:700;
+  font-size:var(--btn-size);
+  padding: clamp(.7rem, 1.2vw, 1rem) clamp(1.2rem, 3vw, 3.5rem);
+  border:0; border-radius:.375rem; cursor:pointer;
+}
+#carousel > article .read-btn:hover{ background:#1B1F4D }
+
+/* =========================
+   CENTERED ARROWS
+   ========================= */
+.carousel-btn{
+  position:absolute;
+  top:50%; transform:translateY(-50%);
+  width:var(--arrow-size); height:var(--arrow-size);
+  border-radius:9999px;
+  background:#0A0E3F; color:#fff; border:none;
+  box-shadow:0 4px 8px rgba(0,0,0,.30);
+  display:flex; align-items:center; justify-content:center;
+  z-index:5; cursor:pointer;
+}
+#prevBtn{ left:var(--arrow-inset) }
+#nextBtn{ right:var(--arrow-inset) }
+.carousel-btn[disabled]{ opacity:.35; cursor:not-allowed }
+
+/* =========================
+   EMPTY OVERLAY
+   ========================= */
+#emptyState{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  pointer-events:none;
+  padding: 0 var(--pad-inline);
+}
+#emptyState .empty-card{
+  background:#fff; border:1px dashed #cbd5e1; border-radius:10px;
+  padding: clamp(16px, 2.4vw, 24px);
+  text-align:center; width:min(520px, 100%);
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  pointer-events:auto;
+}
+#emptyState .empty-card i{ font-size:clamp(24px, 2.2vw, 32px); opacity:.6; display:block; margin-bottom:8px }
+#emptyState .empty-card h3{ margin:8px 0 4px; color:#0A0E3F }
+#emptyState .empty-card p{ margin:0; color:#475569 }
+
+/* =========================
+   READ MODAL
+   ========================= */
+#modalOverlay{
+  position:fixed; inset:0;
+  display:none; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.6);
+  backdrop-filter: blur(6px);
+  z-index:9999;
+  padding: clamp(8px, 1.4vw, 12px);
+}
+#modalOverlay.active{ display:flex }
+#modalContent{
+  background:#fff; border-radius:12px;
+  width:min(1100px, 96vw);
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  animation:fadeIn .2s ease;
+}
+#modalHeader{
+  background:#0A0E3F; color:#fff; position:relative;
+  padding:12px clamp(36px, 3.5vw, 48px); text-align:center;
+}
+#modalHeader h2{ margin:0; font-size:clamp(1rem, 1.6vw, 1.1rem) }
+#modalCloseBtn{
+  position:absolute; right:12px; top:6px;
+  background:none; border:none; color:#fff;
+  font-size:clamp(1.4rem, 2.2vw, 1.8rem); line-height:1; cursor:pointer;
+}
+#modalCounter{
+  position:absolute; left:12px; top:8px;
+  font-weight:800; font-size:.85rem; opacity:.9;
+}
+#modalImage{
+  display:block; width:100%;
+  height: clamp(240px, 60svh, 560px);
+  object-fit:cover; background:#111;
+}
+#modalCaption{ padding:12px 20px; text-align:center }
+#modalDescription{ color:#222; font-size:clamp(1rem, 1.2vw, 1.05rem) }
+#captionToggle{ margin-top:6px; background:none; border:none; color:#0A0E3F; font-weight:800; cursor:pointer; display:none }
+
+#modalNav{ position:relative; padding:14px 16px 18px; display:flex; justify-content:center; gap:16px }
+#modalNav .edge{
+  position:absolute; top:calc(-1 * clamp(160px, 30svh, 260px));
+  transform:translateY(-50%);
+  width: clamp(42px, 5vw, 52px);
+  height: clamp(42px, 5vw, 52px);
+  border-radius:50%;
+  background:rgba(10,14,63,.92); color:#fff; border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:clamp(1.1rem, 1.6vw, 1.4rem);
+  box-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+#modalPrevBtn.edge{ left:10px }
+#modalNextBtn.edge{ right:10px }
+#modalNav .edge[disabled]{ opacity:.45; cursor:not-allowed }
+
+/* =========================
+   ALBUMS MODAL
+   ========================= */
+#viewAllOverlay{
+  position:fixed; inset:0;
+  display:none; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.6);
+  backdrop-filter: blur(6px);
+  z-index:9999;
+  padding: clamp(8px, 1.4vw, 12px);
+}
+#viewAllOverlay.active{ display:flex }
+#viewAllContent{
+  background:#fff; border-radius:12px;
+  width:min(1100px, 96vw);
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  animation:fadeIn .2s ease;
+}
+#viewAllHeader{
+  background:#0A0E3F; color:#fff; position:relative;
+  padding:12px clamp(36px, 3.5vw, 48px); text-align:center;
+}
+#viewAllHeader h2{ margin:0; font-size:clamp(1rem, 1.8vw, 1.2rem) }
+#viewAllCloseBtn{
+  position:absolute; right:12px; top:6px;
+  background:none; border:none; color:#fff;
+  font-size:clamp(1.4rem, 2.2vw, 1.8rem); line-height:1; cursor:pointer;
+}
+
+#albumsTools{
+  display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap;
+  padding: clamp(8px, 1.8vw, 10px) clamp(12px, 2vw, 14px);
+  background:#eef1ff; border-bottom:1px solid #dde2ff;
+}
+#albumsTools .tools-left, #albumsTools .tools-right{ display:flex; gap:.5rem; align-items:center }
+#albumsTools select, #albumsTools input{
+  background:#fff; border:1px solid #cbd5ff; border-radius:6px;
+  padding:6px 10px; font-size:clamp(.9rem, 1.2vw, .95rem);
+}
+
+#albumRow{ display:flex; gap:var(--gap); overflow-x:auto; padding:16px }
+.album-card{ flex:0 0 clamp(200px, 22vw, 260px); cursor:pointer; text-align:center }
+.album-card img{
+  width:100%; height: clamp(160px, 24vw, 220px); object-fit:cover;
+  border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,.25);
+}
+.album-card h4{ margin:.5rem 0 .15rem; font-weight:800; color:#0A0E3F; font-size:clamp(.95rem, 1.3vw, 1rem) }
+.album-card p{ margin:0; color:#333; font-weight:700; font-size:clamp(.85rem, 1.1vw, .95rem) }
+
+#albumViewer{ display:none; padding:12px clamp(12px, 2vw, 16px) 20px }
+.av-header{ display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:10px; font-size:clamp(.95rem, 1.2vw, 1rem) }
+#albumsBreadcrumb{ color:#0A0E3F; font-weight:800; text-decoration:none; cursor:pointer }
+#albumsBreadcrumb:hover{ text-decoration:underline }
+#albumImages{ display:flex; gap:10px; overflow-x:auto }
+#albumImages img{
+  height: clamp(120px, 22vw, 200px);
+  border-radius:10px; object-fit:cover; box-shadow:0 2px 6px rgba(0,0,0,.25);
+  cursor:pointer;
+}
+
+/* =========================
+   ANIMATION
+   ========================= */
+@keyframes fadeIn{ from{opacity:0; transform:scale(.98)} to{opacity:1; transform:scale(1)} }
+
+/* =========================
+   RESPONSIVE FALLBACKS
+   (extra polish for very small screens)
+   ========================= */
+@media (max-width:480px){
+  #carousel{ gap: clamp(12px, 4vw, 18px); }
+  #carousel > article{ flex-basis: clamp(220px, 88vw, 280px); }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce){
+  #carousel{ scroll-behavior:auto; }
+}
+
+/* =========================
+   LIGHTBOX (unchanged look, fluid sizing)
+   ========================= */
+#lightboxOverlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10050;
+  padding: clamp(12px, 2vw, 20px);
+}
+#lightboxOverlay.active{ display:flex; }
+
+#lightboxImg{
+  max-width: 92vw;
+  max-height: min(86vh, 86svh);
+  object-fit: contain;
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+
+#lightboxCaption{
+  position: absolute;
+  bottom: clamp(14px, 2vw, 22px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f5f7ff;
+  font-weight: 700;
+  text-align: center;
+  max-width: 90vw;
+  text-shadow: 0 2px 8px rgba(0,0,0,.6);
+  font-size: clamp(.9rem, 1.4vw, 1rem);
+}
+
+#lightboxOverlay .lb-close,
+#lightboxOverlay .lb-prev,
+#lightboxOverlay .lb-next{
+  position: absolute;
+  background: rgba(10,14,63,.95);
+  color: #fff;
+  border: none;
+  width: clamp(44px, 6vw, 52px);
+  height: clamp(44px, 6vw, 52px);
+  border-radius: 9999px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.4);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+}
+
+#lightboxOverlay .lb-close{ top: clamp(10px, 2vw, 18px); right: clamp(10px, 2vw, 18px); font-size: clamp(1.4rem, 3vw, 1.75rem); }
+#lightboxOverlay .lb-prev { left: clamp(10px, 2vw, 22px); top: 50%; transform: translateY(-50%); }
+#lightboxOverlay .lb-next { right:clamp(10px, 2vw, 22px); top: 50%; transform: translateY(-50%); }
+
+#lightboxOverlay .lb-prev[disabled],
+#lightboxOverlay .lb-next[disabled]{ opacity:.35; cursor:not-allowed }
+/* ===========================================
+   MOBILE/TABLET FIXES FOR ARROWS + TOOLBAR
+   (paste AFTER your existing CSS)
+   =========================================== */
+
+/* Variables we’ll use to compute the arrow’s vertical position */
+:root{
+  --car-pad-top: .5rem;   /* #carousel padding-top */
+  --img-pad: .75rem;      /* .img-wrapper padding */
+  --img-bor: 4px;         /* .img-wrapper border width */
+  --img-h-mobile: 220px;  /* fallback image height on small screens */
+}
+
+/* Make the toolbar stack neatly on phones */
+@media (max-width: 640px){
+  .gallery-toolbar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .gallery-toolbar .toolbar-left,
+  .gallery-toolbar .toolbar-right{
+    display: contents; /* keep the children, drop the wrapper box */
+  }
+  .gallery-toolbar select,
+  .gallery-toolbar button{
+    width: 100%;
+  }
+  /* Put the "View All Photos" button on its own row full width */
+  .gallery-toolbar .btn--primary{
+    grid-column: 1 / -1;
+  }
+}
+
+/* Keep carousel smooth on touch devices */
+#carousel{ touch-action: pan-x; }
+
+/* Ensure our navy color always wins (in case another CSS overrides it) */
+.gallery-stage > .carousel-btn{
+  background: #0A0E3F !important;
+  color: #fff !important;
+}
+
+/* Shrink arrows a bit on small screens */
+@media (max-width: 640px){
+  .carousel-btn{
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+/* === The important part: place arrows in the MIDDLE of the IMAGE area ===
+   We estimate the arrow vertical center as:
+   carousel top padding + image wrapper top padding + image wrapper border + (image height / 2)
+   This keeps arrows away from the READ buttons on phones/tablets.
+*/
+@media (max-width: 1024px){
+  .carousel-btn{
+    top: calc(
+      var(--car-pad-top) + var(--img-pad) + var(--img-bor)
+      + (var(--img-h-mobile) / 2)
+    );
+    transform: translateY(-50%);
+  }
+  #prevBtn{ left: 8px; }
+  #nextBtn{ right: 8px; }
+}
+
+/* If you’re using the fluid version where the image height is defined as a variable,
+   uncomment this block to use that actual value instead of the fallback above.
+
+:root{
+  --img-h: clamp(180px, 38vw, 288px);  // must match your image height rule
+}
+@media (max-width: 1024px){
+  .carousel-btn{
+    top: calc(
+      var(--car-pad-top) + var(--img-pad) + var(--img-bor)
+      + (var(--img-h) / 2)
+    );
+  }
+}
+*/
+
+/* Disabled look stays, but ensure only the disabled one looks dim */
+.carousel-btn[disabled]{ opacity:.35; cursor:not-allowed; }
+/* =========================================================
+   MOBILE/TABLET/UI POLISH — paste AFTER your existing CSS
+   ========================================================= */
+
+/* 1) Define a single source of truth for image height
+      and *reuse it* for both the image and the arrows calc. */
+:root{ --img-h: 288px; }             /* desktop default */
+@media (max-width: 1024px){ :root{ --img-h: 280px; } }  /* tablets */
+@media (max-width: 640px) { :root{ --img-h: 220px; } }  /* phones */
+
+/* Apply the var to the gallery card image (override fixed heights) */
+#carousel > article .img-wrapper img{
+  height: var(--img-h) !important;
+}
+
+/* 2) Compute arrow vertical center based on the IMAGE,
+      not on the whole stage (so they don't sit too high/low). */
+.gallery-stage{
+  --car-pad-top: .5rem;   /* #carousel padding-top */
+  --img-pad: .75rem;      /* .img-wrapper padding */
+  --img-bor: 4px;         /* .img-wrapper border width */
+}
+
+/* Use the formula on all viewports for consistent centering */
+.gallery-stage > .carousel-btn{
+  top: calc(
+    var(--car-pad-top) + var(--img-pad) + var(--img-bor) + (var(--img-h) / 2)
+  ) !important;
+  transform: translateY(-50%) !important;
+}
+
+/* Tighten arrow size & inset on small screens */
+@media (max-width: 640px){
+  .gallery-stage > .carousel-btn{
+    width: 42px !important; height: 42px !important;
+  }
+  #prevBtn{ left: 8px !important; }
+  #nextBtn{ right: 8px !important; }
+}
+
+/* Force our navy color in case other styles override it */
+.gallery-stage > .carousel-btn{
+  background:#0A0E3F !important; color:#fff !important;
+}
+
+/* 3) Toolbar: clean, responsive layout on phones
+      Row 1:  All months | Newest
+      Row 2:  All albums (full width)
+      Row 3:  View All Photos (full width)                            */
+@media (max-width: 640px){
+  .gallery-toolbar{
+    display:grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* Drop wrapper boxes but keep children */
+  .gallery-toolbar .toolbar-left,
+  .gallery-toolbar .toolbar-right{ display: contents !important; }
+
+  /* Controls fill their grid cells */
+  #pageMonth, #pageSort, #pageAlbum, #viewAllBtn{
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  /* Place items in explicit grid areas */
+  #pageMonth{ grid-column: 1 / span 1; }
+  #pageSort { grid-column: 2 / span 1; }
+  #pageAlbum{ grid-column: 1 / -1; }     /* full width */
+  #viewAllBtn{ grid-column: 1 / -1; }    /* full width */
+}
+
+/* 4) A little breathing room below the toolbar on mobile */
+@media (max-width: 640px){
+  #gallery{ padding-top: 14px; }
+}
+
+/* 5) Make horizontal arrows native-pan friendly */
+#carousel{ touch-action: pan-x; }
+
+/* 6) Disabled state remains clear */
+.carousel-btn[disabled]{ opacity:.35; cursor:not-allowed; }
+/* ============================
+   MOBILE TUNING (<= 640px)
+   - one card visible
+   - smaller filter controls
+   - tidy spacing
+   ============================ */
+
+@media (max-width: 640px){
+
+  /* --- Make the carousel show exactly ONE card --- */
+  /* width of each card = ~88% of viewport so only one fits */
+  #carousel{
+    gap: 14px;
+    /* keep side gutters for arrows; can be 56–64px depending on your arrows */
+    padding: 8px 60px 14px;
+  }
+  #carousel > article{
+    flex: 0 0 88vw;      /* one card shows at a time */
+    max-width: 420px;    /* safety cap on larger phones */
+  }
+
+  /* --- Smaller image height for the card on phones (keeps everything compact) --- */
+  #carousel > article .img-wrapper img{
+    height: 220px !important;
+  }
+
+  /* --- Shrink the filter buttons/inputs --- */
+  .gallery-toolbar{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;   /* Row 1: All months | Newest */
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .gallery-toolbar .toolbar-left,
+  .gallery-toolbar .toolbar-right{ display: contents !important; }
+
+  /* Controls get smaller typography and padding */
+  .gallery-toolbar select,
+  .gallery-toolbar button{
+    width: 100%;
+    min-width: 0;
+    font-size: .78rem;           /* smaller text */
+    padding: .42rem .6rem;       /* tighter height */
+    border-radius: .3rem;
+  }
+
+  /* Row placement: */
+  #pageMonth{ grid-column: 1 / span 1; }
+  #pageSort { grid-column: 2 / span 1; }
+  #pageAlbum{ grid-column: 1 / -1; }   /* full width on row 2 */
+  #viewAllBtn{ grid-column: 1 / -1; }  /* full width on row 3 */
+
+  /* --- Month badge slightly smaller so it doesn’t dominate --- */
+  .month-label{
+    font-size: .75rem;
+    padding: .2rem .45rem;
+  }
+
+  /* --- Keep arrows nicely centered on the image (not the whole stage) --- */
+  .gallery-stage{
+    --car-pad-top: .5rem;   /* #carousel padding-top */
+    --img-pad: .75rem;      /* .img-wrapper padding */
+    --img-bor: 4px;         /* .img-wrapper border width */
+  }
+  .gallery-stage > .carousel-btn{
+    width: 42px !important;
+    height: 42px !important;
+    top: calc(
+      var(--car-pad-top) + var(--img-pad) + var(--img-bor) + (220px / 2)
+    ) !important;                  /* 220px = image height above */
+    transform: translateY(-50%) !important;
+  }
+  #prevBtn{ left: 8px !important; }
+  #nextBtn{ right: 8px !important; }
+}
+
+/* (Optional) If you’re using the fluid variable --img-h elsewhere,
+   you can replace 220px in the calc above with var(--img-h). */
+/* ===========================
+   MOBILE VIEW (<= 640px)
+   - 1 card only, centered
+   - 2x2 filter layout (smaller)
+   - arrows centered on image
+   =========================== */
+
+@media (max-width: 640px){
+
+  /* ---- Card sizing: exactly ONE card per view ---- */
+  :root{
+    --card-w-mobile: 88vw;   /* 1 card fills ~88% of viewport width */
+    --img-h-mobile: 220px;   /* image height for phones */
+  }
+
+  /* Center the first card by padding the track with half of the leftover width.
+     We also enable scroll-snap so every swipe centers the next card. */
+  #carousel{
+    gap: 14px;
+    padding-left:  calc((100vw - var(--card-w-mobile))/2);
+    padding-right: calc((100vw - var(--card-w-mobile))/2);
+    scroll-snap-type: x mandatory;
+    touch-action: pan-x;
+  }
+  #carousel > article{
+    flex: 0 0 var(--card-w-mobile);
+    max-width: 420px;                 /* safety cap for big phones */
+    scroll-snap-align: center;
+  }
+
+  /* Compact image height */
+  #carousel > article .img-wrapper img{
+    height: var(--img-h-mobile) !important;
+  }
+
+  /* ---- Filters: 2 x 2 grid, smaller controls ---- */
+  .gallery-toolbar{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .gallery-toolbar .toolbar-left,
+  .gallery-toolbar .toolbar-right{ display: contents !important; }
+
+  /* Smaller text/padding for selects & button */
+  .gallery-toolbar select,
+  .gallery-toolbar button{
+    width: 100%;
+    min-width: 0;
+    font-size: .78rem;
+    padding: .42rem .6rem;
+    border-radius: .3rem;
+  }
+
+  /* Exact placement:
+     Row 1: All months | Newest
+     Row 2: All albums | View All Photos
+  */
+  #pageMonth { grid-column: 1 / span 1; }
+  #pageSort  { grid-column: 2 / span 1; }
+  #pageAlbum { grid-column: 1 / span 1; }    /* left of row 2 */
+  #viewAllBtn{ grid-column: 2 / span 1; }    /* right of row 2 */
+
+  /* ---- Arrows: centered on image (not the whole card/stage) ---- */
+  .gallery-stage{
+    --car-pad-top: .5rem;   /* #carousel padding-top */
+    --img-pad: .75rem;      /* .img-wrapper padding */
+    --img-bor: 4px;         /* .img-wrapper border */
+  }
+  .gallery-stage > .carousel-btn{
+    width: 42px !important;
+    height: 42px !important;
+    /* center vertically at the middle of the image area */
+    top: calc(
+      var(--car-pad-top) + var(--img-pad) + var(--img-bor) + (var(--img-h-mobile) / 2)
+    ) !important;
+    transform: translateY(-50%) !important;
+    background:#0A0E3F !important; color:#fff !important;
+  }
+  #prevBtn{ left: 8px !important; }
+  #nextBtn{ right: 8px !important; }
+
+  /* Month badge a bit smaller */
+  .month-label{
+    font-size: .75rem;
+    padding: .2rem .45rem;
+  }
+}
+
+/* If you also use a fluid --img-h for bigger screens, this keeps arrows centered there too */
+@media (min-width: 641px){
+  .gallery-stage{
+    --car-pad-top: .5rem;
+    --img-pad: .75rem;
+    --img-bor: 4px;
+  }
+  /* Set this to your actual image height var or fallback value on tablet/desktop */
+  :root{ --img-h-desktop: 288px; }
+  #carousel > article .img-wrapper img{ height: var(--img-h-desktop); } /* fallback guard */
+
+  .gallery-stage > .carousel-btn{
+    top: calc(
+      var(--car-pad-top) + var(--img-pad) + var(--img-bor) + (var(--img-h-desktop) / 2)
+    );
+    transform: translateY(-50%);
+  }
+}
+
+/* ====== FOOTER NAVIGATION FIX (for dropdowns) ====== */
+footer .nav-footer ul {
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+/* Top-level items */
+footer .nav-footer ul > li {
+  position: relative;
+}
+
+/* Hide the submenu by default */
+footer .nav-footer .ministries-menu {
+  display: none;
+  list-style: none;
+  padding-left: 15px;
+  margin: 4px 0 0 0;
+}
+
+/* Show submenu only when hovering the parent <li> */
+footer .nav-footer .ministries-dropdown:hover > .ministries-menu {
+  display: block;
+}
+
+/* Links */
+footer .nav-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+
+footer .nav-footer a:hover {
+  color: #FFD700;
+}
+
+/* Optional: little hover visual spacing */
+footer .nav-footer li {
+  line-height: 1.6;
+}
+li{
+  list-style: none;
+}

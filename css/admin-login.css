@@ -1,0 +1,175 @@
+/* ===== Global Reset & Typography ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Always reserve vertical scrollbar slot to avoid horizontal shift */
+html { overflow-y: scroll; }
+
+/* ===== Viewport & Background Layer ===== */
+html, body {
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;          /* dynamic viewport height */
+  overflow-x: hidden;
+}
+
+/* Draw background on the viewport (not on body) to avoid gutters/jitter */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -999;
+  background-image: url("/HTCCC-SYSTEM/image/slider-main3.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+}
+
+/* ===== Page Centering (content only) ===== */
+body {
+  /* keep body transparent so html::before shows through */
+  background: transparent !important;
+
+  /* Perfect centering for the card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+}
+
+/* When SweetAlert is open, keep the layout frozen and centered */
+body.modal-open,
+body.swal2-shown {
+  position: fixed;
+  overflow: hidden;    /* block scroll behind modal */
+  width: 100%;
+  height: 100%;
+  left: 0; right: 0; top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0 !important; /* neutralize SA2 padding */
+}
+
+/* SweetAlert container tweaks */
+.swal2-container {
+  padding: 0 !important;
+  overscroll-behavior: contain;
+}
+
+/* ===== Card Container ===== */
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  max-width: 95%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  will-change: transform;      /* smoother during modal open/close */
+  transform: translateZ(0);
+}
+
+/* ===== Left Side (Logo) ===== */
+.left-section {
+  width: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 40px;
+}
+
+.left-section img {
+  width: 250px;
+  margin-top: 40px;
+}
+
+.left-section h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* ===== Right Side (Form) ===== */
+.right-section {
+  width: 50%;
+  background: black;
+  padding: 40px;
+  color: #fff;
+  text-align: center;
+}
+
+.right-section h2 { margin-bottom: 20px; }
+
+/* ===== Inputs ===== */
+.input-box {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ===== Button ===== */
+.login-btn {
+  width: 100%;
+  background: lightblue;
+  border: none;
+  padding: 10px;
+  color: black;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s ease;
+}
+
+.login-btn:hover { background: #00f2fe; }
+
+/* ===== Links ===== */
+.links { margin-top: 10px; }
+
+.links a {
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.links a:hover { text-decoration: underline; }
+
+/* keep generic anchors white on this page */
+a { text-decoration: none; color: white; }
+
+/* if a button is wrapped by an <a>, ensure text stays white */
+a .login-btn { color: white; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 560px;
+  }
+  .left-section,
+  .right-section { width: 100%; }
+  .left-section img {
+    width: 200px;
+    margin-top: 10px;
+  }
+}

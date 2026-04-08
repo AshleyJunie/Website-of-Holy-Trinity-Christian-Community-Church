@@ -1,0 +1,277 @@
+/* ===========================================
+   HTCCC responsive layer (non-destructive)
+   - No HTML changes required
+   - Only overrides problem spots on small screens
+   =========================================== */
+
+/* --- Global fluidity --- */
+html { font-size: 16px; }
+img, video, canvas, iframe { max-width: 100%; height: auto; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Fixed header space compensation on small screens */
+@media (max-width: 768px){
+  body { padding-top: 72px; } /* header is fixed; prevent content hiding */
+}
+
+/* --- Header / Navbar --- */
+/* Keep your desktop look; on small screens we just stack and always show links
+   (no hamburger JS needed) */
+@media (max-width: 992px){
+  header { padding: 12px 16px; }
+  .logo img { height: 46px; }
+  .nav-container { position: relative; align-items: stretch; }
+  .hamburger { display: none !important; } /* no JS toggle, so hide it */
+
+  .nav-links{
+    position: static !important;
+    display: flex !important;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    background: #fff;
+    padding: 8px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+  .nav-links li { margin: 0; }
+  .nav-links li a{
+    display: block;
+    padding: 10px 14px;
+    margin-right: 0;
+    font-size: 14px;
+  }
+
+  /* Dropdowns turn into inline lists (tap friendly) */
+  .dropdown .dropdown-menu{
+    position: static;
+    display: block;          /* keep visible so no hover needed */
+    box-shadow: none;
+    border-radius: 6px;
+    background: #f9fafb;
+    margin: 6px 10px 10px;
+    padding: 6px;
+  }
+  .dropdown .dropdown-menu li a{
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  /* Profile label tighter */
+  .profile-dropdown span { font-size: 12px !important; }
+}
+
+/* --- Slider / Hero --- */
+.slider { height: auto; min-height: 60vh; }
+.slide  { height: auto; min-height: 60vh; }
+.caption{ padding: 12px 16px; }
+.caption h2 { font-size: clamp(18px, 3.5vw, 28px); }
+
+/* Very small phones */
+@media (max-width: 420px){
+  .caption h2 { font-size: 16px; }
+}
+
+/* --- Sections / Typography --- */
+section { padding: clamp(20px, 5vw, 50px); height: auto; }
+p { font-size: clamp(14px, 2.2vw, 18px); }
+
+/* Service header/description sizes & margins */
+h2.service-header {
+  font-size: clamp(26px, 6vw, 48px);
+  margin: 12px 0 4px 0;
+}
+.service-header { text-align: center !important; }
+
+/* Service block that was shifting right by margins */
+.service-container{
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  gap: 16px !important;
+  padding: 0 12px;
+  max-width: 1200px;
+}
+.service-description{ margin: 0 16px !important; text-align: left; }
+
+/* Image frames and containers */
+.service-image-container{ max-width: 600px; width: 100%; }
+
+/* On tablets/phones, stack service content */
+@media (max-width: 900px){
+  .service-container{ flex-direction: column !important; }
+  .service-text{ text-align: left !important; }
+}
+
+/* Buttons with heavy left margins -> center on mobile */
+@media (max-width: 768px){
+  .read-more-btn,
+  .read-more-btn-baptism,
+  .btn-dedication,
+  .btn-funeral,
+  .btn-wedding,
+  .btn-house,
+  .btn-prayer,
+  .join-button {
+    margin: 10px auto 0 !important;
+    display: inline-block;
+  }
+}
+
+/* --- Events --- */
+.event-container{
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px !important;
+}
+.event-box{ width: min(320px, 92vw); }
+
+/* --- Gallery --- */
+.gallery-container{ width: 100% !important; padding: 0 12px; }
+.gallery-slider{ gap: 12px; }
+.gallery-item{ min-width: min(260px, 86vw); }
+
+/* --- Ministries section --- */
+.ministry-content{
+  gap: 20px !important;
+  padding: 0 12px;
+}
+.ministry-text p{ font-size: clamp(14px, 2.4vw, 18px) !important; }
+@media (max-width: 900px){
+  .ministry-content{ flex-direction: column !important; text-align: left !important; }
+  .ministry-text{ max-width: 100% !important; }
+  .image-frame::before{ left: 4px; top: -4px; }
+}
+
+/* --- Find Us / Map --- */
+.map-container{
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 8px !important;
+  border-width: 6px !important;
+}
+.map-container img{ width: 100% !important; height: auto !important; }
+
+/* --- Join Us split section --- */
+#join-us{
+  gap: 24px !important;
+  padding: clamp(20px, 6vw, 60px) !important;
+}
+.image-container{ width: 100% !important; max-width: 640px; margin: 0 auto; }
+.content{ max-width: 800px !important; margin: 0 auto; }
+.content h2{ font-size: clamp(24px, 6vw, 44px); }
+.content p { font-size: clamp(14px, 2.6vw, 18px); }
+.join-button{ font-size: clamp(14px, 3.6vw, 20px); padding: 12px 26px; }
+
+@media (max-width: 992px){
+  #join-us{ flex-direction: column !important; text-align: center; }
+  .content{ text-align: center; }
+}
+
+/* --- Schedule / Announcement / Playlist blocks (center + wrap) --- */
+.schedule-section{ padding: 32px 16px !important; min-height: auto !important; }
+.schedule-announcement-title{ font-size: clamp(16px, 3.4vw, 20px) !important; }
+.schedule-announcement-text1,
+.schedule-announcement-text2,
+.schedule-announcement-signature{ font-size: clamp(13px, 2.8vw, 16px) !important; }
+
+/* Schedule table grid collapses cleanly on small screens */
+.schedule-ministries{ width: 100%; }
+.schedule-ministries-table{
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1024px){
+  .schedule-ministries-table{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .schedule-ministries-table{ grid-template-columns: 1fr !important; }
+  .schedule-ministries-day{ border-right: none !important; }
+  .schedule-ministries-detail{ border-right: none !important; }
+}
+
+/* Playlist items wrap & readable */
+.schedule-playlist-items{ gap: 16px 24px !important; justify-content: center; }
+.schedule-playlist-item{ white-space: normal !important; font-size: clamp(14px, 2.6vw, 16px); }
+
+/* --- Footer --- */
+/* Your footer root uses inline styles; we can still improve spacing & wrapping */
+footer [style*="display: flex"]{
+  gap: 16px !important;
+}
+footer iframe { width: 100% !important; height: 220px !important; border-radius: 8px; }
+.nav-footer ul{ font-size: clamp(11px, 2.6vw, 14px) !important; }
+.nav-footer a{ line-height: 1.6; }
+
+/* --- Live mini-player (already responsive; just ensure margins on tiny phones) --- */
+@media (max-width: 420px){
+  #live-mini{ left: 10px; right: 10px; width: auto; }
+}
+
+/* --- Profile Drawer (already responsive) small polish --- */
+@media (max-width: 520px){
+  .profile-row{ grid-template-columns: 1fr !important; }
+  .profile-drawer{ width: 95vw !important; }
+}
+
+/* --- Long text trimming utility for any cards/captions (optional; no markup change) --- */
+.text-trim-2, .text-trim-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.text-trim-2 { -webkit-line-clamp: 2; }
+.text-trim-3 { -webkit-line-clamp: 3; }
+
+/* --- Fix any oversized elements that used fixed pixel widths --- */
+.square-box{
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  margin: 0 auto;
+}
+
+/* --- Misc small tweaks from your sheet, mobile-first --- */
+header .logo img{ max-height: 56px; width: auto; }
+.read-more-btn,
+.read-more-btn-baptism,
+.btn-dedication,
+.btn-funeral,
+.btn-wedding,
+.btn-house,
+.btn-prayer { font-size: clamp(14px, 3.2vw, 20px); }
+
+/* Prevent horizontal scrolling due to big margins/paddings */
+html, body { overflow-x: hidden; }
+/* =====================================
+   FIX: Mobile menu background overlay
+   ===================================== */
+@media (max-width: 992px) {
+  .nav-links {
+    background: white !important;        /* use light background */
+    position: static !important;         /* remove absolute overlay */
+    height: auto !important;             /* no full height */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links li a {
+    color: #0A0E3F !important;           /* dark text for readability */
+    border-bottom: 1px solid #e5e7eb;    /* subtle dividers between links */
+  }
+
+  .dropdown .dropdown-menu {
+    background: #f8f9fb !important;      /* soft background for submenu */
+    padding: 4px 0;
+    border-radius: 6px;
+  }
+
+  header {
+    background: white !important;        /* keep logo area white */
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .logo img {
+    height: 40px !important;
+  }
+}

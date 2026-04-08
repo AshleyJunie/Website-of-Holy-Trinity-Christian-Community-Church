@@ -1,0 +1,485 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+ul, ol {
+  list-style-type: none;     
+}
+main {
+  flex: 1;
+}   
+        *{
+            font-family: Arial, sans-serif;
+        }
+     body { 
+        background-image: url("image/all-background.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+    }
+
+    section, nav, div, h2 {
+        background: transparent;
+    }
+    body::-webkit-scrollbar {
+    display: none; 
+  }
+
+        html, body {
+            height: 100%;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        section {
+            padding: 50px;
+            height: 100vh;
+        }
+
+        p{
+            color: black;
+            font-size: 25px;
+            text-align: center;
+        }
+        header {
+            background: #fff;
+            padding: 15px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #02084b;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 3px;
+            transition: color 0.3s;
+            margin-right: 60px;
+            
+        }
+
+        .nav-links li a:hover {
+            color: lightblue;
+        }
+
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-btn img {
+            width: 30px; 
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .login-btn img:hover {
+            transform: scale(1.1);
+        }
+
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            color: white; 
+            text-decoration: none;
+        }
+
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            background-color: white;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 15px;
+            color: black;
+            text-decoration: none;
+        }
+
+
+        .dropdown-menu li a:hover {
+            background-color: #f0f0f0;
+        }
+
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+
+        .hamburger {
+            display: none; 
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .active::after{
+            color: blueviolet;
+        }
+        #service-preach{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0;
+}
+
+#service-preach h2 {
+    margin-left: 50px;
+    font-size: 60px;
+}
+.service-description{
+    text-align: justify;
+    margin-right: 100px;
+    text-indent: 5px;
+    font-size: 17px;
+}
+.service-header{
+    margin-left: 150px;
+    font-size: 50px;
+}
+
+.service-text {
+    flex: 1;
+    text-align: left;
+    margin-left: 1px;
+}
+
+.service-text h3 {
+    color: #02084b;
+    font-size: 25px;
+}
+.read-more-btn-baptism {
+    display: inline-block;
+    background: #000f4d;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+    margin-left: 150px;
+}
+footer{
+    width: 100%;
+}
+
+.read-more-btn:hover {
+    background: #1a89d3;
+}
+.service-container{
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    gap: 10px;
+    position: relative;
+    margin-left: 150px;
+}
+.service-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 550px; 
+    height: auto;
+}
+
+.service-image-container::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background: #02084b; /* Kulay ng container */
+    border-radius: 15px;
+    z-index: 0;
+}
+
+.service-image {
+    position: relative;
+    z-index: 1; /* Para mapatong sa background */
+}
+
+.service-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-text {
+        text-align: center;
+    }
+
+    .service-image-container {
+        width: 90%;
+    }
+
+    .service-image-container::before {
+        top: 15px;
+        left: -15px;
+    }
+}
+
+
+h2.service-header {
+    color: #02084b;
+    font-size: 60px; 
+}
+.footer-content{
+    color: white;
+}
+.footer-loc{
+    margin-left: 100px;
+}
+
+.nav-footer a {
+  color: white; 
+  text-decoration: none;
+  transition: color 0.3s ease;
+  opacity: 90px;
+  font-size: 10px;
+}
+.ministries-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+footer{
+    width: 100%;
+}
+.ministries-dropdown:hover .ministries-menu {
+  display: block;
+}
+
+.ministries-menu li a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.ministries-menu li a:hover {
+  background-color: #f1f1f1;
+  font-size: 1.5 rem;
+}
+        /* Responsive */
+        @media (max-width: 900px) {
+            .ministry-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ministry-text {
+                text-align: center;
+            }
+
+            .image-frame::before {
+                left: 5px;
+                top: -5px;
+            }
+        }
+.nav-header a:hover{
+    color: #000f4d;
+}
+
+/* =========================
+   TABLET (≤ 992px)
+   ========================= */
+@media (max-width: 992px) {
+  /* Let sections expand so nothing collides with the footer */
+  section { height: auto !important; min-height: auto !important; }
+
+  /* Stack the service area and center it */
+  .service-container{
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto !important;
+    padding: 0 16px;
+    gap: 18px;
+  }
+
+  /* Make children of .service-text participate directly in flex ordering */
+  .service-text{ display: contents !important; text-align: center !important; }
+
+  /* --- ORDERING RULE: image always in the middle --- */
+  /* 1) Baptism title (h3 inside .service-text) */
+  .service-text > h3,
+  .service-text > h3.service-header-txt-preach{
+    order: 1 !important;
+    margin: 0 0 6px 0 !important;
+    text-align: center !important;
+  }
+
+  /* 2) Image block centered */
+  .service-image-container{
+    order: 2 !important;
+    width: 100%;
+    max-width: 620px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto !important;
+  }
+  /* Center the blue shadow behind the image */
+  .service-image-container::before{
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 14px !important;
+    width: 100% !important;
+  }
+  .service-image img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin: 0 auto;
+  }
+
+  /* 3) Context/description follows the image */
+  .service-description{
+    order: 3 !important;
+    max-width: 72ch;
+    margin: 8px auto !important;
+    text-align: justify;
+    text-indent: 0 !important;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* 4) Button last */
+  .background{ order: 4 !important; display: flex; justify-content: center; width: 100%; }
+  .read-more-btn-baptism{ margin: 10px auto 0 !important; display: inline-block; }
+
+  /* Remove desktop-only left pushes on smaller screens */
+
+  .service-container{ margin-left: 0 !important; }
+
+  /* Footer safety (no overlaps) */
+  footer{ position: static !important; }
+}
+
+/* =========================
+   PHONE (≤ 768px)
+   ========================= */
+@media (max-width: 768px){
+  header{ padding: 10px 16px; }
+  .nav-links{ display: none; }   /* mobile menu behavior (desktop unchanged) */
+  .hamburger{ display: block; }
+
+  /* Keep order the same on phones: h3 -> image -> description -> button */
+  .service-text{ display: contents !important; }
+
+  .service-text > h3,
+  .service-text > h3.service-header-txt-preach{ order: 1 !important; }
+
+  .service-image-container{ order: 2 !important; max-width: 92vw; }
+  .service-image-container::before{
+    left: 50% !important; transform: translateX(-50%) !important;
+  }
+
+  .service-description{ order: 3 !important; max-width: 68ch; }
+  .background{ order: 4 !important; }
+
+  /* Sections grow naturally to avoid footer overlap */
+  section{ height: auto !important; min-height: auto !important; padding: 72px 14px 28px; }
+}
+
+/* =========================
+   SMALL PHONE (≤ 480px)
+   ========================= */
+@media (max-width: 480px){
+  #service-preach{ padding-top: 90px; gap: 16px; }
+  .service-image-container{ max-width: 94vw; }
+  .service-description{ max-width: 60ch; }
+}

@@ -1,0 +1,707 @@
+/* File: /HTCCC-SYSTEM/css/ministry-form.css */
+/* === ORIGINAL CSS (UNCHANGED) === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  color: white;
+}
+
+header {
+  background-color: #12183F;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  height: 72px;
+}
+
+header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+header img {
+  height: 40px;
+  width: 40px;
+  margin-right: 1rem;
+}
+
+header h1 {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin: 0;
+  white-space: nowrap;
+}
+
+main {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+form {
+  background-color: #3B4476;
+  border-radius: 0.5rem;
+  padding: 3rem 3rem 3rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 3rem;
+  color: white;
+}
+
+form h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-weight: 800;
+  font-size: 2rem;
+  margin: 0 0 2rem 0;
+}
+
+label {
+  display: block;
+  font-weight: 800;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+label .required {
+  color: #e3342f;
+  margin-left: 0.125rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #12183F;
+}
+
+select {
+  appearance: none;
+  background-color: white;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5'%3e%3cpath fill='%2312183F' d='M0 0l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 10px 5px;
+  cursor: pointer;
+}
+
+.upload-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+}
+
+.upload-button {
+  background-color: #E6E6E6;
+  color: #12183F;
+  font-weight: 800;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: white;
+  text-transform: uppercase;
+}
+
+.checkbox-group label {
+  line-height: 1.3;
+}
+
+.checkbox-group label .required {
+  color: #e3342f;
+  margin-left: 0.125rem;
+}
+
+input[type="checkbox"] {
+  margin-top: 0.3rem;
+  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+button[type="submit"] {
+  grid-column: 1 / -1;
+  background-color: #12183F;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0;
+  font-weight: 800;
+  font-size: 0.875rem;
+  color: white;
+  cursor: pointer;
+  width: 155px;
+  height: 40px;
+  letter-spacing: 0.05em;
+  justify-self: center;
+}
+
+@media (max-width: 1024px) {
+  main {
+    max-width: 90vw;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+  form {
+    padding: 2rem 2rem 2rem 2rem;
+    gap: 1.5rem 2rem;
+  }
+  form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  label {
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+  .upload-container {
+    font-size: 0.875rem;
+    gap: 0.75rem;
+  }
+  .upload-button {
+    font-size: 0.75rem;
+    padding: 0.3rem 1rem;
+  }
+  .checkbox-group {
+    font-size: 0.625rem;
+    gap: 0.5rem;
+  }
+  input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.2rem;
+  }
+  button[type="submit"] {
+    font-size: 0.75rem;
+    padding: 0.2rem 0;
+    margin-top: 0.75rem;
+    width: 120px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+  button[type="submit"] {
+    grid-column: 1 / 2;
+    max-width: 100%;
+    justify-self: stretch;
+  }
+  .checkbox-group label br {
+    display: none;
+  }
+  .upload-container {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 641px) {
+  .checkbox-group label br {
+    display: block;
+  }
+}
+
+/* Move the second checkbox group below the first on the right column */
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* === ADDITIONS FOR RESPONSIVENESS (NON-DESTRUCTIVE OVERRIDES) === */
+
+/* 1) Make the top nav scale on narrow devices (keeps your inline styles intact) */
+@media (max-width: 480px) {
+  body > nav {
+    padding: 8px 12px !important;
+    gap: 8px;
+  }
+  body > nav img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  body > nav h1 {
+    font-size: clamp(0.95rem, 3.2vw + 0.4rem, 1.1rem) !important;
+    max-width: 58vw;               /* prevent overflow of the title */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* 2) Fluid container padding and grid gaps at several breakpoints */
+@media (max-width: 900px) {
+  main {
+    padding: 0 1.25rem;
+  }
+  form {
+    gap: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  main {
+    padding: 0 1rem;
+  }
+  form {
+    padding: 1.5rem 1.25rem;
+    gap: 1rem 1.25rem;
+  }
+}
+
+/* 3) Inputs: ensure comfy touch targets on phones */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select {
+    min-height: 44px;
+    font-size: 1rem;
+  }
+}
+
+/* 4) Two-column → single-column refinements on small phones */
+@media (max-width: 640px) {
+  .checkbox-container {
+    gap: 0.75rem;
+  }
+  button[type="submit"] {
+    height: 42px;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* 5) Ultra-small devices (≤360px): tighter spacing but readable */
+@media (max-width: 360px) {
+  form {
+    padding: 1.25rem 1rem;
+    gap: 0.75rem 1rem;
+  }
+  form h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  label {
+    font-size: 0.7rem;
+  }
+}
+
+/* 6) Prevent select arrow from overlapping text on tiny widths */
+@media (max-width: 480px) {
+  select {
+    padding-right: 2rem; /* extra room for the arrow */
+    background-position: right 0.75rem center;
+  }
+}
+
+/* 7) SweetAlert2: keep popup within viewport on mobile */
+.swal2-popup {
+  width: min(95vw, 640px) !important;
+  box-sizing: border-box !important;
+}
+.swal2-html-container {
+  max-height: 55vh !important;
+  overflow: auto !important;
+  text-align: left !important;
+}
+
+/* 8) Improve contrast/readability of inputs on iOS dark-mode */
+@media (prefers-color-scheme: dark) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select {
+    background-color: #ffffff;
+    color: #12183F;
+  }
+}
+
+/* 9) Reduce main top margin if your nav height grows on smaller screens */
+@media (max-width: 480px) {
+  main {
+    margin: 2.25rem auto;
+  }
+}
+/* === RESPONSIVE FIX: Prevent clipping & improve mobile flow === */
+
+/* Ensure the page itself can scroll */
+html, body {
+  height: auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+/* Prevent the form from being trapped inside a fixed viewport */
+main {
+  margin: 1.5rem auto !important;
+  padding: 1rem !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+/* Let the form expand vertically and fit small screens */
+form {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem !important;
+  background-color: #3B4476;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Make inputs and labels fully span the width on mobile */
+form > div,
+input,
+select,
+button {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Space between inputs for easier touch interaction */
+form > div {
+  margin-bottom: 0.75rem;
+}
+
+/* Adjust header spacing */
+form h2 {
+  font-size: 1.4rem !important;
+  text-align: center;
+  margin-bottom: 1rem !important;
+}
+
+/* Make checkboxes and submit button visually separated */
+.checkbox-container {
+  margin-top: 0.5rem;
+  gap: 0.75rem;
+}
+button[type="submit"] {
+  width: 100% !important;
+  height: 45px !important;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* Mobile-first refinements */
+@media (max-width: 480px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: center !important;
+    text-align: center;
+    gap: 6px;
+    padding: 8px 12px !important;
+  }
+  nav h1 {
+    font-size: 1rem !important;
+  }
+  form {
+    max-width: 90% !important;
+    padding: 1rem !important;
+  }
+  form h2 {
+    font-size: 1.25rem !important;
+  }
+}
+/* ==== FIX: Single column on mobile ONLY; restore 2-col on tablet/desktop ==== */
+
+/* Allow normal page scroll (safe even if na-add na dati) */
+html, body { height: auto !important; overflow-y: auto !important; overflow-x: hidden; }
+
+/* --- MOBILE (<= 640px): single column, smooth scrolling, compact padding --- */
+@media (max-width: 640px) {
+  main {
+    margin: 1.5rem auto !important;
+    padding: 0 1rem !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+  /* override grid to single column only on mobile */
+  form {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 92vw !important;
+    margin: 0 auto;
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+    overflow: visible !important; /* para hindi ma-trap ang scroll sa loob */
+  }
+  form h2 { font-size: 1.25rem !important; margin-bottom: 0.75rem !important; }
+  .checkbox-container { gap: 0.75rem !important; }
+  button[type="submit"] { width: 100% !important; height: 44px !important; }
+}
+
+/* --- TABLET & DESKTOP (>= 641px): ibalik ang original 2-column grid --- */
+@media (min-width: 641px) {
+  form {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem 3rem !important;
+    padding: 3rem !important;           /* keep your original spacing */
+    max-width: 1200px !important;       /* keep your original width */
+    margin: 0 auto;
+  }
+  form h2 { grid-column: 1 / -1 !important; }
+  .checkbox-container { grid-column: 1 / 3 !important; }
+  button[type="submit"] { grid-column: 1 / -1 !important; justify-self: center; }
+}
+
+/* Optional: tidy nav at maliit na screens */
+@media (max-width: 480px) {
+  body > nav { padding: 8px 12px !important; gap: 6px; }
+  body > nav h1 {
+    font-size: 1rem !important;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 60vw;
+  }
+}
+/* === Checkbox alignment fix (ADD-ONLY) === */
+
+/* Make each checkbox row: [□ label] side-by-side, left-aligned */
+.checkbox-container {
+  align-items: flex-start !important;
+}
+.checkbox-container .checkbox-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: auto !important;              /* prevent stretching to far-right */
+  white-space: normal !important;
+}
+.checkbox-container .checkbox-group input[type="checkbox"] {
+  margin: 0 !important;                /* center the box vertically with label */
+  width: 20px; height: 20px;           /* comfortable tap size */
+}
+.checkbox-container .checkbox-group label {
+  margin: 0 !important;
+  text-align: left !important;
+  line-height: 1.2 !important;
+}
+
+/* Mobile: stack them neatly, full width, with good spacing */
+@media (max-width: 640px) {
+  .checkbox-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  .checkbox-container .checkbox-group {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+  /* give breathing room before submit */
+  .checkbox-container + button[type="submit"] {
+    margin-top: 8px !important;
+  }
+}
+
+/* Desktop/Tablet: keep them on one line each and align within the form grid */
+@media (min-width: 641px) {
+  /* container spans full grid width already; arrange its children in two columns */
+  .checkbox-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;    /* first checkbox on left, second on right */
+    column-gap: 3rem !important;
+    row-gap: 0.75rem !important;
+    width: 100% !important;
+  }
+  .checkbox-container .checkbox-group {
+    justify-self: start !important;
+  }
+}
+/* === MODERN + ALIGNMENT REFINEMENTS (ADD-ONLY, LAST RULES WIN) === */
+:root {
+  --brand: #0A0E3F;         /* navbar / button */
+  --panel: #3B4476;         /* form bg */
+  --accent: #6B5AE3;        /* focus/brand accent */
+  --accent-2: #8AC9FF;
+  --ring: rgba(107,90,227,0.35);
+  --text-on-dark: #FFFFFF;
+  --input-bg: #FFFFFF;
+  --input-text: #12183F;
+}
+
+/* Form panel subtle elevation */
+form {
+  background: linear-gradient(180deg, #3B4476 0%, #313B6B 100%) !important;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 24px rgba(10,14,63,0.18), 0 2px 6px rgba(10,14,63,0.12) !important;
+  backdrop-filter: saturate(1.05);
+  border-radius: 14px !important;
+}
+
+/* Labels: tighter, clearer */
+label {
+  letter-spacing: .02em;
+  opacity: .95;
+  margin-bottom: .4rem !important;
+}
+
+/* Inputs/Selects: modern surface + focus ring */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
+  background: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border: 2px solid transparent !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06), inset 0 0 0 1px rgba(0,0,0,0.02) !important;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .04s ease;
+  border-radius: 10px !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 4px var(--ring) !important;
+  outline: none !important;
+}
+
+/* Select arrow spacing refinement */
+select {
+  padding-right: 2.25rem !important;
+  background-position: right .85rem center !important;
+}
+
+/* Submit button: modern style + hover/focus */
+button[type="submit"] {
+  background: linear-gradient(180deg, var(--brand) 0%, #0a0f41 100%) !important;
+  color: var(--text-on-dark) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 20px rgba(10,14,63,0.28), inset 0 -2px 0 rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  letter-spacing: .08em !important;
+  transition: transform .06s ease, box-shadow .2s ease, filter .2s ease;
+}
+button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(10,14,63,0.34), inset 0 -2px 0 rgba(255,255,255,0.06) !important;
+  filter: brightness(1.02);
+}
+button[type="submit"]:focus {
+  box-shadow: 0 0 0 4px var(--ring), 0 6px 20px rgba(10,14,63,0.28) !important;
+  outline: none;
+}
+
+/* Checkbox: clean alignment + brand color using accent-color */
+.checkbox-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: .78rem !important;
+  text-transform: uppercase;
+  width: 100%;
+}
+input[type="checkbox"] {
+  margin: 0 !important;
+  width: 18px !important;
+  height: 18px !important;
+  accent-color: var(--accent);         /* modern native color */
+  border-radius: 4px;
+}
+
+/* Container: stacked, left-aligned on ALL breakpoints (consistent) */
+.checkbox-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  width: 100% !important;
+  grid-column: 1 / -1 !important;      /* span both columns sa desktop */
+  margin-top: .25rem !important;
+}
+
+/* spacing before the submit */
+.checkbox-container + button[type="submit"] {
+  margin-top: .35rem !important;
+  width: clamp(180px, 35vw, 280px) !important; /* nicer width on desktop */
+}
+
+/* Desktop grid stays 2-col for fields; checkboxes stacked still */
+@media (min-width: 641px) {
+  form {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem 2.2rem !important;
+  }
+  /* tighten vertical rhythm a bit */
+  form > div { margin-bottom: 0 !important; }
+}
+
+/* Mobile: full-width, single-column, comfortable spacing */
+@media (max-width: 640px) {
+  form {
+    display: block !important;
+    padding: 1rem .95rem 1.15rem !important;
+  }
+  form h2 { font-size: 1.25rem !important; margin-bottom: .85rem !important; }
+  button[type="submit"] { width: 100% !important; height: 46px !important; }
+}
+
+/* Ultra-narrow tweaks */
+@media (max-width: 360px) {
+  label { font-size: .7rem !important; }
+  input, select { font-size: .95rem !important; }
+}
+
+/* SweetAlert polish matches brand */
+.swal2-popup {
+  border-radius: 14px !important;
+  box-shadow: 0 12px 28px rgba(10,14,63,.28) !important;
+}
+.swal2-confirm {
+  background: linear-gradient(180deg, var(--brand), #0a0f41) !important;
+  border-radius: 10px !important;
+}

@@ -1,0 +1,5 @@
+[2025-10-22 05:33:26] admin_lookup_exception: Table 'htccc-data-base.admin' doesn't exist
+[2025-11-22 05:46:56] bulk_notification_skip: could not resolve individual_id for prayer_id=4
+[2025-11-22 05:46:56] bulk_notification_skip: could not resolve individual_id for prayer_id=3
+[2025-11-22 05:46:56] bulk_notification_skip: could not resolve individual_id for prayer_id=2
+[2025-11-22 05:46:56] bulk_notification_skip: could not resolve individual_id for prayer_id=1

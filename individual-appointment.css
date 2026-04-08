@@ -1,0 +1,112 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .icons span {
+    margin-left: 15px;
+    cursor: pointer;
+  }
+
+  nav a:hover{
+    color: darkblue;
+  }
+  
+  /* Main Section */
+  main {
+    padding: 40px;
+  }
+  
+  h1 {
+    margin-bottom: 30px;
+  }
+  
+  .appointment-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Calendar */
+  .calendar-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  
+  #calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .day {
+    padding: 15px;
+    background-color: #e7effb;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .day.selected {
+    background-color: #007bff;
+    color: white;
+  }  
+  
+  /* Form Section */
+  .form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  select, input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

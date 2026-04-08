@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('image/log_in-form-bg.jpg '); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+}
+
+.card {
+    background: #1a2a6c;
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.small-card {
+    width: 250px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196F3;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0b7dda;
+}
+a.login-txt{
+    color: white;
+}
+
+/* Hide all required-field asterisks initially */
+label .req-mark {
+  display: none;
+  color: #ff5c5c;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+/* Show the red asterisk when the field is invalid */
+input:invalid + .req-mark,
+select:invalid + .req-mark,
+textarea:invalid + .req-mark {
+  display: inline;
+}
+
+/* Optional: make the border red for unfilled required fields */
+input:invalid, select:invalid, textarea:invalid {
+  border-color: #ff5c5c;
+}

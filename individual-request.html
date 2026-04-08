@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prayer Request</title>
+  <link rel="stylesheet" href="individual-request.css" />
+</head>
+<body>
+  <header>
+    <img src="image/main-logo.png" alt="Church Logo" class="logo" />
+    <nav>
+      <a href="individual-appointment.html">BOOK AN APPOINTMENT</a>
+      <a href="individual-request.html">PRAYER REQUEST</a>
+      <a href="individual-acc-history.html">ACCOUNT HISTORY</a>
+    </nav>
+    <div class="icons">
+      <span class="bell">🔔</span>
+      <span class="logout">🔌</span>
+    </div>
+  </header>
+  <div class="background-container">
+  <section class="prayer-section">
+    <h2>Do you need a prayer?</h2>
+    <p>Complete the form below to submit your prayer request and one of our Prayer Ministers will pray in agreement with you</p>
+
+    <form>
+      <div class="form-group">
+        <label>Name (Optional)</label>
+        <input type="text" placeholder="Enter full name here." />
+      </div>
+
+      <div class="form-group">
+        <label>Prayer Date</label>
+        <input type="date" />
+      </div>
+
+      <div class="form-group">
+        <label>Prayer Option</label>
+        <select>
+          <option>Select Prayer Option...</option>
+          <option>Healing</option>
+          <option>Family</option>
+          <option>Guidance</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Prayer Request</label>
+        <textarea placeholder="Enter prayer..."></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</div>
+</body>
+</html>
